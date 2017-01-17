@@ -1,0 +1,21 @@
+spring:
+  mvc:
+    view:
+      prefix:
+      suffix: .html
+  thymeleaf:
+    cache: false
+  devtools:
+    restart:
+      enabled: true
+      exclude: static/**,templates/**
+    livereload:
+      enabled: true
+    remote:
+      debug:
+        enabled: true
+logging:
+  level:
+   root: debug
+server:
+  port: 8080
