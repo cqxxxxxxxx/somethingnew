@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>receiver</title>
+</head>
+<body>
+<p id="message"></p>
+
+<script src="//cdn.bootcss.com/stomp.js/2.3.3/stomp.js"></script>
+<script src="//cdn.bootcss.com/web-socket-js/1.0.0/web_socket.js"></script>
+<script>
+    var noticeSocket = function () {
+        var s = new SockJS('/socket');
+        var stompClient = Stomp.over(s);
+        stompClient.connect({}, function () {
+            console.log('notice socket connected!');
+            stompClient.subscribe('/topic/notice', function (data) {
+                console.log(data.body);
+                $('#message').html(data.body);
+            });
+        });
+    };
+</script>
+</body>
+</html>
