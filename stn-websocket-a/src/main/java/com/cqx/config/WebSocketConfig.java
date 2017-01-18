@@ -1,33 +1,22 @@
 package com.cqx.config;
 
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.messaging.simp.config.MessageBrokerRegistry;
-import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-import org.springframework.web.socket.config.annotation.AbstractWebSocketMessageBrokerConfigurer;
-import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBroker;
-import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
+import org.springframework.web.socket.server.standard.ServerEndpointExporter;
 
 /**
- * Created by cqxxxxx on 2017/1/17.
+ * Created by Shan on 2017/1/18.
  */
 @Configuration
-@EnableWebSocketMessageBroker
-public class WebSocketConfig extends AbstractWebSocketMessageBrokerConfigurer {
-    @Override
-    public void registerStompEndpoints(StompEndpointRegistry registry) {
-        //添加endpoint 用于接受客户端的连接  进行第一次握手 handshake
-        registry.addEndpoint("/socket").withSockJS();   //withSockJS() 开启sockJS的支持
-    }
+public class WebSocketConfig {
 
     /**
-     * broker：代理人 中间人
-     * 设置消息连接请求的各种规范
-     * @param registry
+     * 首先要注入ServerEndpointExporter，这个bean会自动注册使用了@ServerEndpoint注解声明的Websocket endpoint。
+     * 要注意，如果使用独立的servlet容器，而不是直接使用springboot的内置容器，就不要注入ServerEndpointExporter，因为它将由容器自己提供和管理。
+     * @return
      */
-    @Override
-    public void configureMessageBroker(MessageBrokerRegistry registry){
-        registry.enableSimpleBroker("/topic");     //客户端的前缀
-        registry.setApplicationDestinationPrefixes("/app"); //服务器接受websocket连接的前缀是app开头
+    @Bean
+    public ServerEndpointExporter serverEndpointExporter() {
+        return new ServerEndpointExporter();
     }
-
 }

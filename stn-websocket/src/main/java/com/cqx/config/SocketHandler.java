@@ -9,6 +9,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 /**
+ * 这个是使用spring-websocket 包来实现的websocket
+ * 他是对原有的javax-websocket以及tomcat
  * webSocket 的处理类
  * 用来发送消息之类的
  * Created by Shan on 2017/1/16.

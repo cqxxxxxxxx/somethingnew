@@ -34,7 +34,7 @@
     }
     // 开启socket连接
     function connect() {
-        var socket = new SockJS('http://localhost:8080/socket');
+        var socket = new SockJS('http://localhost:8080/websocket');
         stompClient = Stomp.over(socket);
         stompClient.connect({}, function (frame) {
             setConnected(true);
@@ -51,7 +51,7 @@
     // 向‘/app/change-notice’服务端发送消息
     function sendName() {
         var value = document.getElementById('name').value;
-        stompClient.send("/app/change-notice", {}, value);
+        stompClient.send("/websocket", {}, value);
     }
     connect();
 </script>
