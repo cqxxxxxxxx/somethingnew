@@ -14,8 +14,8 @@ public class ObjectBoom {
     public void objectName(){
         ObjectBoom boom = new ObjectBoom();
         Class clazz = boom.getClass();
-        System.out.println(clazz.getName());
-        System.out.println(clazz.getSimpleName());
+        System.out.println(clazz.getName());    //com.cqx.object.ObjectBoom
+        System.out.println(clazz.getSimpleName());  //ObjectBoom
 
     }
 
@@ -23,6 +23,6 @@ public class ObjectBoom {
     public void collectionTest(){
         Map map = new HashMap();
         Object o = map.get("saa");
-        System.out.println(o);
+        System.out.println(o);  //null
     }
 }
