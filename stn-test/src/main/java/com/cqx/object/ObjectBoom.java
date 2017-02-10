@@ -2,7 +2,9 @@ package com.cqx.object;
 
 import org.testng.annotations.Test;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -24,5 +26,11 @@ public class ObjectBoom {
         Map map = new HashMap();
         Object o = map.get("saa");
         System.out.println(o);  //null
+    }
+
+    @Test
+    public void listTest(){
+        List<Integer> integers = new ArrayList<Integer>();
+        System.out.println(integers);
     }
 }
