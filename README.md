@@ -14,6 +14,17 @@ activemq消息队列的点对点实现demo
 ###stn-websocket-a
 利用javax-websocket开发的demo
 
+###stn-java8
+1. lambda表达式
+2. stream
+3. time Api
+
+###stn-tree
+1. 二叉查找树（Binary Search Tree，BST）的JAVA实现
+2. 平衡二叉查找树(Balanced BST) 的JAVA实现
+3. 二分查找法
+4. 冒泡查找
+
 
 ###stn-annotation
 简单实现IOC功能 主要涉及反射与自定义注解的使用
