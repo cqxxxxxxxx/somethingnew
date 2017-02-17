@@ -1,6 +1,8 @@
 package com.cqx.common;
 
-import org.testng.annotations.Test;
+
+
+import org.junit.Test;
 
 import java.math.BigDecimal;
 

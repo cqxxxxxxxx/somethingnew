@@ -1,6 +1,7 @@
 package com.cqx.system;
 
-import org.testng.annotations.Test;
+
+import org.junit.Test;
 
 import java.util.Map;
 import java.util.Properties;
