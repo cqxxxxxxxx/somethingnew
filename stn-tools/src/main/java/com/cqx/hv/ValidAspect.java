@@ -8,10 +8,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
-import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
 
-import javax.annotation.Resource;
-import javax.validation.ConstraintValidator;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validator;
 import java.lang.annotation.Annotation;
