@@ -1,8 +1,10 @@
 package com.cqx.hv;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,13 @@ public class ValidAspect {
      */
     @Pointcut("execution(* com.cqx.hv.demo.*.*(..))")
     public void validate() {
+    }
+
+    @Before(value = "validate()")
+    public void doBefore(JoinPoint joinPoint){
+        System.out.println("dobefore" + joinPoint.getKind());
+
+        System.out.println(joinPoint.toString());
     }
 
 

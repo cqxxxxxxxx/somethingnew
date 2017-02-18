@@ -4,6 +4,8 @@ import org.hibernate.validator.constraints.Email;
 import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotBlank;
 
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 import javax.validation.constraints.Size;
 
 /**
@@ -33,7 +35,8 @@ public class Person {
     @NotBlank
     private String name;
 
-    @Size(min = 1, max = 50)
+    @Min(1)
+    @Max(50)
     private int age;
 
     @Length(min = 11, max = 11)
