@@ -7,6 +7,8 @@ import com.cqx.model.Person;
 import com.cqx.model.Room;
 import com.cqx.starter.Starter;
 import com.cqx.starter.StarterImpl;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.util.Arrays;
 
@@ -30,4 +32,10 @@ public class App {
 //        Arrays.stream(classes).forEach(aClass -> System.out.println(aClass.getName()));
 //
     }
+
+
+//    public static  void main(String[] args){
+//        ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationcontext.xml");
+//
+//    }
 }

@@ -2,6 +2,10 @@
 ###INTRODUCE
 学习的一些实践记录 =。=
 
+###stn-tools
+1. hibernateValidator 与注解 springaop 的整合
+
+
 ###stn-redis
 redis在spring中作为缓存的简单demo
 

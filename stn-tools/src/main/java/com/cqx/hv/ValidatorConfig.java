@@ -1,5 +1,6 @@
 package com.cqx.hv;
 
+import com.cqx.hv.demo.TestTest;
 import org.hibernate.validator.HibernateValidator;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -30,6 +31,10 @@ public class ValidatorConfig {
         return hvFactory().getValidator();
     }
 
+    @Bean
+    public TestTest testTest(){
+        return new TestTest();
+    }
 
 
 }

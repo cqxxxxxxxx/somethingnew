@@ -1,5 +1,6 @@
 package com.cqx.hv;
 
+import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -35,6 +36,13 @@ public class ValidAspect {
      */
     @Pointcut("execution(* com.cqx.hv.demo.*.*(..))")
     public void validate() {
+    }
+
+    @Before(value = "validate()")
+    public void doBefore(JoinPoint joinPoint){
+        System.out.println("dobefore" + joinPoint.getKind());
+
+        System.out.println(joinPoint.toString());
     }
 
 
