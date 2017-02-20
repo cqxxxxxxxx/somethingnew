@@ -1,5 +1,6 @@
 package com.cqx.chapter2.lock;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReadWriteLock;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
@@ -20,6 +21,12 @@ public class PricesInfo {
 
     public void setPrices(double price1, double price2){
         lock.writeLock().lock();
+        System.out.println("获取了锁");
+        try {
+            TimeUnit.SECONDS.sleep(20);     //休眠20s，不释放锁
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         this.price1 = price1;
         this.price2 = price2;
         lock.writeLock().unlock();

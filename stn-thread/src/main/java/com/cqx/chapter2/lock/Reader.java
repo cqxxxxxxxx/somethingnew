@@ -16,5 +16,6 @@ public class Reader implements Runnable{
             System.out.printf("%s: Price 1: %f\n", Thread.currentThread().getName(), pricesInfo.getPrice1());
             System.out.printf("%s: Price 2: %f\n", Thread.currentThread().getName(), pricesInfo.getPrice2());
         }
+        System.out.println(Thread.currentThread().getName() + "---Read Over!!");
     }
 }

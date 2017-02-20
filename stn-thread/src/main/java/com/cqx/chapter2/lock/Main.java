@@ -1,6 +1,8 @@
 package com.cqx.chapter2.lock;
 
 /**
+ * 获取写锁的时候，读锁是阻塞的，只有释放了写锁，其他线程才能获取读锁。
+ * 同理读锁被某些线程占有的时候，写锁是获取不了的，只有读锁被释放，写锁才有机会获取。
  * Created by Shan on 2017/2/19.
  */
 public class Main {
@@ -24,5 +26,4 @@ public class Main {
         writerThread.start();
 
     }
-
 }
