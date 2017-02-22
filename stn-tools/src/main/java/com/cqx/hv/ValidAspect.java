@@ -30,7 +30,6 @@ public class ValidAspect {
     @Autowired
     Validator validator;
 
-
     /**
      * 在hv包下所有类进行AOP
      */
