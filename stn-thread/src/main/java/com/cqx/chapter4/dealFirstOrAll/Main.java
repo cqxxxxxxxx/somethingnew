@@ -42,7 +42,7 @@ public class Main {
 
 
 //        调用invokeAll() 获取所有的执行结果
-        List<Future<String >> results = null;
+        List<Future<String>> results = null;
         try {
             results = executor.invokeAll(taskList);
         } catch (InterruptedException e) {
