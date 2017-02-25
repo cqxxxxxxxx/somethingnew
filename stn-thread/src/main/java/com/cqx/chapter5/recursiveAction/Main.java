@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.concurrent.*;
 
 /**
+ * {@link RecursiveAction} 没有返回值
  * Created by cqx on 2017/2/20.
  */
 public class Main {

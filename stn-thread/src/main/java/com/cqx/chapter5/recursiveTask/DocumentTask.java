@@ -23,7 +23,7 @@ public class DocumentTask extends RecursiveTask<Integer> {
 
     @Override
     protected Integer compute() {
-        int result; //记录出现的次数
+        Integer result = null; //记录出现的次数
         if (end - start < 10){
             result = processLines(document, start, end, word);
         }else {     //拆分任务 divide and conquer
@@ -40,13 +40,13 @@ public class DocumentTask extends RecursiveTask<Integer> {
                 e.printStackTrace();
             }
         }
-        return null;
+        return result;
     }
 
     private Integer processLines(String[][] document, int start, int end, String word){
         List<LineTask> tasks = new ArrayList<>();
         for (int i = start; i < end; i++) {
-            LineTask task = new LineTask(document[i], start, end, word);
+            LineTask task = new LineTask(document[i], 0, document[i].length, word);
             tasks.add(task);
         }
         invokeAll(tasks);
@@ -65,7 +65,7 @@ public class DocumentTask extends RecursiveTask<Integer> {
     }
 
     private Integer groupResults(Integer number1, Integer number2){
-        Integer result = null;
+        Integer result;
         result = number1 + number2;
         return result;
     }

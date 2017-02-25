@@ -61,7 +61,7 @@ public class LineTask extends RecursiveTask<Integer>{
             }
         }
         try {
-            TimeUnit.SECONDS.sleep(10);
+            Thread.sleep(10);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -75,7 +75,7 @@ public class LineTask extends RecursiveTask<Integer>{
      * @return
      */
     private Integer groupResults(Integer number1, Integer number2){
-        Integer result = null;
+        Integer result;
         result = number1 + number2;
         return result;
     }
