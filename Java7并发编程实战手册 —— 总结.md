@@ -27,9 +27,9 @@ priority adj. 优先级
 
 ##### 2.基本信息
 
-- ID - 线程标识符	
-- Name - 线程名	
-- Priority - 优先级	
+- ID - 线程唯一标识符	
+- Name - 线程名
+- Priority - 优先级  1最低 10最高
 - Status - 线程状态 (new、runnable、blocked、waitting、time waitting、terminated)
 
 ##### 3.线程中断与控制中断
@@ -46,7 +46,8 @@ priority adj. 优先级
 
 
 
-	>plus
+> plus
+
 
 ##### 1.守护(Daemon)线程的创建与运行
 
