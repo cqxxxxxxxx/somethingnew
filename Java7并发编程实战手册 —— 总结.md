@@ -11,6 +11,7 @@ parallelism  n.并行
 concurrent adj. 同时发生的，并发的  n.同时发生的事件
 priority adj. 优先级
 critical adj. 关键性的,严重的
+reentrant adj. 再进入的 n.再进入
 ```
 
 
@@ -92,5 +93,110 @@ critical adj. 关键性的,严重的
 
 > Synchronized
 
+##### 1.简介
+
+​	synchronized使用一般有3种，修饰非静态方法，修饰静态方法，用于保护代码块的访问。重点是理解到底把什么当作同步锁。因为锁才是控制线程能否访问同步方法的原因。
+
+​	1.修饰非静态方法
+
+​	锁是生成的某个具体对象，因为普通方法是属于对象的。在同一时间只有一个线程允许访问对象A的同步方法，但是其他线程可以访问另外一个对象B的同步方法，而且其他线程可以访问A的非同步方法。
+
+​	2.修饰静态方法
+
+​	锁是该类的Class对象，因为static方法是属于Class的，跟上面的只是对象不同，其实道理一样的。
+
+​	3.保护代码块
+
+​	需要传入一个对象的引用来把引用所指的对象作为代码块的同步锁。可以是某个对象，可以是this(指代执行方法所属的对象)，也可以是Class对象。
+
+​	4.notice.
+
+​	两个线程可以同时访问一个对象的两个不同的synchronized方法，一个是非静态方法，一个是静态方法，因为锁不同。
+
+​	对象的两个方法里的两个同步代码块如果所传入的锁不同，则一个线程进入一个同步代码块的时候，另一个线程可以进入另外一个同步代码块。
+
+​	synchronized关键字会降低程序性能，尽量少用。临界区的访问应该尽可能短，能用同步代码块缩小临界区就别用同步方法。
+
+​	某个线程进入了同步方法后可以进行递归调用，即重复进入该方法，as long as holding the lock.
 
 
+
+##### 2.wait() ，notify() ，notifyAll()
+
+​	在同步代码块里调用wait()方法会让执行该代码块的线程挂起，同时释放控制这个代码块的对象，即释放锁。为了唤醒该线程，必须在这个对象（锁）控制的某个同步代码块中调用notify()或者notifyAll()方法。
+
+​	比如生产者消费者模式里。某个存储类A，有两个同步方法consume(),produce()。消费者线程调用consume()发现库存为空，则调用wait()，挂起。生产者线程调用produce()添加库存并且调用notify()或者notifyAll()来释放锁，然后其他线程则根据priority 获取该锁，在这比如之前那个消费者线程被唤醒了获得了锁，那么他将继续执行接下来的代码。
+
+
+
+> Lock
+
+##### 1.简介
+
+- Lock接口的重要的实现类ReentrantLock
+- ReadWriteLock的实现类ReentrantReadWriteLock，它里面的内部类ReadLock和WriteLock则是实现了Lock接口
+- 跟synchronized相比具有更好的性能，支持更灵活的同步代码块结构(控制的获取和释放不在同一个块中)，提供更多的功能。
+
+
+
+##### 2.ReentrantLock(可重入锁)
+
+```
+public class A{
+	private final Lock lock = new ReentrantLock();
+	public void dododo(){
+  		lock.lock();	//尝试获取锁，如果其他线程占用了则阻塞
+  		//lock.tryLock();	//尝试获取锁，如果被占用了则立即返回false，不会被阻塞，继续执行接下来的未获取锁的逻辑。如果没被占用则获取锁，执行有锁的业务逻辑。
+  		dosomeshit.
+  		lock.unlock();	//一般放到try catch 中finally块中执行释放锁，一定要释放，否则死锁了我日。
+	}
+}
+```
+
+
+
+##### 3.ReentrantReadWriteLock(可重入读写锁)
+
+```
+使用读操作锁时可以允许多个线程同时访问。
+使用写操作锁时只允许一个线程访问。
+public class A{    
+	private final ReadWritLock lock = new ReentrantReadWriteLock();    
+	public void read(){        
+		lock.readLock().lock();	//readLock()返回一个Lock借口的实现类
+		do some read..
+		lock.readLock().unlock();
+    }
+    public void write(){        
+		lock.writeLock().lock();	
+		do some write...
+		lock.writeLock().unlock();
+    }
+}
+```
+
+​	
+
+##### 4.修改锁的公平性
+
+​	ReentrantLock 跟 ReentrantReadWriteeLock 类构造器都含有个 boolean 型参数 fair，默认为false，即非公平模式(Non-Fair Mode)。非公平模式下多个线程等待锁，锁会选择其中一个，这个选择是没有约束性的。如果在创建Lock时构造器传入true，则修改锁为公平模式，这个时候锁会选择一个等待时间最长的线程来获取锁。 
+
+​	这两种模式只影响lock()和unlock()方法。因为tryLock()就算没有获取锁也不会将线程至于休眠状态。
+
+##### 5.锁中条件的使用
+
+​	一个锁可以关联一个或多个条件，这些条件通过Condition接口声明。
+
+```
+public class A{
+	private final Lock lock = new ReentrantLock();
+	private Condition condition1 = lock.newCondition();
+	private Condition condition2 = lock.newCondition();
+}
+```
+
+
+
+
+
+### Chapter3 - Thread Synchronization Utilities（线程同步辅助类）
