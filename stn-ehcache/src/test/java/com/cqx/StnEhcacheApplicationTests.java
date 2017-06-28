@@ -27,8 +27,11 @@ public class StnEhcacheApplicationTests {
 		System.out.println(tokenCache1.toString());
 		tokenCache1.put("11", "11");
 		System.out.println(tokenCache1.get("11"));
+
 		System.out.println(tokenCache2.toString());
 		tokenCache2.put("22", "22");
+		System.out.println(tokenCache2.get("22"));
+		tokenCache2.put("22", "2222");
 		System.out.println(tokenCache2.get("22"));
 
 		System.out.println(tokenCache3.toString());

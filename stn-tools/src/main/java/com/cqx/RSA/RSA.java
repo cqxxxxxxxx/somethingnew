@@ -5,6 +5,7 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import java.security.*;
+import java.util.Base64;
 
 /**
  * Created by Shan on 2017/2/23.
@@ -23,10 +24,12 @@ public class RSA {
         KeyPair keyPair = generator.generateKeyPair();
         PublicKey publicKey = keyPair.getPublic();
         PrivateKey privateKey = keyPair.getPrivate();
-
-        System.out.println(publicKey);
-        System.out.println(privateKey);
-
+        System.out.println(publicKey.getFormat());
+        System.out.println(privateKey.getFormat());
+        System.out.println(publicKey.getEncoded());
+        System.out.println(privateKey.getEncoded());
+        System.out.println(new String(Base64.getEncoder().encode(publicKey.getEncoded())));
+        System.out.println(new String(Base64.getEncoder().encode(privateKey.getEncoded())));
         return keyPair;
     }
 
@@ -68,23 +71,42 @@ public class RSA {
     }
 
 
-    public static void main(String[] args){
-        RSA rsa = new RSA();
-        try {
-            KeyPair keyPair = rsa.keyGenerate();
-            byte[] bytes = rsa.encrypt(keyPair.getPublic(), "你妈妈咪");
-            rsa.decrypt(keyPair.getPrivate(), bytes);
+    public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException {
+        Cipher cipher = Cipher.getInstance("RSA");
+        cipher = cipher.getInstance("RSA");
+        cipher.init(Cipher.DECRYPT_MODE, new PrivateKey() {
+            @Override
+            public String getAlgorithm() {
+                return null;
+            }
 
-        } catch (NoSuchAlgorithmException e) {
-            e.printStackTrace();
-        } catch (BadPaddingException e) {
-            e.printStackTrace();
-        } catch (IllegalBlockSizeException e) {
-            e.printStackTrace();
-        } catch (NoSuchPaddingException e) {
-            e.printStackTrace();
-        } catch (InvalidKeyException e) {
-            e.printStackTrace();
-        }
+            @Override
+            public String getFormat() {
+                return null;
+            }
+
+            @Override
+            public byte[] getEncoded() {
+                return new byte[0];
+            }
+        });
+        cipher.update(bytes);
+        System.out.print(new String(cipher.doFinal()));
+//        try {
+//            KeyPair keyPair = rsa.keyGenerate();
+//            byte[] bytes = rsa.encrypt(keyPair.getPublic(), "你妈妈咪");
+//            rsa.decrypt(keyPair.getPrivate(), bytes);
+//
+//        } catch (NoSuchAlgorithmException e) {
+//            e.printStackTrace();
+//        } catch (BadPaddingException e) {
+//            e.printStackTrace();
+//        } catch (IllegalBlockSizeException e) {
+//            e.printStackTrace();
+//        } catch (NoSuchPaddingException e) {
+//            e.printStackTrace();
+//        } catch (InvalidKeyException e) {
+//            e.printStackTrace();
+//        }
     }
 }

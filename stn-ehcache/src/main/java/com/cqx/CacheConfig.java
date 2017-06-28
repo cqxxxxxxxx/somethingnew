@@ -2,10 +2,12 @@ package com.cqx;
 
 import org.ehcache.Cache;
 import org.ehcache.CacheManager;
+import org.ehcache.UserManagedCache;
 import org.ehcache.config.CacheConfiguration;
 import org.ehcache.config.builders.CacheConfigurationBuilder;
 import org.ehcache.config.builders.CacheManagerBuilder;
 import org.ehcache.config.builders.ResourcePoolsBuilder;
+import org.ehcache.config.builders.UserManagedCacheBuilder;
 import org.ehcache.expiry.Duration;
 import org.ehcache.expiry.Expirations;
 import org.springframework.context.annotation.Bean;
@@ -22,28 +24,37 @@ import java.util.concurrent.TimeUnit;
 @Configuration
 public class CacheConfig {
 
+    /**
+     * cacheManager管理 可以生成多个缓存
+     * @return
+     */
     @Bean
     public Cache<String, String> tokenCache1(){
         CacheManagerBuilder builder = CacheManagerBuilder.newCacheManagerBuilder();
-        CacheManager cacheManager = builder.withCache("tokenCache1",
+        CacheManager cacheManager = builder.withCache("tokenCache1",    //制定默认生成一个tokenCache1
                 CacheConfigurationBuilder
                         .newCacheConfigurationBuilder(String.class, String.class, ResourcePoolsBuilder.heap(10)))
                 .build();
         cacheManager.init();
+        cacheManager.createCache("anotherCache",    //生成另一个缓存
+                CacheConfigurationBuilder.newCacheConfigurationBuilder(Long.class, String.class, ResourcePoolsBuilder.heap(10)).build());
         Cache tokenCache = cacheManager.getCache("tokenCache1", String.class, String.class);
         return tokenCache;
     }
 
+    /**
+     * userManagedCache
+     * 不由cacheManager管理 而是自己独立配置各种参数 生成一个缓存
+     * @return
+     */
     @Bean
     public Cache<String, String> tokenCache2(){
-        CacheManagerBuilder builder = CacheManagerBuilder.newCacheManagerBuilder();
-        CacheManager cacheManager = builder.withCache("tokenCache2",
-                CacheConfigurationBuilder
-                        .newCacheConfigurationBuilder(String.class, String.class, ResourcePoolsBuilder.heap(10)))
-                .build();
-        cacheManager.init();
-        Cache tokenCache = cacheManager.getCache("tokenCache2", String.class, String.class);
-        return tokenCache;
+        UserManagedCache<String, String> userManagedCache =
+                UserManagedCacheBuilder.newUserManagedCacheBuilder(String.class, String.class)
+                        .build(false);  //暂时不初始化，由init方法来 如果true则初始化
+        userManagedCache.init();
+
+        return userManagedCache;
     }
 
     /**

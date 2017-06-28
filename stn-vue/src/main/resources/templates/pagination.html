@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-bind="http://www.w3.org/1999/xhtml" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+</head>
+<body>
+<div id="listener">
+    <cqx v-for="item in xx" v-bind:name="item"></cqx>
+    <ul>
+        <li v-for="(value, key, index) in xx">{{value + '' + key + '' + index}} </li>
+    </ul>
+</div>
+
+<div class="container">
+    <div class="row center">
+        <nav aria-label="Page navigation" style="text-align: center">
+            <ul class="pagination" id="pagination">
+                <li><a href="#">首页</a></li>
+                <li>
+                    <a href="#" aria-label="Previous">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <li v-for="(value, index) in total" v-on:click="_switch">
+                    <a v-bind:class="{ active: index == 0}" href="#">{{ value }}</a>
+                </li>
+
+                <li>
+                    <a href="#" aria-label="Next">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+                <li><a href="#">尾页</a></li>
+            </ul>
+        </nav>
+    </div>
+</div>
+<script src="//cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://unpkg.com/vue@2.2.6/dist/vue.js"/>
+<script type="text/javascript">
+    var xx = [1,2,3];
+    Vue.component('cqx', {
+        template: '<span>{{name}}</span>',
+        props: ['name'],
+    });
+
+
+    var pagination = new Vue({
+        el: '#pagination',
+        data: {
+            total: 10
+        },
+        methods: {
+            _switch: function (event) {
+                console.log("换页拉");
+                console.log(this.total);
+                console.log(event.target.tagName);
+                xx.push(99);
+            }
+        }
+    })
+
+    var lessons = new Vue({
+        el: '#listener',
+        data: {xx: xx},
+        watch:{
+            xx: function (oldValue, newValue) {
+                console.log(oldValue);
+                console.log(newValue);
+                console.log("你变了，变得那么智障。")
+            }
+        }
+    });
+
+
+
+</script>
+</body>
+</html>
