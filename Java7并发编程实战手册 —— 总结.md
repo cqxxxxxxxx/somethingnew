@@ -44,7 +44,7 @@ reentrant adj. 再进入的 n.再进入
 
 ​	休眠：sleep() 与 TimeUnit 枚举类 控制休眠  *ps.休眠不会释放锁*
 
-​	等待终止：join()  *当A线程对象的join()方法被B调用时，调用它的B线程将被挂起，直到A结束*
+​	等待终止：join()  *当A线程对象的join()方法被B调用时，调用它的B线程将被挂起，直到A结束, 可以用来等待获取其他线程的执行结果*
 
 
 
@@ -77,17 +77,17 @@ reentrant adj. 再进入的 n.再进入
 
 ##### 5.工厂类创建线程
 
-​	implements ThreadFactory & override newThread() method	
+​	implements ThreadFactory & override newThread() method
 
 ​	工厂类优点: 1.更容易修改类，或者改变创建对象的方式; 2.可以在工厂类中做些限制，比如限制对象的创建数; 3.在创建对象的时候可以进行一些统计; 4.创建对象的时候进行一些验证等等等等等等等等
 
-​	
+​
 
 
 
 ## Chapter2 - Basic Thread Synchronization（线程同步基础）
 
-**Critical Section(临界区) 是一个用以访问共享资源的代码块，这个代码块同一时间内只允许一个线程执行。为了实现临界区，java提供了*同步机制*。当一个线程试图访问一个临界区时，它将使用一种同步机制来查看是否已有其他线程进入临界区，如果没有其他线程进入临界区，他就可以进入临界区；如果已有其他线程进入临界区，它就被同步机制挂起，直到进入临界区的线程离开；如果等待进入临界区的线程不止一个，JVM会选择其中一个，其余则继续等待。** 
+**Critical Section(临界区) 是一个用以访问共享资源的代码块，这个代码块同一时间内只允许一个线程执行。为了实现临界区，java提供了*同步机制*。当一个线程试图访问一个临界区时，它将使用一种同步机制来查看是否已有其他线程进入临界区，如果没有其他线程进入临界区，他就可以进入临界区；如果已有其他线程进入临界区，它就被同步机制挂起，直到进入临界区的线程离开；如果等待进入临界区的线程不止一个，JVM会选择其中一个，其余则继续等待。**
 
 
 
@@ -160,26 +160,26 @@ public class A{
 ```
 使用读操作锁时可以允许多个线程同时访问。
 使用写操作锁时只允许一个线程访问。
-public class A{    
-	private final ReadWritLock lock = new ReentrantReadWriteLock();    
-	public void read(){        
+public class A{
+	private final ReadWritLock lock = new ReentrantReadWriteLock();
+	public void read(){
 		lock.readLock().lock();	//readLock()返回一个Lock借口的实现类
 		do some read..
 		lock.readLock().unlock();
     }
-    public void write(){        
-		lock.writeLock().lock();	
+    public void write(){
+		lock.writeLock().lock();
 		do some write...
 		lock.writeLock().unlock();
     }
 }
 ```
 
-​	
+​
 
 ##### 4.修改锁的公平性
 
-​	ReentrantLock 跟 ReentrantReadWriteeLock 类构造器都含有个 boolean 型参数 fair，默认为false，即非公平模式(Non-Fair Mode)。非公平模式下多个线程等待锁，锁会选择其中一个，这个选择是没有约束性的。如果在创建Lock时构造器传入true，则修改锁为公平模式，这个时候锁会选择一个等待时间最长的线程来获取锁。 
+​	ReentrantLock 跟 ReentrantReadWriteeLock 类构造器都含有个 boolean 型参数 fair，默认为false，即非公平模式(Non-Fair Mode)。非公平模式下多个线程等待锁，锁会选择其中一个，这个选择是没有约束性的。如果在创建Lock时构造器传入true，则修改锁为公平模式，这个时候锁会选择一个等待时间最长的线程来获取锁。
 
 ​	这两种模式只影响lock()和unlock()方法。因为tryLock()就算没有获取锁也不会将线程至于休眠状态。
 

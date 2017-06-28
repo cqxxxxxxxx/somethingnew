@@ -2,6 +2,8 @@ package com.cqx.common;
 
 import org.junit.Test;
 
+import java.util.Date;
+
 
 /**
  * Java函数的参数是拷贝传递，只不过传递的是地址指针，按这个思路看看下面这个TEST
@@ -17,6 +19,16 @@ public class Boom {
         }
     }
 
+    @Test
+    public void dateTest(){
+        Date date = new Date();
+        System.out.println(date.getTime());
+        System.out.println(System.currentTimeMillis());
+        Date date1 = new Date(date.getTime() );
+        System.out.println(date1.getYear());
+        Date date2 = new Date(System.currentTimeMillis());
+        System.out.println(date2.getYear());
+    }
 
     @Test
     public void test(){

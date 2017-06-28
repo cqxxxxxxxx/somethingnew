@@ -3,6 +3,7 @@ import org.junit.Test;
 
 import javax.xml.crypto.Data;
 import java.time.*;
+import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjusters;
@@ -86,6 +87,25 @@ public class LocalDateDemo {
         dateTime.minusHours(2l);   //减去2小时
         dateTime.plusYears(1l);    //加上1年
 
+
+    }
+
+    @Test
+    public void dateFormat(){
+        LocalDate localDate = LocalDate.now();
+        LocalDateTime localDateTime = LocalDateTime.now();
+
+        System.out.println(localDate.toString());
+        System.out.println(localDateTime.toString());
+
+        System.out.println(localDate.format(DateTimeFormatter.ISO_DATE));
+        System.out.println(localDate.format(DateTimeFormatter.ISO_LOCAL_DATE));
+
+
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE));
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE_TIME));
+        System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
 
     }
 
