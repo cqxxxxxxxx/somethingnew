@@ -16,7 +16,7 @@ public class Main {
         Task task = new Task(products, 0, products.size(), 0.20);
         ForkJoinPool pool = new ForkJoinPool();
 
-        pool.execute(task);
+        pool.execute(task); //execute方法是异步调用的，会立刻返回。而invoke方法是同步的，即invoke方法需要等到传进 来的任务都完成才会返回。
 
         do {
             System.out.printf("Main: Thread Count: %d\n", pool.getActiveThreadCount());
