@@ -11,6 +11,7 @@ public interface UserDao {
 
     /**
      * 根据用户名查询对象
+     *
      * @param userName
      * @return
      */
@@ -18,12 +19,14 @@ public interface UserDao {
 
     /**
      * 更新对象
+     *
      * @param user
      */
     void updateUser(UserEntity user);
 
     /**
      * 删除对象
+     *
      * @param id
      */
     void deleteUserById(Long id);
