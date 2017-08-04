@@ -1,0 +1,7 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://root:123456@47.92.6.210:27017/stn
+logging:
+  level: debug
+
