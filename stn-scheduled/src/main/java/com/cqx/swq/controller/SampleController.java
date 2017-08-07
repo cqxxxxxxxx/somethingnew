@@ -12,14 +12,16 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/sample")
 public class SampleController {
 
+    private static final String SUCCESS = "success";
+
     @Autowired
     Scheduler scheduler;
-
 
     @PostMapping
     public String addJob(@RequestParam String msg){
 
 
+        return SUCCESS;
     }
 
 }
