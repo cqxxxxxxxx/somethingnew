@@ -16,8 +16,9 @@ public class Send {
     public static void main(String[] args) throws java.io.IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
         factory.setHost("47.92.6.210");
-        factory.setUsername("guest");
-        factory.setPassword("guest");
+
+        factory.setUsername("cqx");
+        factory.setPassword("cqx");
         Connection connection = factory.newConnection();    //socket连接建立
         Channel channel = connection.createChannel();
 

@@ -74,24 +74,24 @@ public class RSA {
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException {
         Cipher cipher = Cipher.getInstance("RSA");
         cipher = cipher.getInstance("RSA");
-        cipher.init(Cipher.DECRYPT_MODE, new PrivateKey() {
-            @Override
-            public String getAlgorithm() {
-                return null;
-            }
-
-            @Override
-            public String getFormat() {
-                return null;
-            }
-
-            @Override
-            public byte[] getEncoded() {
-                return new byte[0];
-            }
-        });
-        cipher.update(bytes);
-        System.out.print(new String(cipher.doFinal()));
+//        cipher.init(Cipher.DECRYPT_MODE, new PrivateKey() {
+//            @Override
+//            public String getAlgorithm() {
+//                return null;
+//            }
+//
+//            @Override
+//            public String getFormat() {
+//                return null;
+//            }
+//
+//            @Override
+//            public byte[] getEncoded() {
+//                return new byte[0];
+//            }
+//        });
+//        cipher.update(bytes);
+//        System.out.print(new String(cipher.doFinal()));
 //        try {
 //            KeyPair keyPair = rsa.keyGenerate();
 //            byte[] bytes = rsa.encrypt(keyPair.getPublic(), "你妈妈咪");

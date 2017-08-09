@@ -11,6 +11,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.URL;
 import java.util.List;
 
 /**
@@ -28,9 +29,11 @@ public class XmlParse {
     @Test
     public void test1() throws DocumentException, IOException {
 
+        URL url = XmlParse.class.getResource("/demo.xml");
+
         // 获取document对象
         SAXReader reader = new SAXReader();
-        File file = new File("demo.xml");
+        File file = new File(url.getPath());
         Document document = reader.read(file);
 
         // 1.调用getRootElement()获取文档的根节点.
