@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cqx.excel.dao.WaveMapper">
+    <resultMap id="BaseResultMap" type="com.cqx.excel.model.Wave">
+        <result column="province" property="province" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+    </resultMap>
+    <insert id="insert" parameterType="com.cqx.excel.model.Wave">
+    insert into wave (province, city)
+    values (#{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR})
+  </insert>
+
+    <insert id="batchInsert" parameterType="map">
+        insert into wave (province, city)
+        VALUES
+        <foreach collection="records" item="item" separator=",">
+            (#{item.province,jdbcType=VARCHAR}, #{item.city,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+    <insert id="insertSelective" parameterType="com.cqx.excel.model.Wave">
+        insert into wave
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="province != null">
+                province,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+</mapper>
