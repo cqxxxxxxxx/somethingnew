@@ -2,7 +2,10 @@ package com.cqx.chapter4.dealFirstOrAll;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 
 /**
  * Created by cqx on 2017/2/20.
@@ -40,7 +43,6 @@ public class Main {
 //        System.out.println("Main: End of the Execution.");
 
 
-
 //        调用invokeAll() 获取所有的执行结果
         List<Future<String>> results = null;
         try {
@@ -61,7 +63,6 @@ public class Main {
                 e.printStackTrace();
             }
         }
-
 
 
     }

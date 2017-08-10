@@ -1,8 +1,5 @@
 package com.cqx.chapter6.priorityBlockingQueue;
 
-import org.w3c.dom.events.EventException;
-
-import java.util.PriorityQueue;
 import java.util.concurrent.PriorityBlockingQueue;
 
 /**

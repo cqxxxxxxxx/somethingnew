@@ -1,8 +1,5 @@
 package com.cqx.chapter5.recursiveAction;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.ThreadPoolExecutor;
-
 /**
  * Created by cqx on 2017/2/24.
  */

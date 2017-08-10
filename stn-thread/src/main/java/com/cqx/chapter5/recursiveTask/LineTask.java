@@ -1,15 +1,12 @@
 package com.cqx.chapter5.recursiveTask;
 
-import org.junit.Test;
-
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.RecursiveTask;
-import java.util.concurrent.TimeUnit;
 
 /**
  * Created by cqx on 2017/2/24.
  */
-public class LineTask extends RecursiveTask<Integer>{
+public class LineTask extends RecursiveTask<Integer> {
     private static final long serialVersionUID = 1L;
 
     private String line[];
@@ -26,9 +23,9 @@ public class LineTask extends RecursiveTask<Integer>{
     @Override
     protected Integer compute() {
         Integer result = null;
-        if (end - start < 100){
+        if (end - start < 100) {
             result = count(line, start, end, word);
-        }else {
+        } else {
             int mid = (start + end) / 2;
             LineTask task1 = new LineTask(line, start, mid, word);
             LineTask task2 = new LineTask(line, mid, end, word);
@@ -47,17 +44,18 @@ public class LineTask extends RecursiveTask<Integer>{
 
     /**
      * 计算出 line里面包涵的word数量 并返回
+     *
      * @param line
      * @param start
      * @param end
      * @param word
      * @return
      */
-    private Integer count(String[] line, int start, int end, String word){
+    private Integer count(String[] line, int start, int end, String word) {
         int counter = 0;
         for (int i = start; i < end; i++) {
-            if (line[i].equals(word)){
-                counter ++;
+            if (line[i].equals(word)) {
+                counter++;
             }
         }
         try {
@@ -70,11 +68,12 @@ public class LineTask extends RecursiveTask<Integer>{
 
     /**
      * 计算数字之和 并返回
+     *
      * @param number1
      * @param number2
      * @return
      */
-    private Integer groupResults(Integer number1, Integer number2){
+    private Integer groupResults(Integer number1, Integer number2) {
         Integer result;
         result = number1 + number2;
         return result;

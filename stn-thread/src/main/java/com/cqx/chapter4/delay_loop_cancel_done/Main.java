@@ -1,8 +1,5 @@
 package com.cqx.chapter4.delay_loop_cancel_done;
 
-import com.cqx.chapter4.Server;
-import com.cqx.chapter4.Task;
-
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -30,7 +27,7 @@ public class Main {
             resultTasks[i].cancel(true);
         }
         for (int i = 0; i < resultTasks.length; i++) {
-            if (!resultTasks[i].isCancelled()){
+            if (!resultTasks[i].isCancelled()) {
                 try {
                     System.out.printf("%s\n", resultTasks[i].get());
                 } catch (InterruptedException e) {

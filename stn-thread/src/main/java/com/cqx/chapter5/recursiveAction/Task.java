@@ -28,9 +28,9 @@ public class Task extends RecursiveAction {
      */
     @Override
     protected void compute() {
-        if (last - first < 10){
+        if (last - first < 10) {
             updatePrices();
-        }else {
+        } else {
             int middle = (last + first) / 2;
             System.out.printf("Task: Pending tasks: %s\n", getQueuedTaskCount());
             Task t1 = new Task(products, first, middle + 1, increment);
@@ -42,7 +42,7 @@ public class Task extends RecursiveAction {
     /**
      * 更新 first last之间的产品价格
      */
-    private void updatePrices(){
+    private void updatePrices() {
         for (int i = first; i < last; i++) {
             Product product = products.get(i);
             product.setPrice(product.getPrice() * (1 + increment));

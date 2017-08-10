@@ -1,7 +1,5 @@
 package com.cqx.chapter6.concurrentLinkedDeque;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 /**

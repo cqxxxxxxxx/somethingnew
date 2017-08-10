@@ -6,11 +6,11 @@ import java.util.concurrent.TimeUnit;
 /**
  * Created by Shan on 2017/2/22.
  */
-public class Task implements Runnable{
+public class Task implements Runnable {
     private Date initDate;
     private String name;
 
-    public Task(String name){
+    public Task(String name) {
         this.initDate = new Date();
         this.name = name;
     }
@@ -21,7 +21,7 @@ public class Task implements Runnable{
         System.out.printf("%s: Task %s: Started on %s\n", Thread.currentThread().getName(), name, initDate);
 
         try {
-            Long duration = (long)(Math.random()*10);
+            Long duration = (long) (Math.random() * 10);
             System.out.printf("%s: Doing a Task during %d seconds\n", Thread.currentThread().getName(), duration);
             TimeUnit.SECONDS.sleep(duration);
         } catch (InterruptedException e) {

@@ -1,9 +1,5 @@
 package com.cqx.chapter4;
 
-import com.cqx.chapter3.phaser.FileSearch;
-
-import java.util.concurrent.Phaser;
-
 /**
  * Created by cqx on 2017/2/20.
  */

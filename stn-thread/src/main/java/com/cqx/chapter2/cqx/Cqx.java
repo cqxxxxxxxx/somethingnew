@@ -8,12 +8,12 @@ import java.util.concurrent.TimeUnit;
 public class Cqx {
 
 
-    public void ccc(){
+    public void ccc() {
         System.out.println("normal method");
     }
 
-    public void saySomething(){
-        synchronized (this){
+    public void saySomething() {
+        synchronized (this) {
             System.out.println("Start sleeping");
             try {
                 TimeUnit.SECONDS.sleep(20);

@@ -1,10 +1,5 @@
 package com.cqx.chapter7.lock;
 
-import com.cqx.chapter7.forkJoin.MyRecursiveTask;
-import com.cqx.chapter7.forkJoin.MyWokerThreadFactory;
-
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.PriorityBlockingQueue;
 import java.util.concurrent.TimeUnit;
 

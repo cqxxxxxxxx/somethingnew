@@ -7,7 +7,7 @@ public class Job implements Runnable {
 
     private PrintQueue printQueue;
 
-    public Job(PrintQueue printQueue){
+    public Job(PrintQueue printQueue) {
         this.printQueue = printQueue;
     }
 

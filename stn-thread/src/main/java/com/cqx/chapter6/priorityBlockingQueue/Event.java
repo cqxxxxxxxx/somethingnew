@@ -23,11 +23,11 @@ public class Event implements Comparable<Event> {
 
     @Override
     public int compareTo(Event o) {
-        if (this.priority > o.getPriority()){
+        if (this.priority > o.getPriority()) {
             return -1;
-        }else if (this.priority < o.getPriority()){
+        } else if (this.priority < o.getPriority()) {
             return 1;
-        }else {
+        } else {
             return 0;
         }
     }

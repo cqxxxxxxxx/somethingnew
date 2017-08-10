@@ -6,7 +6,7 @@ import java.util.concurrent.ConcurrentLinkedDeque;
  * 向 {@link ConcurrentLinkedDeque}中添加
  * Created by Shan on 2017/2/25.
  */
-public class AddTask implements Runnable{
+public class AddTask implements Runnable {
 
     private ConcurrentLinkedDeque<String> deque;
 

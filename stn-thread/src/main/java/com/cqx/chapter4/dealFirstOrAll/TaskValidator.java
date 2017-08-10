@@ -11,7 +11,7 @@ public class TaskValidator implements Callable<String> {
     private String name;
     private String password;
 
-    public TaskValidator(UserValidator userValidator, String name, String password){
+    public TaskValidator(UserValidator userValidator, String name, String password) {
         this.userValidator = userValidator;
         this.name = name;
         this.password = password;
@@ -19,7 +19,7 @@ public class TaskValidator implements Callable<String> {
 
     @Override
     public String call() throws Exception {
-        if (!userValidator.validate(name, password)){   //没通过
+        if (!userValidator.validate(name, password)) {   //没通过
             System.out.printf("%s: The user has not been found.\n", userValidator.getName());
             throw new Exception("Error validating user");
         }

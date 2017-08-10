@@ -1,8 +1,5 @@
 package com.cqx.chapter4.callable_future;
 
-import com.cqx.chapter4.Server;
-import com.cqx.chapter4.Task;
-
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;

@@ -10,19 +10,20 @@ public class UserValidator {
 
     private String name;
 
-    public UserValidator(String name){
+    public UserValidator(String name) {
         this.name = name;
     }
 
     /**
      * 随机返回true false
+     *
      * @param name
      * @param password
      * @return
      */
-    public boolean validate(String name, String password){
+    public boolean validate(String name, String password) {
         Random random = new Random();
-        long duration = (long) (Math.random()*10);
+        long duration = (long) (Math.random() * 10);
         System.out.printf("Validator %s: Validating a user during %d seconds.\n", this.name, duration);
         try {
             TimeUnit.SECONDS.sleep(duration);
@@ -33,7 +34,7 @@ public class UserValidator {
         return random.nextBoolean();
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 }

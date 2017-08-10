@@ -18,9 +18,10 @@ public class VideoConference implements Runnable {
 
     /**
      * 每一个人进入会议后都会调用该方法,输出未到会者的数量
+     *
      * @param name
      */
-    public void arrive(String name){
+    public void arrive(String name) {
         System.out.printf("%s has arrived.\n", name);
         try {
             TimeUnit.SECONDS.sleep(5);
