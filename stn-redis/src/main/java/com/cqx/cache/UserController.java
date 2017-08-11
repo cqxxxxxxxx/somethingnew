@@ -13,17 +13,17 @@ public class UserController {
     UserService userService;
 
     @GetMapping("/{name}")
-    public User getUser(@PathVariable("name") String name){
+    public User getUser(@PathVariable("name") String name) {
         return userService.selectByName(name);
     }
 
     @GetMapping("/{name}/test1")
-    public User getUserTest1(@PathVariable("name") String name){
+    public User getUserTest1(@PathVariable("name") String name) {
         return userService.selectByName1(name);
     }
 
     @DeleteMapping("/{name}")
-    public void deleteUser(@PathVariable("name") String name){
+    public void deleteUser(@PathVariable("name") String name) {
         userService.deleteByName(name);
     }
 }

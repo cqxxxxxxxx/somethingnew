@@ -5,7 +5,7 @@ import java.io.Serializable;
 /**
  * Created by Shan on 2017/1/13.
  */
-public class User implements Serializable{
+public class User implements Serializable {
 
     private static final long serialVersionUID = -1L;
 

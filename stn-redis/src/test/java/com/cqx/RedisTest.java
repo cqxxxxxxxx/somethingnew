@@ -5,7 +5,6 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisKeyValueTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
@@ -32,11 +31,18 @@ public class RedisTest {
     @Autowired
     private RedisKeyValueTemplate redisKeyValueTemplate;
 
-    @Resource(name = "userRedisTemplate")	//按名注入
+    @Resource(name = "userRedisTemplate")    //按名注入
     private RedisTemplate<String, User> userRedisTemplate;
 
+
     @Test
-    public void redisTest(){
+    public void publishOrder() {
+        stringRedisTemplate.convertAndSend("order", "萨范德萨发送到啊");
+    }
+
+    @Test
+    public void redisTest() {
+
         stringRedisTemplate.opsForValue().set("cqx", "nmb");
 
         stringRedisTemplate.opsForHash().put("cqxhash", "hashkey1", "hashvalue1");
@@ -50,7 +56,7 @@ public class RedisTest {
     }
 
     @Test
-    public void redisUserTest(){
+    public void redisUserTest() {
         User user1 = new User();
         user1.setAge(22);
         user1.setName("陈奇星");

@@ -1,6 +1,7 @@
 package com.cqx.cache;
 
 import org.springframework.cache.Cache;
+
 import java.util.concurrent.Callable;
 
 /**
