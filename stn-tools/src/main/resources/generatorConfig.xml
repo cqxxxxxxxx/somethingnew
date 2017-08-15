@@ -39,11 +39,20 @@
         </javaClientGenerator>
 
 
-        <table tableName="v5_addr" domainObjectName="V5Addr"
-        enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
-        enableSelectByExample="false" selectByExampleQueryId="false">
+        <!--<table tableName="v5_addr" domainObjectName="V5Addr"-->
+        <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+        <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+        <!--<table tableName="wave" domainObjectName="Wave"-->
+               <!--enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"-->
+               <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
+        <!--</table>-->
+
+        <table tableName="bsp" domainObjectName="Bsp"
+               enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
+               enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
-        <table tableName="wave" domainObjectName="Wave"
+        <table tableName="standard" domainObjectName="Standard"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
