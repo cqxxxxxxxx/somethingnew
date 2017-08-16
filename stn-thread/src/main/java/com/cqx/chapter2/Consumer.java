@@ -6,7 +6,7 @@ package com.cqx.chapter2;
 public class Consumer implements Runnable {
     private EventStorage eventStorage;
 
-    public Consumer(EventStorage eventStorage){
+    public Consumer(EventStorage eventStorage) {
         this.eventStorage = eventStorage;
     }
 

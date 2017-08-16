@@ -1,7 +1,9 @@
 package com.cqx.chapter5.recursiveAction;
 
 import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ForkJoinPool;
+import java.util.concurrent.RecursiveAction;
+import java.util.concurrent.TimeUnit;
 
 /**
  * {@link RecursiveAction} 没有返回值
@@ -28,17 +30,17 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }while (!task.isDone());
+        } while (!task.isDone());
 
         pool.shutdown();
 
-        if (task.isCompletedNormally()){
+        if (task.isCompletedNormally()) {
             System.out.printf("Main: The process has completed normally.\n");
         }
 
         for (int i = 0; i < products.size(); i++) {
             Product product = products.get(i);
-            if (product.getPrice() != 12){
+            if (product.getPrice() != 12) {
                 System.out.printf("Product %s: %f\n", product.getName(), product.getPrice());
             }
         }

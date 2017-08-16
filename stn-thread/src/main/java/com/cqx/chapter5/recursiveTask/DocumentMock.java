@@ -11,12 +11,13 @@ public class DocumentMock {
 
     /**
      * 根据words 随即生成模拟的document 并打印出目标单词出现的次数
-     * @param numLines   行数
-     * @param numWords  一行中单词数
-     * @param word      查找的目标单词
+     *
+     * @param numLines 行数
+     * @param numWords 一行中单词数
+     * @param word     查找的目标单词
      * @return
      */
-    public String[][] generateDocument(int numLines, int numWords, String word){
+    public String[][] generateDocument(int numLines, int numWords, String word) {
         int counter = 0;
         String document[][] = new String[numLines][numWords];
         Random random = new Random();
@@ -24,8 +25,8 @@ public class DocumentMock {
             for (int j = 0; j < numWords; j++) {
                 int index = random.nextInt(words.length);
                 document[i][j] = words[index];
-                if (document[i][j].equals(word)){   //如果生成的单词跟目标的一样 则计数器++
-                    counter ++;
+                if (document[i][j].equals(word)) {   //如果生成的单词跟目标的一样 则计数器++
+                    counter++;
                 }
             }
         }

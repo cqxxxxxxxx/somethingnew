@@ -24,9 +24,9 @@ public class MyRecursiveTask extends RecursiveTask<Integer> {
         MyWorkThread myWorkThread = (MyWorkThread) Thread.currentThread();
         myWorkThread.addTask();     //吧当前线程的ThreadLocal变量counter+1
 
-        if (end - start < 100){
+        if (end - start < 100) {
             ret = sumArray(array, start, end);
-        }else {
+        } else {
             int mid = (start + end) / 2;
             MyRecursiveTask task1 = new MyRecursiveTask(array, start, mid);
             MyRecursiveTask task2 = new MyRecursiveTask(array, mid, end);
@@ -63,12 +63,13 @@ public class MyRecursiveTask extends RecursiveTask<Integer> {
 
     /**
      * 计算数组指定下标内的元素之和
+     *
      * @param array
      * @param start
      * @param end
      * @return
      */
-    private Integer sumArray(int[] array, int start, int end){
+    private Integer sumArray(int[] array, int start, int end) {
         Integer sum = 0;
         for (int i = start; i < end; i++) {
             sum += array[i];

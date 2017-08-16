@@ -12,7 +12,7 @@ public class MyLock implements Lock {
 
     private AbstractQueuedSynchronizer sync;
 
-    public MyLock(){
+    public MyLock() {
         sync = new MyAbstractQueuedSynchronizer();
     }
 

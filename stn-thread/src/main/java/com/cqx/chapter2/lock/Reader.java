@@ -3,10 +3,10 @@ package com.cqx.chapter2.lock;
 /**
  * Created by Shan on 2017/2/19.
  */
-public class Reader implements Runnable{
+public class Reader implements Runnable {
     private PricesInfo pricesInfo;
 
-    public Reader(PricesInfo pricesInfo){
+    public Reader(PricesInfo pricesInfo) {
         this.pricesInfo = pricesInfo;
     }
 

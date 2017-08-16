@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.cqx.excel.dao.StandardMapper">
+    <resultMap id="BaseResultMap" type="com.cqx.excel.model.Standard">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="province" property="province" jdbcType="VARCHAR"/>
+        <result column="city" property="city" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    id, province, city
+  </sql>
+
+    <insert id="batchInsert" parameterType="map">
+        insert into standard (id, province, city
+        )
+        VALUES
+        <foreach collection="records" item="item" separator=",">
+            (#{item.id,jdbcType=INTEGER}, #{item.province,jdbcType=VARCHAR}, #{item.city,jdbcType=VARCHAR}
+            )
+        </foreach>
+    </insert>
+
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from standard
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from standard
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.cqx.excel.model.Standard">
+    insert into standard (id, province, city
+      )
+    values (#{id,jdbcType=INTEGER}, #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.cqx.excel.model.Standard">
+        insert into standard
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="province != null">
+                province,
+            </if>
+            <if test="city != null">
+                city,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="province != null">
+                #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                #{city,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.cqx.excel.model.Standard">
+        update standard
+        <set>
+            <if test="province != null">
+                province = #{province,jdbcType=VARCHAR},
+            </if>
+            <if test="city != null">
+                city = #{city,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.cqx.excel.model.Standard">
+    update standard
+    set province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

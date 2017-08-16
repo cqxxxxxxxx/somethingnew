@@ -32,8 +32,8 @@ public class Searcher implements Runnable {
             int row[] = matrixMock.getRow(i);
             counter = 0;
             for (int j = 0; j < row.length; j++) {
-                if (row[j] == number){
-                    counter ++;
+                if (row[j] == number) {
+                    counter++;
                 }
             }
             results.setData(i, counter);

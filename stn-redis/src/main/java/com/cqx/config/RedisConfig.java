@@ -37,6 +37,7 @@ public class RedisConfig {
      * 用于操作对象的在redis数据库中的CRUD
      * 其中要设置key和value的序列化相关的东西
      * ps. spring有提供StringRedisTemplate之类的可以直接用的
+     *
      * @param factory
      * @return
      */
@@ -51,12 +52,13 @@ public class RedisConfig {
 
     /**
      * cacheManager
+     *
      * @param redisTemplate
      * @return
      */
     @Bean
     public CacheManager redisCacheManager(RedisTemplate redisTemplate) {
-        List<String> cacheNames= new ArrayList<>();
+        List<String> cacheNames = new ArrayList<>();
         cacheNames.add("user");
         cacheNames.add("test1");
         cacheNames.add("test2");
@@ -71,15 +73,16 @@ public class RedisConfig {
      * 自定义的缓存key的生成策略
      * Object target, Method method, Object... params
      * 生成的key为类名+方法名+参数名
+     *
      * @return
      */
     @Bean
-    public KeyGenerator customKeyGenerator(){
+    public KeyGenerator customKeyGenerator() {
         return (o, method, objects) -> {
             StringBuilder sb = new StringBuilder();
             sb.append(o.getClass().getName());
             sb.append(method.getName());
-            for (Object obj: objects){
+            for (Object obj : objects) {
                 sb.append(obj.toString());
             }
             return sb.toString();

@@ -1,11 +1,6 @@
 package com.cqx.chapter6.concurrentLinkedDeque;
 
-import com.cqx.chapter5.recursiveTask.DocumentMock;
-import com.cqx.chapter5.recursiveTask.DocumentTask;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.*;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
 /**
  * {@link ConcurrentLinkedDeque} 非阻塞式并发数据列表

@@ -5,13 +5,13 @@ import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.redis.core.RedisKeyValueTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import redis.clients.jedis.HostAndPort;
+import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 
 import javax.annotation.Resource;
@@ -32,11 +32,18 @@ public class RedisTest {
     @Autowired
     private RedisKeyValueTemplate redisKeyValueTemplate;
 
-    @Resource(name = "userRedisTemplate")	//按名注入
+    @Resource(name = "userRedisTemplate")    //按名注入
     private RedisTemplate<String, User> userRedisTemplate;
 
+
     @Test
-    public void redisTest(){
+    public void publishOrder() {
+        stringRedisTemplate.convertAndSend("order", "萨范德萨发送到啊");
+    }
+
+    @Test
+    public void redisTest() {
+
         stringRedisTemplate.opsForValue().set("cqx", "nmb");
 
         stringRedisTemplate.opsForHash().put("cqxhash", "hashkey1", "hashvalue1");
@@ -50,7 +57,7 @@ public class RedisTest {
     }
 
     @Test
-    public void redisUserTest(){
+    public void redisUserTest() {
         User user1 = new User();
         user1.setAge(22);
         user1.setName("陈奇星");
@@ -84,5 +91,20 @@ public class RedisTest {
 //        jc.sadd("ffn", "无敌的");
         System.out.println(jc.get("1"));
 //        System.out.println(jc.get("ffn"));
+    }
+
+
+    @Test
+    public void ping() {
+        //实例化一个客户端
+        Jedis jedis = new Jedis("47.92.6.210 ",6379);
+        //ping下，看看是否通的
+        System.out.println("Server is running: " + jedis.ping());
+
+        //保存一个
+        jedis.set("leiTest", "localhost Connection  sucessfully");
+        //获取一个
+        String leite=jedis.get("leiTest");
+        System.out.println("leiTest键值为: " +leite);
     }
 }

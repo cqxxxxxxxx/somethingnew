@@ -4,6 +4,8 @@ import com.cqx.excel.ExcelUtil;
 import com.cqx.excel.IExcelExport;
 import com.cqx.excel.dao.V5AddrMapper;
 import com.cqx.excel.dao.WaveMapper;
+import com.cqx.excel.impl.consumer.BspConsumer;
+import com.cqx.excel.impl.consumer.StandardConsumer;
 import com.cqx.excel.impl.consumer.V5AddrConsumer;
 import com.cqx.excel.impl.consumer.WaveConsumer;
 import com.cqx.excel.impl.export.V5Export;
@@ -25,31 +27,54 @@ import java.util.ArrayList;
 public class ExcelService {
 
     public static final Log log = LogFactory.getLog(ExcelService.class);
-    private static final String V5_PATH = "C:\\Users\\BG307435\\Desktop\\v5.xlsx";
-    private static final String WAVE_PATH = "C:\\Users\\BG307435\\Desktop\\wave.xlsx";
+    private static final String BSP_PATH = "C:\\Users\\BG307435\\Desktop\\bsp.xlsx";
+    private static final String STANDARD_PATH = "C:\\Users\\BG307435\\Desktop\\standard.xlsx";
+
 
 
     @Autowired
     V5AddrConsumer v5AddrConsumer;
     @Autowired
     WaveConsumer waveConsumer;
+    @Autowired
+    BspConsumer bspConsumer;
+    @Autowired
+    StandardConsumer standardConsumer;
 
-    public void importToV5(){
+
+    public void importToBsp(){
         try {
-            ExcelUtil.excelImport(new File(V5_PATH), "v5.xlsx", v5AddrConsumer);
+            ExcelUtil.excelImport(new File(BSP_PATH), "bsp.xlsx", bspConsumer);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
 
-    public void importToWave(){
+    public void importToStandard(){
         try {
-            ExcelUtil.excelImport(new File(WAVE_PATH), "wave.xlsx", waveConsumer);
+            ExcelUtil.excelImport(new File(STANDARD_PATH), "standard.xlsx", standardConsumer);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
+//    public void importToV5(){
+//        try {
+//            ExcelUtil.excelImport(new File(V5_PATH), "v5.xlsx", v5AddrConsumer);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
+//
+//
+//    public void importToWave(){
+//        try {
+//            ExcelUtil.excelImport(new File(WAVE_PATH), "wave.xlsx", waveConsumer);
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 
     public void exportV5() throws FileNotFoundException {
 

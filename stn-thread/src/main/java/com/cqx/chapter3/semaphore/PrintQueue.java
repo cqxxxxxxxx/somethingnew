@@ -15,12 +15,12 @@ public class PrintQueue {
         semaphore = new Semaphore(1);   //设置只有1个资源 BinarySemaphore-> 只有 0 1
     }
 
-    public void printJob(Object document){
+    public void printJob(Object document) {
         try {
             semaphore.acquire();
             System.out.println("获取了信号量");
             TimeUnit.SECONDS.sleep(5);
-            long duration = (long) (Math.random()*10);
+            long duration = (long) (Math.random() * 10);
             System.out.printf("%s: PrintQueue: Printing a Job during %d seconds\n", Thread.currentThread().getName(), duration);
             Thread.sleep(duration);
         } catch (InterruptedException e) {

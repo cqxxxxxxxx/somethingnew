@@ -1,7 +1,5 @@
 package com.cqx.chapter4;
 
-import java.util.List;
-import java.util.concurrent.Executor;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadPoolExecutor;
 
@@ -12,11 +10,11 @@ public class Server {
 
     private ThreadPoolExecutor poolExecutor;
 
-    public Server(){
+    public Server() {
         poolExecutor = (ThreadPoolExecutor) Executors.newCachedThreadPool();
     }
 
-    public void executeTask(Task task){
+    public void executeTask(Task task) {
         System.out.println("Server: A new task has arrived");
         poolExecutor.execute(task); //发送任务给执行器
         System.out.printf("Server: Pool size: %d\n", poolExecutor.getPoolSize());   //获取线程池数量
@@ -27,7 +25,7 @@ public class Server {
     /**
      * shutdownNow() 立即关闭执行器，不再执行在等待中的任务，已经开始的就不管他们
      */
-    public void endServer(){
+    public void endServer() {
         poolExecutor.shutdown();
 
 //        List<Runnable> runnables = poolExecutor.shutdownNow();

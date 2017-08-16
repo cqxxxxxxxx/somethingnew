@@ -18,13 +18,24 @@ public class ExcelTest {
     ExcelService excelService;
 
 
+//    @Test
+//    public void v5(){
+//        excelService.importToV5();
+//    }
+//
+//    @Test
+//    public void wave(){
+//        excelService.importToWave();
+//    }
+
+
     @Test
-    public void v5(){
-        excelService.importToV5();
+    public void bsp(){
+        excelService.importToBsp();
     }
 
     @Test
-    public void wave(){
-        excelService.importToWave();
+    public void standard(){
+        excelService.importToStandard();
     }
 }

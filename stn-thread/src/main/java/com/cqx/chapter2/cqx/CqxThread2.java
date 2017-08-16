@@ -3,11 +3,11 @@ package com.cqx.chapter2.cqx;
 /**
  * Created by cqx on 2017/2/19.
  */
-public class CqxThread2 implements Runnable{
+public class CqxThread2 implements Runnable {
 
     private Cqx cqx;
 
-    public CqxThread2(Cqx cqx){
+    public CqxThread2(Cqx cqx) {
         this.cqx = cqx;
     }
 

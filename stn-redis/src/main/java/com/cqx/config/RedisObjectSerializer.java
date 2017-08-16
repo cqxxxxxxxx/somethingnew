@@ -11,7 +11,7 @@ import org.springframework.data.redis.serializer.SerializationException;
  * 当redis吧对象存到数据库中时候需要把对象序列化，提出时需要反序列化
  * Created by Shan on 2017/1/13.
  */
-public class RedisObjectSerializer implements RedisSerializer<Object>{
+public class RedisObjectSerializer implements RedisSerializer<Object> {
 
     private Converter<Object, byte[]> serializer = new SerializingConverter();
     private Converter<byte[], Object> deserializer = new DeserializingConverter();
@@ -20,6 +20,7 @@ public class RedisObjectSerializer implements RedisSerializer<Object>{
 
     /**
      * 序列化 对象转byte数组，用于吧byte数组用于存储到redis中
+     *
      * @param o
      * @return
      * @throws SerializationException
@@ -39,6 +40,7 @@ public class RedisObjectSerializer implements RedisSerializer<Object>{
 
     /**
      * 反序列化   byte数组转对象
+     *
      * @param bytes
      * @return
      * @throws SerializationException

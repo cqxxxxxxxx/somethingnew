@@ -1,13 +1,11 @@
 package com.cqx.chapter3.countDownLatch;
 
-import java.util.concurrent.TimeUnit;
-
 /**
  * Created by cqx on 2017/2/20.
  */
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         VideoConference videoconference = new VideoConference(10);
         Thread threadConference = new Thread(videoconference);
 

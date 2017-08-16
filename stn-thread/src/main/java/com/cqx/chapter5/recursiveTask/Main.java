@@ -1,10 +1,5 @@
 package com.cqx.chapter5.recursiveTask;
 
-import com.cqx.chapter5.recursiveAction.Product;
-import com.cqx.chapter5.recursiveAction.ProductListGenerator;
-import com.cqx.chapter5.recursiveAction.Task;
-
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
@@ -37,7 +32,7 @@ public class Main {
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        }while (!documentTask.isDone());
+        } while (!documentTask.isDone());
 
         pool.shutdown();
         try {

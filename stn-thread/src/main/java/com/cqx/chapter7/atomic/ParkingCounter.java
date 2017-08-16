@@ -34,15 +34,15 @@ public class ParkingCounter extends AtomicInteger {
     }
 
     public boolean carOut() {
-        for (; ; ){
+        for (; ; ) {
             int value = get();
-            if (value == 0){
+            if (value == 0) {
                 System.out.printf("ParkingCounter: The parking lot is empty.\n");
                 return false;
-            }else {
+            } else {
                 int newValue = value - 1;
                 boolean changed = compareAndSet(value, newValue);
-                if (changed){
+                if (changed) {
                     System.out.printf("ParkingCounter: A car has gone out.\n");
                     return true;
                 }

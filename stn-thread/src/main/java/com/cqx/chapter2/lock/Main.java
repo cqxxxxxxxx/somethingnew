@@ -7,7 +7,7 @@ package com.cqx.chapter2.lock;
  */
 public class Main {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         PricesInfo pricesInfo = new PricesInfo();
 
         Reader[] readers = new Reader[5];

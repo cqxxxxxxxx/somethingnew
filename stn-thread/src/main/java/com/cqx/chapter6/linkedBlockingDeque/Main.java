@@ -1,10 +1,6 @@
 package com.cqx.chapter6.linkedBlockingDeque;
 
-import com.cqx.chapter6.concurrentLinkedDeque.AddTask;
-import com.cqx.chapter6.concurrentLinkedDeque.PollTask;
-
 import java.util.Date;
-import java.util.concurrent.ConcurrentLinkedDeque;
 import java.util.concurrent.LinkedBlockingDeque;
 import java.util.concurrent.TimeUnit;
 

@@ -4,7 +4,7 @@ package com.cqx.chapter7.atomic;
  * 传感器
  * Created by Shan on 2017/2/27.
  */
-public class Sensor1 implements Runnable{
+public class Sensor1 implements Runnable {
 
     private ParkingCounter counter;
 

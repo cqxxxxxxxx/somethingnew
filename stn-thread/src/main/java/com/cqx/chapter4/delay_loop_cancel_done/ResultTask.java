@@ -12,15 +12,15 @@ public class ResultTask extends FutureTask<String> {
 
     public ResultTask(Callable<String> callable) {
         super(callable);
-        this.name = ((ExecutableTask)callable).getName();
+        this.name = ((ExecutableTask) callable).getName();
 
     }
 
     @Override
     protected void done() {
-        if (isCancelled()){
+        if (isCancelled()) {
             System.out.printf("%s: Has been canceled.\n", name);
-        }else {
+        } else {
             System.out.printf("%s: Has finished.\n", name);
         }
     }

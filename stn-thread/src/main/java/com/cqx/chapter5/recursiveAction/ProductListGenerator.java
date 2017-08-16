@@ -10,10 +10,11 @@ public class ProductListGenerator {
 
     /**
      * 生成指定大小的产品列表
+     *
      * @param size
      * @return
      */
-    public List<Product> generate(int size){
+    public List<Product> generate(int size) {
         List<Product> ret = new ArrayList<>();
         for (int i = 0; i < size; i++) {
             Product product = new Product();

@@ -10,7 +10,7 @@ public class MyAbstractQueuedSynchronizer extends AbstractQueuedSynchronizer {
 
     private AtomicInteger state;
 
-    public MyAbstractQueuedSynchronizer(){
+    public MyAbstractQueuedSynchronizer() {
         state = new AtomicInteger(0);
     }
 
