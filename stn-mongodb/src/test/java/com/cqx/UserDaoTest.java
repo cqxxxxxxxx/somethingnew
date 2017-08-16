@@ -32,6 +32,12 @@ public class UserDaoTest {
     UserDao userDao;
     @Autowired
     MongoDbFactory mongoDbFactory;
+
+
+    /**
+     * GridFS是一种将大型文件存储在MongoDB的文件规范
+     * 用来进行文件的操作
+     */
     @Autowired
     GridFsTemplate gridFsTemplate;
 
