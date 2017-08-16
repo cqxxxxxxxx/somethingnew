@@ -24,13 +24,13 @@ public class RedisConfig {
     /**
      * 创建Jedis工厂
      * 里面自动由spring-boot根据yml中的配置完成自动配置，也可以自己set方法注入
-     *
+     * 覆盖掉了spring自动配置的。。默认了LOCALHOST,所以连不上远程redis ,注释掉就好了
      * @return
      */
-    @Bean
-    JedisConnectionFactory jedisConnectionFactory() {
-        return new JedisConnectionFactory();
-    }
+//    @Bean
+//    JedisConnectionFactory jedisConnectionFactory() {
+//        return new JedisConnectionFactory();
+//    }
 
     /**
      * 自定义的template
