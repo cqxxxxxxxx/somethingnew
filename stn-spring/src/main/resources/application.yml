@@ -6,4 +6,8 @@ server:
 logging:
    file: /logs/stn.log
    level:
-     root: debug
+     root: info
+
+# 设置spring boot 启动的banner
+banner:
+  location: classpath:banner-girl.txt
