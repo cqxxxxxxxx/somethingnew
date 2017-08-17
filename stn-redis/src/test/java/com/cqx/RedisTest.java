@@ -17,6 +17,7 @@ import redis.clients.jedis.JedisCluster;
 import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
 
 /**
  * redis数据库的一些操作，CRUD之类的
@@ -37,8 +38,18 @@ public class RedisTest {
 
 
     @Test
-    public void publishOrder() {
+    public void publishOrder() throws InterruptedException {
+//        Thread listenerThread = new Thread(() -> {
+//            try {
+//                TimeUnit.SECONDS.sleep(20);
+//            } catch (InterruptedException e) {
+//                e.printStackTrace();
+//            }
+//        });
+//        listenerThread.start();
         stringRedisTemplate.convertAndSend("order", "萨范德萨发送到啊");
+        stringRedisTemplate.convertAndSend("order", "我是你子欲养而亲不待的亲爹啊");
+
     }
 
     @Test
@@ -94,17 +105,5 @@ public class RedisTest {
     }
 
 
-    @Test
-    public void ping() {
-        //实例化一个客户端
-        Jedis jedis = new Jedis("47.92.6.210 ",6379);
-        //ping下，看看是否通的
-        System.out.println("Server is running: " + jedis.ping());
 
-        //保存一个
-        jedis.set("leiTest", "localhost Connection  sucessfully");
-        //获取一个
-        String leite=jedis.get("leiTest");
-        System.out.println("leiTest键值为: " +leite);
-    }
 }
