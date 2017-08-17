@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -67,6 +68,14 @@ public class StreamDemo {
                 .flatMap((childList) -> childList.stream());
 
         outputStream.forEach(System.out::println);  //输出1，2，3，4，5，6这样的
+
+        int[][] ints = {
+                {1,2,3},
+                {4,5,6},
+                {7,8,9}
+        };
+
+//        Stream.of(ints).flatMap(array -> Stream.of(array).forEach(System.out::println));
     }
 
 

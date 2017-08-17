@@ -15,16 +15,17 @@ public class Send {
 
     public static void main(String[] args) throws java.io.IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("47.92.6.210");
+        factory.setHost("localhost");
 
-        factory.setUsername("cqx");
-        factory.setPassword("cqx");
+        factory.setUsername("guest");
+        factory.setPassword("guest");
         Connection connection = factory.newConnection();    //socket连接建立
         Channel channel = connection.createChannel();
 
+        //it will only be created if it doesn't exist already
         channel.queueDeclare(QUEUE_NAME, false, false, false, null);
         String message = "Hello World!";
-        channel.basicPublish("", QUEUE_NAME, null, message.getBytes());
+        channel.basicPublish("", QUEUE_NAME, null, message.getBytes());     //byte array
         System.out.println(" [x] Sent '" + message + "'");
 
         channel.close();
