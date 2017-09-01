@@ -15,8 +15,8 @@ public class Send {
 
     public static void main(String[] args) throws java.io.IOException, TimeoutException {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
-
+        factory.setHost("47.92.6.210");
+        factory.setPort(8080);
         factory.setUsername("guest");
         factory.setPassword("guest");
         Connection connection = factory.newConnection();    //socket连接建立

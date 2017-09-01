@@ -14,7 +14,8 @@ public class RecvLogs {
 
     public static void main(String[] argv) throws Exception {
         ConnectionFactory factory = new ConnectionFactory();
-        factory.setHost("localhost");
+        factory.setHost("47.92.6.210");
+        factory.setPort(8080);
         factory.setUsername("guest");
         factory.setPassword("guest");
         Connection connection = factory.newConnection();

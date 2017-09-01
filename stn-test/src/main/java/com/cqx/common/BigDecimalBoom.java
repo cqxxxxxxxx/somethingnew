@@ -2,6 +2,7 @@ package com.cqx.common;
 
 
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -24,5 +25,12 @@ public class BigDecimalBoom {
         BigDecimal param2 = BigDecimal.ZERO;
         param2 = param2.add(BigDecimal.ONE);
         System.out.println(param2);
+    }
+
+    @Test
+    public void integerTest(){
+        Integer i = null;
+        Assert.assertTrue(i < 1);
+
     }
 }
