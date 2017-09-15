@@ -68,4 +68,20 @@ public class Boom {
     public void method4(People people){
         people.name = "cqxnmb";
     }
+
+    @Test
+    public void kongge(){
+        char var1 = '\u0000';   //0
+        char var2 = '\u0020';   //空格
+        String var3 = "01   ";
+        StringBuilder sb = new StringBuilder(var1).append(var2);
+        String var4 = String.valueOf(var1) + String.valueOf(var2);
+        System.out.println("var1:" + var1);
+        System.out.println("var2:" + var2);
+        System.out.println("var3:" + var3);
+        System.out.println("var4:" + var4);
+        System.out.println(var1 == ' ');
+        System.out.println(var2 == ' ');
+        System.out.println(var1 == 0);
+    }
 }

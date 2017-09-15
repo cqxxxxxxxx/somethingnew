@@ -25,5 +25,12 @@ public class SystemBoom {
         }
     }
 
+    @Test
+    public void proxy(){
+        String proxyHost = System.getProperty("proxyHost");
+        String proxyPort = System.getProperty("proxyPort");
+        System.out.println(proxyHost);
+        System.out.println(proxyPort);
+    }
 
 }

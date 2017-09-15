@@ -33,4 +33,15 @@ public class BigDecimalBoom {
         Assert.assertTrue(i < 1);
 
     }
+
+    @Test
+    public void kexuejishufa(){
+        BigDecimal bd = new BigDecimal("0.0000000000");
+        System.out.println(bd);
+        System.out.println(bd.toPlainString()); //采用非科学计数法
+
+        BigDecimal bd1 = null;
+        System.out.println(bd1);
+//        System.out.println(bd1.toPlainString());  //NullPointerException
+    }
 }

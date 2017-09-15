@@ -1,0 +1,97 @@
+Classfile /E:/projects/somethingnew/stn-java8/src/main/java/com/cqx/complie/Knight.class
+  Last modified 2017-9-5; size 620 bytes
+  MD5 checksum 4527bbc35d3946bb4eab33a30da4f6d7
+  Compiled from "Knight.java"
+public class com.cqx.complie.Knight
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #9.#21         // java/lang/Object."<init>":()V
+   #2 = Methodref          #22.#23        // java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+   #3 = Fieldref           #8.#24         // com/cqx/complie/Knight.result:Ljava/lang/Integer;
+   #4 = Methodref          #22.#25        // java/lang/Integer.intValue:()I
+   #5 = Fieldref           #26.#27        // java/lang/System.out:Ljava/io/PrintStream;
+   #6 = String             #28            // hahaha
+   #7 = Methodref          #29.#30        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #8 = Class              #31            // com/cqx/complie/Knight
+   #9 = Class              #32            // java/lang/Object
+  #10 = Utf8               result
+  #11 = Utf8               Ljava/lang/Integer;
+  #12 = Utf8               <init>
+  #13 = Utf8               ()V
+  #14 = Utf8               Code
+  #15 = Utf8               LineNumberTable
+  #16 = Utf8               add
+  #17 = Utf8               (II)I
+  #18 = Utf8               say
+  #19 = Utf8               SourceFile
+  #20 = Utf8               Knight.java
+  #21 = NameAndType        #12:#13        // "<init>":()V
+  #22 = Class              #33            // java/lang/Integer
+  #23 = NameAndType        #34:#35        // valueOf:(I)Ljava/lang/Integer;
+  #24 = NameAndType        #10:#11        // result:Ljava/lang/Integer;
+  #25 = NameAndType        #36:#37        // intValue:()I
+  #26 = Class              #38            // java/lang/System
+  #27 = NameAndType        #39:#40        // out:Ljava/io/PrintStream;
+  #28 = Utf8               hahaha
+  #29 = Class              #41            // java/io/PrintStream
+  #30 = NameAndType        #42:#43        // println:(Ljava/lang/String;)V
+  #31 = Utf8               com/cqx/complie/Knight
+  #32 = Utf8               java/lang/Object
+  #33 = Utf8               java/lang/Integer
+  #34 = Utf8               valueOf
+  #35 = Utf8               (I)Ljava/lang/Integer;
+  #36 = Utf8               intValue
+  #37 = Utf8               ()I
+  #38 = Utf8               java/lang/System
+  #39 = Utf8               out
+  #40 = Utf8               Ljava/io/PrintStream;
+  #41 = Utf8               java/io/PrintStream
+  #42 = Utf8               println
+  #43 = Utf8               (Ljava/lang/String;)V
+{
+  public com.cqx.complie.Knight();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 6: 0
+
+  public int add(int, int);
+    descriptor: (II)I
+    flags: ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=3
+         0: aload_0
+         1: iload_1
+         2: iload_2
+         3: iadd
+         4: invokestatic  #2                  // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+         7: putfield      #3                  // Field result:Ljava/lang/Integer;
+        10: aload_0
+        11: getfield      #3                  // Field result:Ljava/lang/Integer;
+        14: invokevirtual #4                  // Method java/lang/Integer.intValue:()I
+        17: ireturn
+      LineNumberTable:
+        line 11: 0
+        line 12: 10
+
+  public void say();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #6                  // String hahaha
+         5: invokevirtual #7                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 16: 0
+        line 17: 8
+}
+SourceFile: "Knight.java"

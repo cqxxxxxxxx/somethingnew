@@ -88,8 +88,8 @@ public class StreamDemo {
         List<Integer> nums = Arrays.asList(1,2,3,4,5);
 
         nums.stream()
-                .peek(integer -> System.out.println(integer))
-                .forEach(integer -> System.out.println(integer));
+                .peek(System.out::println)
+                .forEach(System.out::println);
     }
 
 
