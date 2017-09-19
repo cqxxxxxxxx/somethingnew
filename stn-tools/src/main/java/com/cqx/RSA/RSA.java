@@ -64,7 +64,7 @@ public class RSA {
      */
     public void decrypt(PrivateKey privateKey, byte[] bytes) throws InvalidKeyException, NoSuchPaddingException, NoSuchAlgorithmException, BadPaddingException, IllegalBlockSizeException {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher = cipher.getInstance("RSA");
+        cipher = Cipher.getInstance("RSA");
         cipher.init(Cipher.DECRYPT_MODE, privateKey);
         cipher.update(bytes);
         System.out.print(new String(cipher.doFinal()));
@@ -73,7 +73,7 @@ public class RSA {
 
     public static void main(String[] args) throws NoSuchPaddingException, NoSuchAlgorithmException {
         Cipher cipher = Cipher.getInstance("RSA");
-        cipher = cipher.getInstance("RSA");
+        cipher = Cipher.getInstance("RSA");
 //        cipher.init(Cipher.DECRYPT_MODE, new PrivateKey() {
 //            @Override
 //            public String getAlgorithm() {

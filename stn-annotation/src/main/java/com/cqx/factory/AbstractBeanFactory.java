@@ -29,17 +29,11 @@ public abstract class AbstractBeanFactory implements BeanFactory{
      */
     public boolean containsBean(String name){
         Object bean = getBean(name);
-        if (isNull(bean))
-            return false;
-        else
-            return true;
+        return !isNull(bean);
     }
 
     public boolean isNull(Object obj){
-        if (obj == null)
-            return true;
-        else
-            return false;
+        return obj == null;
     }
 
     /**

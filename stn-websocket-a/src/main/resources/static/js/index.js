@@ -2,7 +2,7 @@ var socket = new WebSocket("ws://localhost:8080/websocket");
 
 $(function() {
 	listen();
-})
+});
 
 function emit() {
 	var text = encodeScript($("#msg").val());
@@ -31,7 +31,7 @@ function listen() {
 	};
 	socket.onclose = function(evt) {
 		$("#content").append("<kbd>" + "Close!" + "</kbd></br>");
-	}
+	};
 	socket.onerror = function(evt) {
 		$("#content").append("<kbd>" + "ERROR!" + "</kbd></br>");
 	}

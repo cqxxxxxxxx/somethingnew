@@ -33,7 +33,7 @@ public class Message {
         //给所有用户发送消息
         Set<String> keys = UserPool.getUserPool().keySet();
         for(String key : keys) {
-            Session session = (Session) UserPool.get(key);
+            Session session = UserPool.get(key);
             //屏蔽状态关闭的用户
             if(!session.isOpen()) {
                 UserPool.remove(session.getId());

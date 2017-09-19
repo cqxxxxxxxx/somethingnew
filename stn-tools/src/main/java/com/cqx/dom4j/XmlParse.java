@@ -108,7 +108,7 @@ public class XmlParse {
      * @throws IOException
      * @throws IOException
      */
-    public void test2() throws DocumentException, IOException, IOException
+    public void test2() throws DocumentException, IOException
     {
         //获取Document对象
         SAXReader reader = new SAXReader();

@@ -33,10 +33,7 @@ public class FunctionalTest {
     public <T> void method2(T t){
         Predicate<T> predicate =
                 (t1) -> {
-                    if (t1 instanceof String)
-                        return true;
-                    else
-                        return false;
+                    return t1 instanceof String;
                 };
 
         System.out.println(predicate.test(t));
