@@ -1,33 +1,31 @@
-package com.cqx.sql_gen.consumer;
+package com.cqx.gen;
 
-import com.cqx.sql_gen.AbstractConsumer;
-import com.cqx.sql_gen.InsertAbility;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-import org.apache.poi.hssf.usermodel.HSSFDateUtil;
-import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.util.StringUtils;
 
+import java.lang.reflect.InvocationTargetException;
+import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 /**
- * Created by BG307435 on 2017/9/18.
+ * Created by BG307435 on 2017/9/21.
  */
-public class GenInsert extends AbstractConsumer implements InsertAbility {
-
+public class InsertSQLGen implements InsertAbility {
     private List<String> columns = new ArrayList<>(50);
     private String table;
     private static final String PREFIX = "(";
     private static final String SUFFIX = ")";
     private static final String COMMA = ",";
     private static final String QUOTES = "\'";
+    private static final String ACCENT = "`";
     private StringBuilder sb = new StringBuilder();
+    private ClazzContext clazzContext;
+    private DateFormat dateFormat;
 
     @Override
-    public void setInsertColumns(String columns) {
+    public void setColumns(String columns) {
         String[] strs = columns.split(",");
         this.columns = Arrays.asList(strs);
     }
@@ -37,51 +35,43 @@ public class GenInsert extends AbstractConsumer implements InsertAbility {
         this.table = tableName;
     }
 
-    /**
-     * INSERT INTO `sub_bank` (`id`, `flow_num`, `name`) VALUES
-     * (490376, 'BANK00010283', '安徽长丰农村商业银行股份有限公司'),
-     * (490377, 'BANK00010284', '安徽长丰农村商业银行股份有限公司埠里支行')
-     */
     @Override
-    public String gen() {
+    public String gen(List list) {
         sb.append("INSERT INTO ")
                 .append(table);
         genColumn();
         sb.append(" VALUES ");
-        dealSheet(sheets.get(0));
+        execList(list);
         return sb.toString();
     }
 
-    private void dealSheet(Sheet sheet) {
-        if (sheet.getLastRowNum() < 1) {
+    public void execList(List list) {
+        if (list.size() < 1) {
             throw new IllegalArgumentException("sheet rows must bigger than 1");
         }
-        Row row;
-        Cell cell;
-        final int rowNum = sheet.getLastRowNum();
-        final int columnSize = columns.size();
 
-        for (int i = 0; i < rowNum; i++) {
-            row = sheet.getRow(i);
+        list.stream().forEach(x -> {
             addPrefix();
-            for (int j = 0; j < columnSize; j++) {
-                cell = row.getCell(j);
-                System.out.println(cell == null ? "" : cell.getCellType());
-                if (cell == null) {
-                    sb.append("NULL");
-                } else if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC && HSSFDateUtil.isCellDateFormatted(cell)) {
-                    wrap(getDateValue(cell));
-                } else if (cell.getCellType() == Cell.CELL_TYPE_NUMERIC) {
-                    sb.append(getIntValue(cell));
-                } else {
-                    wrap(getStringValue(cell));
+            clazzContext.getGetMethods().stream().forEach(method -> {
+                try {
+                    Object val = method.invoke(x);
+                    if (val == null) {
+                        sb.append("NULL");
+                    } else if (val instanceof Date) {
+                        wrap(dateFormat.format(val));
+                    } else {
+                        wrap(val.toString());
+                    }
+                } catch (IllegalAccessException e) {
+                    e.printStackTrace();
+                } catch (InvocationTargetException e) {
+                    e.printStackTrace();
                 }
                 addComma();
-            }
+            });
             addSuffix();
             addComma();
-        }
-
+        });
         if (sb.lastIndexOf(COMMA) == sb.length() - 1) {
             //删除逗号
             sb.deleteCharAt(sb.length() - 1);
@@ -91,7 +81,7 @@ public class GenInsert extends AbstractConsumer implements InsertAbility {
     private void genColumn() {
         addPrefix();
         columns.stream().forEach(x -> {
-            wrap(x);
+            wrapAccent(x);
             addComma();
         });
         addSuffix();
@@ -106,8 +96,18 @@ public class GenInsert extends AbstractConsumer implements InsertAbility {
             sb.append("NULL");
         } else {
             sb.append(QUOTES)
-                    .append(str)
+                    .append(str.trim())
                     .append(QUOTES);
+        }
+    }
+
+    private void wrapAccent(String str) {
+        if (StringUtils.isEmpty(str)) {
+            sb.append("NULL");
+        } else {
+            sb.append(ACCENT)
+                    .append(str.trim())
+                    .append(ACCENT);
         }
     }
 
@@ -121,5 +121,13 @@ public class GenInsert extends AbstractConsumer implements InsertAbility {
             sb.deleteCharAt(sb.length() - 1);
         }
         sb.append(SUFFIX);
+    }
+
+    public void setClazzContext(ClazzContext clazzContext) {
+        this.clazzContext = clazzContext;
+    }
+
+    public void setDateFormat(DateFormat dateFormat) {
+        this.dateFormat = dateFormat;
     }
 }

@@ -42,7 +42,7 @@ public class WorkerWithAck {
                     doWork(message);
                 } finally {
                     System.out.println(" [x] Done");
-                    //An ack(nowledgement) is sent back from the consumer to tell RabbitMQ that a particular message has been received, processed and that RabbitMQ is free to delete it.
+                    //An ack(nowledgement) is sent back from the gen to tell RabbitMQ that a particular message has been received, processed and that RabbitMQ is free to delete it.
                     channel.basicAck(envelope.getDeliveryTag(), false); //返回确认处理完毕的信息
                 }
             }

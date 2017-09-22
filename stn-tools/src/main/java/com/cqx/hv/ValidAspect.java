@@ -20,7 +20,7 @@ import java.util.Optional;
 import java.util.Set;
 
 /**
- *
+ * 如果是spring mvc环境中 可以使用HandlerMethodArgumentResolver来检测参数是否有注解 然后进行validate，而不必使用aop来处理
  * Created by Shan on 2017/2/17.
  */
 @Aspect
