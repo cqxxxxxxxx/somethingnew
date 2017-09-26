@@ -45,7 +45,7 @@ public class ExcelConsumer implements IExcelConsumer {
         final int rowNum = sheet.getLastRowNum();
         final int columnNum = sheet.getRow(0).getLastCellNum();
         List<Object> results = new ArrayList<>(1024);
-        for (int i = 1; i < rowNum; i++) {
+        for (int i = 1; i <= rowNum; i++) {
             row = sheet.getRow(i);
             Object obj = clazzContext.getClazz().newInstance();
             for (int j = 0; j < columnNum; j++) {

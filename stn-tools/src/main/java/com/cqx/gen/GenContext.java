@@ -37,7 +37,7 @@ public class GenContext {
      * @throws InvocationTargetException
      * @throws InstantiationException
      */
-    public void genSql() throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
+    public String genSql() throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
         init();
         excelConsumer.consume(path);
         List results = excelConsumer.parseToList(excelConsumer.getSheets().get(0));
@@ -45,7 +45,7 @@ public class GenContext {
             results = (List) results.stream().map(enhance).collect(Collectors.toList());  //增强处理 enhance
         }
         String sql = insertSQLGen.gen(results);
-        System.out.println(sql);
+        return sql;
     }
 
     /**

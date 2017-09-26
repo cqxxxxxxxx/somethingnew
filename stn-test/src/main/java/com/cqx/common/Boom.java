@@ -3,6 +3,7 @@ package com.cqx.common;
 import org.junit.Test;
 
 import java.util.Date;
+import java.util.List;
 
 
 /**
@@ -83,5 +84,14 @@ public class Boom {
         System.out.println(var1 == ' ');
         System.out.println(var2 == ' ');
         System.out.println(var1 == 0);
+    }
+
+
+    @Test(expected = NullPointerException.class)
+    public void testFor() {
+        List<String> strings = null;
+        for(String s : strings){
+            System.out.println(s);
+        }
     }
 }

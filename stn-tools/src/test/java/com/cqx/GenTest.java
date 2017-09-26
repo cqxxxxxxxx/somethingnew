@@ -12,7 +12,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.PostConstruct;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
 import java.util.Date;
@@ -43,19 +46,31 @@ public class GenTest {
     @Test
     public void testGen() throws InvocationTargetException, InstantiationException, IllegalAccessException, IOException {
         GenContext genContext = GenContext.Builder.newBuilder()
-                .withPath("C:\\Users\\BG307435\\Desktop\\导入地址模板.xlsx")
+                .withPath("C:\\Users\\BG307435\\Desktop\\历史地址导入.xlsx")
                 .withTableName("order_history_address")
                 .withColumns("address_id, company_id, province, city, district, detail, operation_time,operator_id,province_id,city_id,district_id,contact_name, contact_phone")
                 .withTargetClass(OrderHistoryAddress.class)
                 .withEnhance(x -> {         //添加id
                     OrderHistoryAddress temp = (OrderHistoryAddress) x;
+                    temp.setCompanyId(37);
                     temp.setProvinceId(getProvinceId(temp.getProvince()));
                     temp.setCityId(getCityId(temp.getCity()));
+                    Integer districtId = getCountryId(temp.getDistrict());
                     temp.setDistrictId(getCountryId(temp.getDistrict()));
+                    if (districtId == null) {
+                        temp.setDetail(temp.getDistrict() + temp.getDetail());
+                    }
                     temp.setOperationTime(new Date());
                     return temp;
                 }).build();
-        genContext.genSql();
+        String sql = genContext.genSql();
+        File file = new File("C:\\Users\\BG307435\\Desktop\\sql.txt");
+        if (file.exists()) {
+            file.delete();
+        }
+        OutputStream out = new FileOutputStream(file);
+        out.write(sql.getBytes());
+
     }
 
     private Integer getProvinceId(String name) {
