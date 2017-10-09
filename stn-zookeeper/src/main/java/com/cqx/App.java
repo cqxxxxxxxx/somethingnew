@@ -12,7 +12,8 @@ public class App
 {
     public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
         // 创建一个与服务器的连接
-        ZooKeeper zk = new ZooKeeper("172.17.0.1:2181", 60000, new Watcher() {
+        ZooKeeper zk = new ZooKeeper("47.92.6.210:8080", 60000, new Watcher() {
+//        ZooKeeper zk = new ZooKeeper("127.0.0.1:2181", 60000, new Watcher() {
             // 监控所有被触发的事件
             public void process(WatchedEvent event) {
                 System.out.println("EVENT:" + event.getType());
@@ -43,6 +44,11 @@ public class App
         // 修改节点数据
         if (zk.exists("/node", true) != null) {
             zk.setData("/node", "changed".getBytes(), -1);
+            // 查看/node节点数据
+            System.out.println("get /node => " + new String(zk.getData("/node", false, null)));
+
+            //第二次修改没有触发watcher，因为是一次性触发器。
+            zk.setData("/node", "changed_twice".getBytes(), -1);
             // 查看/node节点数据
             System.out.println("get /node => " + new String(zk.getData("/node", false, null)));
         }

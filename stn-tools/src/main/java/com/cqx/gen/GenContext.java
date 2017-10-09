@@ -19,11 +19,11 @@ public class GenContext {
     private static final Logger log = LoggerFactory.getLogger(GenContext.class);
     private static final DateFormat DEFAULT_DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 
-    private String path;
+    private String path;            //excel路径
     private Class targetClass;
-    private String tableName;
-    private String columns;
-    private Function enhance;
+    private String tableName;       //表名
+    private String columns;         //insert 的列名，用逗号分隔
+    private Function enhance;       //对list进行一些处理
     private DateFormat dateFormat;  //excel处理日期类型
     private ClazzContext clazzContext;  //保存类信息
     private ExcelConsumer excelConsumer;    //处理excel 转成list

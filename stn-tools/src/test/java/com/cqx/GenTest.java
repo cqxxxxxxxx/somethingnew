@@ -46,13 +46,13 @@ public class GenTest {
     @Test
     public void testGen() throws InvocationTargetException, InstantiationException, IllegalAccessException, IOException {
         GenContext genContext = GenContext.Builder.newBuilder()
-                .withPath("C:\\Users\\BG307435\\Desktop\\历史地址导入.xlsx")
+                .withPath("C:\\Users\\BG307435\\Desktop\\历史地址导入数据.xlsx")
                 .withTableName("order_history_address")
                 .withColumns("address_id, company_id, province, city, district, detail, operation_time,operator_id,province_id,city_id,district_id,contact_name, contact_phone")
                 .withTargetClass(OrderHistoryAddress.class)
                 .withEnhance(x -> {         //添加id
                     OrderHistoryAddress temp = (OrderHistoryAddress) x;
-                    temp.setCompanyId(37);
+                    temp.setCompanyId(87);
                     temp.setProvinceId(getProvinceId(temp.getProvince()));
                     temp.setCityId(getCityId(temp.getCity()));
                     Integer districtId = getCountryId(temp.getDistrict());
@@ -64,7 +64,7 @@ public class GenTest {
                     return temp;
                 }).build();
         String sql = genContext.genSql();
-        File file = new File("C:\\Users\\BG307435\\Desktop\\sql.txt");
+        File file = new File("C:\\Users\\BG307435\\Desktop\\v1.5.8-prod-历史地址导入87.sql");
         if (file.exists()) {
             file.delete();
         }
