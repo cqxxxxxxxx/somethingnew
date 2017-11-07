@@ -1,10 +1,13 @@
 package com.cqx.controller;
 
-import com.cqx.model.Person;
+import com.cqx.dao.UserDao;
+import com.cqx.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 
 
 /**
@@ -16,8 +19,16 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/")
 public class IndexController {
+    private static final Logger logger = LoggerFactory.getLogger(IndexController.class);
 
-    Logger logger = LoggerFactory.getLogger(IndexController.class);
+    @Autowired
+    UserDao userDao;
+
+
+    @GetMapping
+    public String toIndex() {
+        return "index";
+    }
 
     /**
      [GET /get?queryString=%E5%A4%9A%E5%A4%9A HTTP/1.1
@@ -58,11 +69,49 @@ public class IndexController {
      }]
      */
     @PostMapping("/post")
-    public String postTest(@RequestParam String queryString, @RequestBody Person person) {
+    public String postTest(@RequestParam String queryString, @RequestBody User user) {
         logger.info(queryString);
-        logger.info(person.toString());
+        logger.info(user.toString());
         return queryString;
     }
 
 
+    @GetMapping("/ldap/all")
+    public List<User> ldapTest() {
+        List list = userDao.findAll();
+        List list1 = userDao.getAllUserNames();
+        return list;
+    }
+
+
+    @GetMapping("/ldap/create")
+    public String ldapCreateTest() {
+        User user = new User();
+        user.setPhone("11111111111");
+        user.setCompany("1111");
+        user.setCountry("china");
+        user.setDescription("des");
+        user.setFullName("cqx11");
+        user.setUserPassword("123456");
+        user.setLastName("chen1111");
+        userDao.create(user);
+        return "success";
+    }
+
+    @PutMapping("/ldap")
+    public String ldapUpdateTest() {
+        User user = new User();
+        user.setFullName("cqx");
+        user.setLastName("wwwwwwww");
+        user.setUserPassword("22222222222");
+        userDao.update(user);
+        return "success";
+    }
+
+    @GetMapping("/ldap")
+    public User ldapGetOne() {
+        User user = userDao.findByPrimaryKey("Computers", "11111111");
+        List<User> users = userDao.search("1111111");
+        return user;
+    }
 }

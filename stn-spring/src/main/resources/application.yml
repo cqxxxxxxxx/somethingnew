@@ -2,7 +2,7 @@ spring:
     application:
         name: learning-spring
 server:
-  port: 8080
+  port: 80
 logging:
    file: /logs/stn.log
    level:
