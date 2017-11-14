@@ -16,7 +16,6 @@ public class DemoComponent {
         System.out.println("init" + date);
     }
 
-
     private DemoAA demoAA;
 
     private String name;

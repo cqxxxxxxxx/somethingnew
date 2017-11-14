@@ -29,6 +29,8 @@ public class GenContext {
     private ExcelConsumer excelConsumer;    //处理excel 转成list
     private InsertSQLGen insertSQLGen;      //根据list生成sql
 
+    private UpdateSQLGen updateSQLGen;      //
+    private String updateSQL;   //
 
     /**
      * 生成sql
@@ -38,7 +40,6 @@ public class GenContext {
      * @throws InstantiationException
      */
     public String genSql() throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        init();
         excelConsumer.consume(path);
         List results = excelConsumer.parseToList(excelConsumer.getSheets().get(0));
         if (enhance != null) {
@@ -47,6 +48,14 @@ public class GenContext {
         String sql = insertSQLGen.gen(results);
         return sql;
     }
+
+    public String genUpdateSQL() throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        excelConsumer.consume(path);
+        List results = excelConsumer.parseToList(excelConsumer.getSheets().get(0));
+        String sql = updateSQLGen.gen(results);
+        return sql;
+    }
+
 
     /**
      * 初始化处理类
@@ -57,23 +66,30 @@ public class GenContext {
         clazzContext = new ClazzContext(targetClass);
         excelConsumer = new ExcelConsumer();
         insertSQLGen = new InsertSQLGen();
+        updateSQLGen = new UpdateSQLGen(updateSQL == null ? "" : updateSQL, clazzContext);
 
         excelConsumer.setClazzContext(clazzContext);
         insertSQLGen.setClazzContext(clazzContext);
+
+
         excelConsumer.setDateFormat(dateFormat == null ? DEFAULT_DATE_FORMAT : dateFormat);
         insertSQLGen.setDateFormat(dateFormat == null ? DEFAULT_DATE_FORMAT : dateFormat);
-        insertSQLGen.setTableName(tableName);    //"order_history_address"
-        insertSQLGen.setColumns(columns); //"address_id, company_id, province, city, district, detail, operation_time,operator_id,province_id,city_id,district_id,contact_name, contact_phone"
+
+        insertSQLGen.setTableName(tableName == null ? "" : tableName);    //"order_history_address"
+        insertSQLGen.setColumns(columns == null ? "" : columns); //"address_id, company_id, province, city, district, detail, operation_time,operator_id,province_id,city_id,district_id,contact_name, contact_phone"
+
+
     }
 
 
     public static final class Builder {
-        private String path;
+        private String path;            //excel路径
         private Class targetClass;
-        private String tableName;
-        private String columns;
-        private Function enhance;
+        private String tableName;       //表名
+        private String columns;         //insert 的列名，用逗号分隔
+        private Function enhance;       //对list进行一些处理
         private DateFormat dateFormat;  //excel处理日期类型
+        private String updateSQL;   //
 
         private Builder() {
         }
@@ -112,14 +128,21 @@ public class GenContext {
             return this;
         }
 
-        public GenContext build() {
+        public Builder withUpdateSQL(String updateSQL) {
+            this.updateSQL = updateSQL;
+            return this;
+        }
+
+        public GenContext build() throws IOException {
             GenContext genContext = new GenContext();
             genContext.tableName = this.tableName;
-            genContext.targetClass = this.targetClass;
-            genContext.columns = this.columns;
-            genContext.enhance = this.enhance;
+            genContext.updateSQL = this.updateSQL;
             genContext.path = this.path;
+            genContext.enhance = this.enhance;
+            genContext.targetClass = this.targetClass;
             genContext.dateFormat = this.dateFormat;
+            genContext.columns = this.columns;
+            genContext.init();
             return genContext;
         }
     }

@@ -35,4 +35,19 @@ public class ObjectBoom {
         List<Integer> integers = new ArrayList<Integer>();
         System.out.println(integers);
     }
+
+
+    @Test
+    public void typeTransTest() {
+        Long a = 100L;
+        Object b = a;
+        System.out.println(b instanceof Long);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testList() {
+        List list = new ArrayList(100);
+        list.add(10, "dsfsaf");
+        System.out.println(list);
+    }
 }

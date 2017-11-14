@@ -13,9 +13,9 @@
 
     <!--<ldap:ldap-template id="ldapTemplate"-->
         <!--ignore-partial-result="true"/>-->
-    <ldap-server root="dc=springframework,dc=org"/>
-    <ldap-server ldif="classpath:users.ldif" />
+    <!--<ldap-server root="dc=springframework,dc=org"/>-->
+    <!--<ldap-server ldif="classpath:users.ldif" />-->
 
-    <ldap-authentication-provider user-search-filter="(uid={0})"
-                                  user-search-base="ou=people"/>
+    <!--<ldap-authentication-provider user-search-filter="(uid={0})"-->
+                                  <!--user-search-base="ou=people"/>-->
 </beans>

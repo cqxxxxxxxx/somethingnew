@@ -1,6 +1,6 @@
 package com.cqx.gen.excel.model;
 
-import com.cqx.gen.ColumnSort;
+import com.cqx.gen.Mapping;
 
 import java.util.Date;
 
@@ -13,16 +13,16 @@ public class OrderHistoryAddress {
 
     private Integer companyId;
 
-    @ColumnSort(1)
+    @Mapping(index = 1)
     private String province;
 
-    @ColumnSort(2)
+    @Mapping(index = 2)
     private String city;
 
-    @ColumnSort(3)
+    @Mapping(index = 3)
     private String district;
 
-    @ColumnSort(4)
+    @Mapping(index = 4)
     private String detail;
 
     private Date operationTime;
@@ -35,10 +35,10 @@ public class OrderHistoryAddress {
 
     private Integer districtId;
 
-    @ColumnSort(5)
+    @Mapping(index = 5)
     private String contactName;
 
-    @ColumnSort(6)
+    @Mapping(index = 6)
     private String contactPhone;
 
     public Long getAddressId() {

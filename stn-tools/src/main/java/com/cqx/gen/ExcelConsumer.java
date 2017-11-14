@@ -20,6 +20,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by BG307435 on 2017/9/21.
@@ -41,16 +42,17 @@ public class ExcelConsumer implements IExcelConsumer {
     public List parseToList(Sheet sheet) throws IllegalAccessException, InstantiationException, InvocationTargetException {
         Row row;
         Cell cell;
-        final List<Method> setMethods = clazzContext.getSetMethods();
+        Method method;
+        final Map<Integer, Method> setMethodsMap = clazzContext.getSetMethodsMap();
         final int rowNum = sheet.getLastRowNum();
-        final int columnNum = sheet.getRow(0).getLastCellNum();
         List<Object> results = new ArrayList<>(1024);
         for (int i = 1; i <= rowNum; i++) {
             row = sheet.getRow(i);
             Object obj = clazzContext.getClazz().newInstance();
-            for (int j = 0; j < columnNum; j++) {
-                cell = row.getCell(j);
-                Method method = setMethods.get(j);
+            for (Map.Entry<Integer, Method> entry : setMethodsMap.entrySet()) {
+                Integer index = entry.getKey();
+                cell = row.getCell(index);
+                method = entry.getValue();
                 Class type = method.getParameterTypes()[0];
                 //调用set方法 注入值
                 if (type == String.class) {

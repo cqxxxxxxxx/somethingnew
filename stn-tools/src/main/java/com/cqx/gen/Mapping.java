@@ -8,9 +8,17 @@ import java.lang.annotation.*;
 @Target({ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
-public @interface ColumnSort {
+public @interface Mapping {
 
-    int value();
+    /**
+     * 对应的excel中列的序号
+     * @return
+     */
+    int index();
+
+
+    int SQLIndex() default 0;
 
     String des() default "";
+
 }
