@@ -21,16 +21,18 @@ public class GenContext {
 
     private String path;            //excel路径
     private Class targetClass;
-    private String tableName;       //表名
-    private String columns;         //insert 的列名，用逗号分隔
+
     private Function enhance;       //对list进行一些处理
     private DateFormat dateFormat;  //excel处理日期类型
     private ClazzContext clazzContext;  //保存类信息
     private ExcelConsumer excelConsumer;    //处理excel 转成list
+
     private InsertSQLGen insertSQLGen;      //根据list生成sql
+    private String tableName;       //表名
+    private String columns;         //insert 的列名，用逗号分隔
 
     private UpdateSQLGen updateSQLGen;      //
-    private String updateSQL;   //
+    private String updateSQL;   //sql模版 update user set name = {1}, sex = {2} where id = {3}
 
     /**
      * 生成sql
@@ -39,21 +41,35 @@ public class GenContext {
      * @throws InvocationTargetException
      * @throws InstantiationException
      */
-    public String genSql() throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        excelConsumer.consume(path);
-        List results = excelConsumer.parseToList(excelConsumer.getSheets().get(0));
-        if (enhance != null) {
-            results = (List) results.stream().map(enhance).collect(Collectors.toList());  //增强处理 enhance
+    public String insertSQL() throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        List results = null;
+        try {
+            results = excelToList(path);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         String sql = insertSQLGen.gen(results);
         return sql;
     }
 
-    public String genUpdateSQL() throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
-        excelConsumer.consume(path);
-        List results = excelConsumer.parseToList(excelConsumer.getSheets().get(0));
+    public String updateSQL() {
+        List results = null;
+        try {
+            results = excelToList(path);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         String sql = updateSQLGen.gen(results);
         return sql;
+    }
+
+    private List excelToList(String path) throws IOException, IllegalAccessException, InvocationTargetException, InstantiationException {
+        excelConsumer.consume(path);
+        List results = excelConsumer.parseToList(excelConsumer.getSheets().get(0));
+        if (enhance != null) {
+            results = (List) results.stream().map(enhance).collect(Collectors.toList());  //增强处理 enhance
+        }
+        return results;
     }
 
 
@@ -71,14 +87,11 @@ public class GenContext {
         excelConsumer.setClazzContext(clazzContext);
         insertSQLGen.setClazzContext(clazzContext);
 
-
         excelConsumer.setDateFormat(dateFormat == null ? DEFAULT_DATE_FORMAT : dateFormat);
         insertSQLGen.setDateFormat(dateFormat == null ? DEFAULT_DATE_FORMAT : dateFormat);
 
         insertSQLGen.setTableName(tableName == null ? "" : tableName);    //"order_history_address"
         insertSQLGen.setColumns(columns == null ? "" : columns); //"address_id, company_id, province, city, district, detail, operation_time,operator_id,province_id,city_id,district_id,contact_name, contact_phone"
-
-
     }
 
 

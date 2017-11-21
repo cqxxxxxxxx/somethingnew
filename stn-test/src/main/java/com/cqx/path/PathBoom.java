@@ -25,6 +25,14 @@ public class PathBoom {
         System.out.println(file1.getName());
     }
 
+    @Test
+    public void test2() {
+        System.out.println(PathBoom.class.getResource("/").getPath()); //到classes目录
+        System.out.println(PathBoom.class.getResource("")); //到具体包所在目录
+        System.out.println(PathBoom.class.getClassLoader().getResource("")); //到classes目录
+        System.out.println(PathBoom.class.getClassLoader().getResource("/")); // null
+    }
+
 
 
 }

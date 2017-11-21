@@ -21,8 +21,7 @@ import java.util.List;
 /**
  * Created by BG307435 on 2017/11/13.
  */
-@RunWith(SpringRunner.class)
-@SpringBootTest
+
 public class UpdateTest {
 
     @Test
@@ -39,11 +38,11 @@ public class UpdateTest {
     public void testUpdate() throws IOException, IllegalAccessException, InstantiationException, InvocationTargetException {
         GenContext genContext = GenContext.Builder.newBuilder()
                 .withPath("C:\\Users\\BG307435\\Desktop\\管理后台账号修复.xlsx")
-                .withUpdateSQL("update system_user set username = {1}, xm = {2}, mphone = {3} where user_id = {4}")
+                .withUpdateSQL("update system_user set username = {1}, xm = {2}, mphone = {3}, is_ldap = 1 where user_id = {4}")
                 .withTargetClass(User.class)
                 .build();
-        String sql = genContext.genUpdateSQL();
-        File file = new File("C:\\Users\\BG307435\\Desktop\\v1.5.8-prod-历史地址导入87.sql");
+        String sql = genContext.updateSQL();
+        File file = new File("C:\\Users\\BG307435\\Desktop\\spring30-后台管理账号修复.sql");
         if (file.exists()) {
             file.delete();
         }

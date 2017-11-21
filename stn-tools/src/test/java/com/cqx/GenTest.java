@@ -63,14 +63,13 @@ public class GenTest {
                     temp.setOperationTime(new Date());
                     return temp;
                 }).build();
-        String sql = genContext.genSql();
+        String sql = genContext.insertSQL();
         File file = new File("C:\\Users\\BG307435\\Desktop\\v1.5.8-prod-历史地址导入87.sql");
         if (file.exists()) {
             file.delete();
         }
         OutputStream out = new FileOutputStream(file);
         out.write(sql.getBytes());
-
     }
 
     private Integer getProvinceId(String name) {

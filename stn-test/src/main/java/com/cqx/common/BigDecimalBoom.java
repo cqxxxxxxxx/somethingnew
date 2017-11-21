@@ -31,7 +31,17 @@ public class BigDecimalBoom {
     public void integerTest(){
         Integer i = null;
         Assert.assertTrue(i < 1);
+    }
 
+    @Test
+    public void strTest() {
+        String a = "cqx1111";
+        String b = a.replace("cqx", "aaaaaaaaaa");
+        System.out.println(a);
+        System.out.println(b);
+        StringBuilder sb = new StringBuilder();
+        sb.append("\\").append("aaa").append("\\*");
+        System.out.println(sb.toString());
     }
 
     @Test

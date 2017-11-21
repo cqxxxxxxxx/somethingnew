@@ -32,7 +32,7 @@ public class UpdateSQLGen implements UpdateAbility {
                     e.printStackTrace();
                 }
                 if (obj instanceof String) {
-                    return obj;
+                    return "\'" + obj + "\'";
                 }
                 if (obj instanceof Integer) {
                     return obj + "";
