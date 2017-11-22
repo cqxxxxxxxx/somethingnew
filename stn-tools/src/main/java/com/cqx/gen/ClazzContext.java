@@ -10,6 +10,18 @@ import java.util.stream.Collectors;
  */
 public class ClazzContext {
 
+    private Class clazz;
+
+    private Map<Integer, Method> setMethodsMap;
+
+    private List<Method> getMethodsSQL;
+
+    private List<Method> getMethods;
+
+    private List<Method> setMethods;
+
+    private List<Field> fields;
+
     public ClazzContext(Class clazz) {
         this.clazz = clazz;
         parse();
@@ -60,18 +72,6 @@ public class ClazzContext {
         this.setMethods = setMethods;
         this.fields = Arrays.asList(fields);
     }
-
-    private Class clazz;
-
-    private Map<Integer, Method> setMethodsMap;
-
-    private List<Method> getMethodsSQL;
-
-    private List<Method> getMethods;
-
-    private List<Method> setMethods;
-
-    private List<Field> fields;
 
     public Class getClazz() {
         return clazz;

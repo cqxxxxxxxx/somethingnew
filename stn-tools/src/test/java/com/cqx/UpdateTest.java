@@ -37,12 +37,12 @@ public class UpdateTest {
     @Test
     public void testUpdate() throws IOException, IllegalAccessException, InstantiationException, InvocationTargetException {
         GenContext genContext = GenContext.Builder.newBuilder()
-                .withPath("C:\\Users\\BG307435\\Desktop\\管理后台账号修复.xlsx")
+                .withPath("C:\\Users\\BG307435\\Desktop\\UAT账号修复.xlsx")
                 .withUpdateSQL("update system_user set username = {1}, xm = {2}, mphone = {3}, is_ldap = 1 where user_id = {4}")
                 .withTargetClass(User.class)
                 .build();
         String sql = genContext.updateSQL();
-        File file = new File("C:\\Users\\BG307435\\Desktop\\spring30-后台管理账号修复.sql");
+        File file = new File("C:\\Users\\BG307435\\Desktop\\spring30-UAT后台管理账号修复.sql");
         if (file.exists()) {
             file.delete();
         }

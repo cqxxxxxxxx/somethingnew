@@ -8,13 +8,9 @@ import java.util.List;
  */
 public class UpdateSQLGen implements UpdateAbility {
 
-    private final String updateSQL;
-    private final ClazzContext clazzContext;
+    private String updateSQL;
+    private ClazzContext clazzContext;
 
-    public UpdateSQLGen(String updateSQL, ClazzContext clazzContext) {
-        this.updateSQL = updateSQL;
-        this.clazzContext = clazzContext;
-    }
 
     @Override
     public String gen(List list) {
@@ -46,4 +42,12 @@ public class UpdateSQLGen implements UpdateAbility {
         return sb.toString();
     }
 
+    @Override
+    public void setUpdateSQL(String sql) {
+        this.updateSQL = sql;
+    }
+
+    public void setClazzContext(ClazzContext clazzContext) {
+        this.clazzContext = clazzContext;
+    }
 }

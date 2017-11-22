@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.regex.Pattern;
 
 /**
+ * 一个文件向另个里插入合并
  * Created by BG307435 on 2017/11/21.
  */
 public class MergeFile {
@@ -72,7 +73,7 @@ public class MergeFile {
             }
             readerO.close();
 
-            String replaceContent = "\n" + sb.toString() + "\n"; //*FILM + 需要添加的内容
+            String replaceContent = sb.toString(); //*FILM + 需要添加的内容
 
             sb = new StringBuilder();
             while ((temp = readerT.readLine()) != null) {

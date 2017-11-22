@@ -80,18 +80,20 @@ public class GenContext {
     private void init() throws IOException {
         log.info("初始化处理类...");
         clazzContext = new ClazzContext(targetClass);
+
         excelConsumer = new ExcelConsumer();
-        insertSQLGen = new InsertSQLGen();
-        updateSQLGen = new UpdateSQLGen(updateSQL == null ? "" : updateSQL, clazzContext);
-
         excelConsumer.setClazzContext(clazzContext);
-        insertSQLGen.setClazzContext(clazzContext);
-
         excelConsumer.setDateFormat(dateFormat == null ? DEFAULT_DATE_FORMAT : dateFormat);
-        insertSQLGen.setDateFormat(dateFormat == null ? DEFAULT_DATE_FORMAT : dateFormat);
 
+        insertSQLGen = new InsertSQLGen();
+        insertSQLGen.setClazzContext(clazzContext);
+        insertSQLGen.setDateFormat(dateFormat == null ? DEFAULT_DATE_FORMAT : dateFormat);
         insertSQLGen.setTableName(tableName == null ? "" : tableName);    //"order_history_address"
         insertSQLGen.setColumns(columns == null ? "" : columns); //"address_id, company_id, province, city, district, detail, operation_time,operator_id,province_id,city_id,district_id,contact_name, contact_phone"
+
+        updateSQLGen = new UpdateSQLGen();
+        updateSQLGen.setClazzContext(clazzContext);
+        updateSQLGen.setUpdateSQL(updateSQL == null? "" : updateSQL);
     }
 
 
