@@ -4,10 +4,34 @@
 
 #### stn-tools
 1. hibernateValidator 与注解 springaop 的整合
+2. 根据excel生成sql 
+3. 文件合并
+4. 银行卡识别
+
+#### stn-spring-jpa
+spring-jpa的demo
+
+#### stn-spring-ldap
+spring-ldap demo
+
+#### stn-zookeeper
+zookeeper learning demo
+
+#### stn-dubbo
+dubbo简单学习
+
+#### stn-rabbitmq
+1.rabbitmq learning demo
+2.spring-amqp
+
+#### stn-mongodb
+1.spring-data-mongodb的使用
+2.spring mongoTemplate相关使用
 
 
 #### stn-redis
-redis在spring中作为缓存的简单demo
+1.redis在spring中作为缓存的简单demo
+2.redis发布订阅实现
 
 #### stn-mq
 activemq消息队列的点对点实现demo
@@ -28,6 +52,7 @@ activemq消息队列的点对点实现demo
 2. 平衡二叉查找树(Balanced BST) 的JAVA实现
 3. 二分查找法
 4. 冒泡查找
+
 
 
 #### stn-annotation
