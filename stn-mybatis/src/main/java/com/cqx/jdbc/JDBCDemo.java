@@ -16,7 +16,7 @@ public class JDBCDemo {
     @Test
     public void test(){
         List list = queryForList();
-        list.stream().forEach(x -> System.out.println(x));
+        list.stream().forEach(System.out::println);
     }
 
     public static List<Map<String,Object>> queryForList(){

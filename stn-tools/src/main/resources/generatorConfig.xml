@@ -12,9 +12,9 @@
 
         <!--数据库连接 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://localhost:3306/somethingnew"
+                        connectionURL="jdbc:mysql://localhost:3306/cqxxxxxxxx"
                         userId="root"
-                        password="">
+                        password="123456">
         </jdbcConnection>
         <!--默认false
            Java type resolver will always use java.math.BigDecimal if the database column is of type DECIMAL or NUMERIC.
@@ -48,11 +48,11 @@
                <!--enableSelectByExample="false" selectByExampleQueryId="false">-->
         <!--</table>-->
 
-        <table tableName="bsp" domainObjectName="Bsp"
+        <table tableName="activity" domainObjectName="Activity"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>
-        <table tableName="standard" domainObjectName="Standard"
+        <table tableName="activity_carrier_log" domainObjectName="ActivityCarrierLog"
                enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false"
                enableSelectByExample="false" selectByExampleQueryId="false">
         </table>

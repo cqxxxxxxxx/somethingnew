@@ -116,28 +116,29 @@ public class Boom {
 
     @Test
     public void split() {
-        String phoneStr = "13910394576\n" +
-                "15251766970\n" +
-                "17706535333\n";
+        String phoneStr = "";
+        String old = "";
         String[] phones = phoneStr.split("\n");
-        System.out.println(phones.length);
+        String[] oldPhones = old.split("\n");
+        System.out.println("phones:" + phones.length + "---old:" + oldPhones.length);
+
         List<String> badDatas = Arrays.stream(phones).filter(x -> x.length() != 11).map(String::trim).collect(Collectors.toList());
         List<String> goodDatas = Arrays.stream(phones).filter(x -> x.length() == 11).map(String::trim).collect(Collectors.toList());
+        List<String> oldDatas = Arrays.stream(oldPhones).filter(x -> x.length() == 11).map(String::trim).collect(Collectors.toList());
         String result = goodDatas.stream().map(x -> "\"" + x + "\"").collect(Collectors.joining(","));
+        System.out.println("badDatas:" + badDatas.size() + "---goodDatas:" + goodDatas.size() + "---oldDatas:" + oldDatas.size());
         System.out.println(result);
 
-        //查找重复出现的
+//      打印出跟老数据重复的
+        goodDatas.stream().filter(x -> oldDatas.contains(x)).forEach(System.out::println);
+
+        //查找同一份数据里重复出现的
         List<String> aaa = goodDatas.stream().filter(x ->
             goodDatas.stream().filter(s -> s.equals(x)).count() > 1).collect(Collectors.toList());
         System.out.println(aaa);
     }
 
 
-    @Test
-    public void test111() {
-        String a = "Yuan Xingjun <xjyuan@best-inc.com>; Xing Cheng <xingcheng@best-inc.com>; Guo Lulu <guolulu@best-inc.com>; Wang Enren <erwang@best-inc.com>; Han Qunyi <qyhan@best-inc.com>; Xie Gui <xiegui@best-inc.com>; Li Sen(HZ) <lisen.hz@best-inc.com>; Wu Haibao <hbwu@best-inc.com>; Luo Xinyue <luoxy.hr@best-inc.com>; Liu Ling <liuling@best-inc.com>; Liang Jiawei <jwliang94@best-inc.com>; Qian Yifan <yfqian.hz@best-inc.com>; Wang Yuting <BG275579@best-inc.com>; Feng Caiyun <cyfeng@best-inc.com>; Kong Xiangling <xlkong@best-inc.com>; Li Changxin <licx@best-inc.com>; Yang Jiaqi <yjq@best-inc.com>; Yuan Qianyun <qyyuan@best-inc.com>; Zhao Junmei <jmzhao@best-inc.com>; Huang Chan <chuang45@best-inc.com>; Liu Mengjiao <mjliu@best-inc.com>; Wang Meng <mwang81@best-inc.com>; Cui Hui <hcui46@best-inc.com>; Xu Lingjie <ljxu@best-inc.com>; Jin Yi <yjin@best-inc.com>; Yang Jinlian <jlyang.hz@best-inc.com>; Sun Jinping <jpsun@best-inc.com>; Mao Zhaoxin <zxmao@best-inc.com>; Zhang Lianming <zhanglm@best-inc.com>; Zhang guiyuan <gyzhang@best-inc.com>; Huang Xiaoqing <xqhuang.rd@best-inc.com>; Zhu Huaping <hpzhu@best-inc.com>; Wang Lixuan <lxwang.wlx@best-inc.com>; Yang Jing(RD) <jyang.hz@best-inc.com>; Chen Jixing <jxchen35@best-inc.com>";
-        System.out.println(a.split(";").length);
-    }
 
     @Test
     public void testInstanceOf() {
