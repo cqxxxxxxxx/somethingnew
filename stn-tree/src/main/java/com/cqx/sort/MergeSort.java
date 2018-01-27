@@ -14,7 +14,7 @@ public class MergeSort<T extends Comparable<T>> {
      * IN_PLACE（原地算法） 直接修改输入的序列而不是创建新的序列，节省内存空间
      * NOT_IN_PLACE 创建一个新的序列作为有序的序列
      */
-    public static enum SPACE_TYPE {
+    private enum SPACE_TYPE {
         IN_PLACE, NOT_IN_PLACE
     }
 

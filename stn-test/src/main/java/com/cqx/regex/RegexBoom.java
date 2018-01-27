@@ -2,6 +2,7 @@ package com.cqx.regex;
 
 import org.junit.Test;
 
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 /**
@@ -9,6 +10,16 @@ import java.util.regex.Pattern;
  */
 public class RegexBoom {
 
+    @Test
+    public void test3() {
+        Pattern STATUS_ERROR = Pattern.compile("^.*单状态为【.*】，无法进行[支付]|[【付款】]操作$");
+        Pattern COMPANY_ERROR = Pattern.compile("^公司id为\\[\\d+]已被停用$");
+        Matcher matcher = STATUS_ERROR.matcher("临时单状态为【wdd】，无法进行支付操作");
+        Matcher matcher1 = COMPANY_ERROR.matcher("公司id为[123]已被停用");
+        System.out.println(matcher.replaceAll("======"));
+        System.out.println(matcher1.replaceAll("+++++"));
+
+    }
 
     @Test
     public void test1() {

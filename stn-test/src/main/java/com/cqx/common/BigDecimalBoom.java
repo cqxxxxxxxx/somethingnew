@@ -29,8 +29,12 @@ public class BigDecimalBoom {
 
     @Test
     public void integerTest(){
-        Integer i = null;
-        Assert.assertTrue(i < 1);
+//        Integer i = null;
+//        Assert.assertTrue(i < 1);
+
+        System.out.println(BigDecimal.valueOf(1.02).multiply(BigDecimal.valueOf(100)));
+        System.out.println(BigDecimal.valueOf(1.02).multiply(BigDecimal.valueOf(100)).longValue());
+
     }
 
     @Test
