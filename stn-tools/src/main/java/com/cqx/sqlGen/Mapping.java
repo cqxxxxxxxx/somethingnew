@@ -1,4 +1,4 @@
-package com.cqx.gen;
+package com.cqx.sqlGen;
 
 import java.lang.annotation.*;
 
@@ -12,10 +12,10 @@ public @interface Mapping {
 
     /**
      * 对应的excel中列的序号
+     *
      * @return
      */
     int index();
-
 
     int SQLIndex() default 0;
 

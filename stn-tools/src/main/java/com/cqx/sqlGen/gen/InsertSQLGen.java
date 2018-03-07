@@ -1,5 +1,6 @@
-package com.cqx.gen;
+package com.cqx.sqlGen.gen;
 
+import com.cqx.sqlGen.ClazzContext;
 import org.springframework.util.StringUtils;
 
 import java.lang.reflect.InvocationTargetException;
@@ -25,14 +26,11 @@ public class InsertSQLGen implements InsertAbility {
     private DateFormat dateFormat;
 
     @Override
-    public void setColumns(String columns) {
+    public void setTableAndColumns(String tableName, String columns) {
         String[] strs = columns.split(",");
         this.columns = Arrays.asList(strs);
-    }
-
-    @Override
-    public void setTableName(String tableName) {
         this.table = tableName;
+
     }
 
     @Override
@@ -45,7 +43,7 @@ public class InsertSQLGen implements InsertAbility {
         return sb.toString();
     }
 
-    public void execList(List list) {
+    private void execList(List list) {
         if (list.size() < 1) {
             throw new IllegalArgumentException("sheet rows must bigger than 1");
         }

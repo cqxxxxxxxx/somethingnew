@@ -1,4 +1,4 @@
-package com.cqx.gen;
+package com.cqx.sqlGen;
 
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;

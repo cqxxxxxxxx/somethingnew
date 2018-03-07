@@ -1,4 +1,8 @@
-package com.cqx.gen;
+package com.cqx.sqlGen.gen;
+
+
+import com.cqx.sqlGen.ClazzContext;
+import com.cqx.sqlGen.Parser;
 
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;

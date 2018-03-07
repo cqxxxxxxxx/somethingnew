@@ -1,4 +1,4 @@
-package com.cqx.gen;
+package com.cqx.sqlGen.gen;
 
 import java.util.List;
 

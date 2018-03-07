@@ -21,5 +21,6 @@ public class IntegerTest {
         System.out.println(a.equals(a1));
         System.out.println(b.equals(b1));
         System.out.println(c.equals(c1));
+        System.out.println(new Integer(10000) == 10000);
     }
 }

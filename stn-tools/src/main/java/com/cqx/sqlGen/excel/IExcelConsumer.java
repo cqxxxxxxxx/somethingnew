@@ -1,4 +1,4 @@
-package com.cqx.gen;
+package com.cqx.sqlGen.excel;
 
 
 import org.apache.poi.ss.usermodel.Sheet;

@@ -1,5 +1,6 @@
-package com.cqx.gen;
+package com.cqx.sqlGen.excel;
 
+import com.cqx.gen.ClazzContext;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;
@@ -7,7 +8,6 @@ import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.omg.CORBA.PUBLIC_MEMBER;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -16,7 +16,6 @@ import java.io.InputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -33,6 +32,7 @@ public class ExcelConsumer implements IExcelConsumer {
 
     /**
      * sheet解析到参数对象的list
+     *
      * @param sheet
      * @return
      * @throws IllegalAccessException

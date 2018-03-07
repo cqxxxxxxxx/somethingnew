@@ -1,4 +1,4 @@
-package com.cqx.gen;
+package com.cqx.sqlGen;
 
 /**
  * Created by BG307435 on 2017/11/14.
@@ -7,6 +7,7 @@ public class Parser {
 
     /**
      * 将字符串text中由openToken和closeToken组成的占位符依次替换为args数组中的值
+     *
      * @param openToken
      * @param closeToken
      * @param text
@@ -93,6 +94,7 @@ public class Parser {
 
     /**
      * 使用示例
+     *
      * @param args
      */
     public static void main(String... args) {

@@ -1,5 +1,8 @@
-package com.cqx.gen;
+package com.cqx.sqlGen;
 
+import com.cqx.gen.ExcelConsumer;
+import com.cqx.gen.InsertSQLGen;
+import com.cqx.gen.UpdateSQLGen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -36,6 +39,7 @@ public class GenContext {
 
     /**
      * 生成sql
+     *
      * @throws IOException
      * @throws IllegalAccessException
      * @throws InvocationTargetException
@@ -75,6 +79,7 @@ public class GenContext {
 
     /**
      * 初始化处理类
+     *
      * @throws IOException
      */
     private void init() throws IOException {
@@ -93,7 +98,7 @@ public class GenContext {
 
         updateSQLGen = new UpdateSQLGen();
         updateSQLGen.setClazzContext(clazzContext);
-        updateSQLGen.setUpdateSQL(updateSQL == null? "" : updateSQL);
+        updateSQLGen.setUpdateSQL(updateSQL == null ? "" : updateSQL);
     }
 
 

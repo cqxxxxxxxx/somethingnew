@@ -1,4 +1,4 @@
-package com.cqx.gen.excel.model;
+package com.cqx.sqlGen.db.model;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

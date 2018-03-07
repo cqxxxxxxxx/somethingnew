@@ -1,6 +1,6 @@
-package com.cqx.gen.excel.dao;
+package com.cqx.sqlGen.db.dao;
 
-import com.cqx.gen.excel.model.Canton;
+import com.cqx.sqlGen.db.model.Canton;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.cqx.gen.excel;
+package com.cqx.sqlGen.db;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
