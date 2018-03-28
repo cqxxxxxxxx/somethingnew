@@ -1,5 +1,6 @@
 package com.cqx.controller;
 
+import com.cqx.component.DemoComponent;
 import com.cqx.dao.UserDao;
 import com.cqx.model.User;
 import org.slf4j.Logger;
@@ -23,7 +24,8 @@ public class IndexController {
 
     @Autowired
     UserDao userDao;
-
+    @Autowired
+    DemoComponent demoComponent;
 
     @GetMapping
     public String toIndex() {
@@ -113,5 +115,11 @@ public class IndexController {
         User user = userDao.findByPrimaryKey("Computers", "11111111");
         List<User> users = userDao.search("1111111");
         return user;
+    }
+
+    @GetMapping("/aop")
+    public String aop() {
+        String name = demoComponent.getName();
+        return name;
     }
 }

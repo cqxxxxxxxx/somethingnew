@@ -1,10 +1,9 @@
 package com.cqx;
 
-import com.cqx.gen.ClazzContext;
-import com.cqx.gen.GenContext;
-import com.cqx.gen.excel.dao.CantonRepository;
-import com.cqx.gen.excel.model.Canton;
-import com.cqx.gen.excel.model.OrderHistoryAddress;
+import com.cqx.sqlGen.GenContext;
+import com.cqx.sqlGen.db.dao.CantonRepository;
+import com.cqx.sqlGen.db.model.Canton;
+import com.cqx.sqlGen.db.model.OrderHistoryAddress;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;

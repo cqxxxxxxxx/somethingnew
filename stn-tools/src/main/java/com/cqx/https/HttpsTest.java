@@ -1,6 +1,7 @@
 package com.cqx.https;
 
 import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import org.junit.Test;
 
 import javax.net.ssl.*;
@@ -78,6 +79,8 @@ public class HttpsTest {
         out.write(a);
         System.out.println(a.toString());
         httpsConn.disconnect();
+//        List<String> a = new ArrayList<>();
+//        a.retainAll()
     }
 
 
@@ -101,6 +104,15 @@ public class HttpsTest {
         Map a = new HashMap();
         Object b = a.get("adfasf");
         System.out.println(b);
+
+        JSONObject jsonObject = JSON.parseObject("{}");
+        jsonObject.put("success", true);
+        System.out.println(jsonObject);
+        boolean d = (boolean) jsonObject.get("success");
+        Integer status = jsonObject.getInteger("status");
+        System.out.println(status);
+        System.out.println(d);
+        System.out.println(jsonObject.getIntValue("asdfas"));
     }
 
     private static class HostnameVerifierM implements HostnameVerifier {
