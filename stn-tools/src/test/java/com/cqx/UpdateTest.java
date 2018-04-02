@@ -1,13 +1,10 @@
 package com.cqx;
 
-import com.cqx.gen.ClazzContext;
-import com.cqx.gen.ExcelConsumer;
-import com.cqx.gen.GenContext;
-import com.cqx.gen.excel.model.User;
+import com.cqx.sqlGen.ClazzContext;
+import com.cqx.sqlGen.GenContext;
+import com.cqx.sqlGen.db.model.User;
+import com.cqx.sqlGen.excel.ExcelConsumer;
 import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringRunner;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -15,8 +12,8 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.lang.reflect.InvocationTargetException;
 import java.text.SimpleDateFormat;
-
 import java.util.List;
+
 
 /**
  * Created by BG307435 on 2017/11/13.

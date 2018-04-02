@@ -1,6 +1,6 @@
 package com.cqx.sqlGen.excel;
 
-import com.cqx.gen.ClazzContext;
+import com.cqx.sqlGen.ClazzContext;
 import org.apache.poi.hssf.usermodel.HSSFDateUtil;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Cell;

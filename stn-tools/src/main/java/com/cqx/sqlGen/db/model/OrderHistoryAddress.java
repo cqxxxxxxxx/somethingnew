@@ -1,6 +1,7 @@
 package com.cqx.sqlGen.db.model;
 
-import com.cqx.gen.Mapping;
+
+import com.cqx.sqlGen.Mapping;
 
 import java.util.Date;
 

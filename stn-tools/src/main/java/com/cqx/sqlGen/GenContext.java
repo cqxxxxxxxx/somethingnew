@@ -1,8 +1,9 @@
 package com.cqx.sqlGen;
 
-import com.cqx.gen.ExcelConsumer;
-import com.cqx.gen.InsertSQLGen;
-import com.cqx.gen.UpdateSQLGen;
+
+import com.cqx.sqlGen.excel.ExcelConsumer;
+import com.cqx.sqlGen.gen.InsertSQLGen;
+import com.cqx.sqlGen.gen.UpdateSQLGen;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -93,8 +94,8 @@ public class GenContext {
         insertSQLGen = new InsertSQLGen();
         insertSQLGen.setClazzContext(clazzContext);
         insertSQLGen.setDateFormat(dateFormat == null ? DEFAULT_DATE_FORMAT : dateFormat);
-        insertSQLGen.setTableName(tableName == null ? "" : tableName);    //"order_history_address"
-        insertSQLGen.setColumns(columns == null ? "" : columns); //"address_id, company_id, province, city, district, detail, operation_time,operator_id,province_id,city_id,district_id,contact_name, contact_phone"
+//        insertSQLGen.setTableName(tableName == null ? "" : tableName);    //"order_history_address"
+//        insertSQLGen.setColumns(columns == null ? "" : columns); //"address_id, company_id, province, city, district, detail, operation_time,operator_id,province_id,city_id,district_id,contact_name, contact_phone"
 
         updateSQLGen = new UpdateSQLGen();
         updateSQLGen.setClazzContext(clazzContext);

@@ -1,10 +1,7 @@
 package com.cqx.common;
 
-import com.sun.org.apache.xpath.internal.SourceTree;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -153,5 +150,16 @@ public class Boom {
 //        Long.parseLong("0");
         Long l1 = Long.valueOf(0);
         System.out.println(l1.longValue() == 0L);
+    }
+
+
+    @Test
+    public void condition() {
+        if (true && false) {
+            System.out.println("true && false");
+        }
+        if (false || true) {
+            System.out.println("false || true");
+        }
     }
 }
