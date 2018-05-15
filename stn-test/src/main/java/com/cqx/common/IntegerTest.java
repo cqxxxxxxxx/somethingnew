@@ -23,4 +23,16 @@ public class IntegerTest {
         System.out.println(c.equals(c1));
         System.out.println(new Integer(10000) == 10000);
     }
+
+
+    @Test
+    public void test传递() {
+        Integer a = 1;
+        changeValue(a);
+        System.out.println(a);
+    }
+
+    private void changeValue(Integer a) {
+        a = 2;
+    }
 }
