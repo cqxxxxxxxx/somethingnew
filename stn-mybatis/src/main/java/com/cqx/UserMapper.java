@@ -26,5 +26,5 @@ public interface UserMapper {
     void deleteByName(@Param("name") String name);
 
     @MapKey("id")
-    Map getMapTest();
+    Map<Integer, User> getMapTest();
 }
