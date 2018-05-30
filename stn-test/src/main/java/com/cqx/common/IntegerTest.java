@@ -35,4 +35,11 @@ public class IntegerTest {
     private void changeValue(Integer a) {
         a = 2;
     }
+
+    @Test
+    public void doubleTest() {
+        double a = 100.00;
+        System.out.println(a == 100);
+    }
+
 }

@@ -65,4 +65,9 @@ public class BigDecimalBoom {
         System.out.println(a.compareTo(b));
         System.out.println(a.equals(b));
     }
+
+    @Test
+    public void divideTest() {
+        System.out.println(BigDecimal.valueOf(133).divide(BigDecimal.valueOf(155), 2, BigDecimal.ROUND_CEILING));
+    }
 }
