@@ -1,8 +1,6 @@
 package com.cqx.common;
 
 
-
-import org.junit.Assert;
 import org.junit.Test;
 
 import java.math.BigDecimal;
@@ -31,7 +29,7 @@ public class BigDecimalBoom {
     public void integerTest(){
 //        Integer i = null;
 //        Assert.assertTrue(i < 1);
-
+        System.out.println(BigDecimal.ZERO.compareTo(null));
         System.out.println(BigDecimal.valueOf(1.02).multiply(BigDecimal.valueOf(100)));
         System.out.println(BigDecimal.valueOf(1.02).multiply(BigDecimal.valueOf(100)).longValue());
 
@@ -57,5 +55,19 @@ public class BigDecimalBoom {
         BigDecimal bd1 = null;
         System.out.println(bd1);
 //        System.out.println(bd1.toPlainString());  //NullPointerException
+    }
+
+
+    @Test
+    public void testEqual() {
+        BigDecimal a = new BigDecimal("10");
+        BigDecimal b = new BigDecimal("10.00");
+        System.out.println(a.compareTo(b));
+        System.out.println(a.equals(b));
+    }
+
+    @Test
+    public void divideTest() {
+        System.out.println(BigDecimal.valueOf(133).divide(BigDecimal.valueOf(155), 2, BigDecimal.ROUND_CEILING));
     }
 }

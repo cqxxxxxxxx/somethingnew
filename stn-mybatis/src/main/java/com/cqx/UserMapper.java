@@ -1,8 +1,11 @@
 package com.cqx;
 
 
+import org.apache.ibatis.annotations.MapKey;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.Map;
 
 @Mapper
 public interface UserMapper {
@@ -21,4 +24,7 @@ public interface UserMapper {
     User selectByName(@Param("name") String name);
 
     void deleteByName(@Param("name") String name);
+
+    @MapKey("id")
+    Map<Integer, User> getMapTest();
 }

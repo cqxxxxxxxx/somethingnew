@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
  * Created by BG307435 on 2017/8/14.
  */
 @Configuration
-@EnableJpaRepositories("com.cqx.gen.excel.dao")   //Set up Spring to create proxy instances for those interfaces.
+@EnableJpaRepositories("com.cqx.sqlGen.db.dao")   //Set up Spring to create proxy instances for those interfaces.
 @EnableTransactionManagement   //Enables Spring's annotation-driven transaction management capability
 @ComponentScan
 public class JpaConfig {

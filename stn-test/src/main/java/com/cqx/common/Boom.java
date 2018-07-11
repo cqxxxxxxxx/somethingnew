@@ -2,6 +2,7 @@ package com.cqx.common;
 
 import org.junit.Test;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
@@ -160,6 +161,27 @@ public class Boom {
         }
         if (false || true) {
             System.out.println("false || true");
+        }
+    }
+
+    @Test
+    public void foreachTest() {
+        List<One> ones = new ArrayList<>();
+        One one;
+        for (int i = 0; i < 10; i++) {
+            one = new One();
+            one.name = i + "";
+            ones.add(one);
+        }
+        ones.stream().forEach(System.out::print);
+    }
+
+    private class One {
+        String name;
+
+        @Override
+        public String toString() {
+            return name;
         }
     }
 }

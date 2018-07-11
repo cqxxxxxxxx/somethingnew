@@ -11,6 +11,7 @@ import java.util.Calendar;
  */
 public class CalendarBoom {
 
+    private static final DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
     @Test
     public void test1() {
         DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
@@ -24,4 +25,15 @@ public class CalendarBoom {
 
     }
 
+    @Test
+    public void lastMonth() {
+        Calendar cal = Calendar.getInstance();
+        cal.set(2017, 2, 28);
+        cal.add(Calendar.MONTH, -1);
+        System.out.println(df.format(cal.getTime()));
+        cal.set(2017, 3, 30);
+        cal.set(Calendar.MONTH, cal.get(Calendar.MONTH) - 2);
+        System.out.println(df.format(cal.getTime()));
+        System.out.println((double) 120);
+    }
 }
