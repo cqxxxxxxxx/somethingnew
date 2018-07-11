@@ -1,4 +1,4 @@
-package com.cqx.sort;
+package com.cqx.sort.mergeSort;
 
 import java.util.Random;
 

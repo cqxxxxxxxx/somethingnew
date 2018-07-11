@@ -23,7 +23,7 @@ public class LoadDemo {
 
     @Test
     public void loadFromByteArray() throws IOException {
-        String path = "App.class";
+        String path = "com/cqx/AppTest.class";
         InputStream inputStream = classLoader.getResourceAsStream(path);
         byte[] bytes = new byte[1024];
         inputStream.read(bytes);
