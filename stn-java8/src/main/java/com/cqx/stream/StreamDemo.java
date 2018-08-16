@@ -4,7 +4,8 @@ import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Function;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -90,6 +91,36 @@ public class StreamDemo {
         nums.stream()
                 .peek(System.out::println)
                 .forEach(System.out::println);
+    }
+
+
+    @Test
+    public void reduce() {
+        List<Integer> nums = Arrays.asList(1, 2, 3, 4, 5);
+        // 可以给一个起始种子值
+        Integer sum = nums.stream().reduce(10, Integer::sum);
+        System.out.println(sum);
+
+        // 没有起始值时返回为Optional类型
+        Optional<Integer> sumOptional = nums.stream().reduce(Integer::sum);
+        System.out.println(sumOptional.get());
+
+
+        //max reduce
+        Stream<Integer> integerStream = Stream.of(1, 2, 3, 4, 5);
+        Integer maxReduce = integerStream.reduce(Integer.MIN_VALUE, Integer::max);
+        System.out.println(maxReduce);
+
+        // max
+        Stream<Integer> integerStream1 = Stream.of(1, 2, 3, 4, 5);
+        OptionalInt max = integerStream1.mapToInt(i -> i).max();
+        System.out.println(max.getAsInt());
+
+        //构造字符串流
+        List<String> strs = Arrays.asList("H", "E", "L", "L", "O");
+        // reduce
+        String concatReduce = strs.stream().reduce("", String::concat);
+        System.out.println(concatReduce);
     }
 
 

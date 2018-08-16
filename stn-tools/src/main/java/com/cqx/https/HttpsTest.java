@@ -2,6 +2,10 @@ package com.cqx.https;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import org.apache.http.HttpResponse;
+import org.apache.http.client.HttpClient;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.junit.Test;
 
 import javax.net.ssl.*;
@@ -62,9 +66,6 @@ public class HttpsTest {
     @Test
     public void withCer() throws IOException, NoSuchAlgorithmException, KeyManagementException {
         SSLContext ctx = SSLContext.getInstance("TLS");
-
-        ctx.init(null, new TrustManager[]{tm}, null);
-
         SSLSocketFactory ssf = ctx.getSocketFactory();
 
         URL url = new URL("https://testopen.95155.com/apis/login/EF4EA02B7366009D14E40A9AA0BAF0219820E1DB223D49F500B24E2EB8ED520295798E843484ECA22C9590F18CC23532DFF1BFD78C6E9899653D68CCAF76957A14F7854F4C1F109A0A04F56D12EDE31D8A27BB8929A59CB6CAB4E47ED7E2F756?client_id=296b886e-01df-4d46-b6c0-856672dbf31a");
@@ -83,6 +84,16 @@ public class HttpsTest {
 //        a.retainAll()
     }
 
+    @Test
+    public void apacheHttpClient() throws NoSuchAlgorithmException, KeyManagementException, IOException {
+        SSLContext ctx = SSLContext.getInstance("TLS");
+
+        ctx.init(null, new TrustManager[]{tm}, null);
+        HttpClient httpClient = HttpClientBuilder.create().setSSLContext(ctx).setSSLHostnameVerifier(hv).build();
+        HttpGet get = new HttpGet("https://abcdefg.com/");
+        HttpResponse response = httpClient.execute(get);
+        response.getEntity().writeTo(System.out);
+    }
 
     @Test
     public void encodeAndDecode() throws UnsupportedEncodingException {
@@ -114,6 +125,7 @@ public class HttpsTest {
         System.out.println(d);
         System.out.println(jsonObject.getIntValue("asdfas"));
     }
+
 
     private static class HostnameVerifierM implements HostnameVerifier {
 

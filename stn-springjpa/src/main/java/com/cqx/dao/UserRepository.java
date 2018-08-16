@@ -6,11 +6,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.jpa.repository.QueryHints;
-import org.springframework.data.jpa.repository.support.SimpleJpaRepository;
 import org.springframework.data.repository.query.Param;
 
-import javax.persistence.QueryHint;
 import javax.transaction.Transactional;
 
 /**
@@ -23,7 +20,6 @@ public interface UserRepository extends JpaRepository<User, Integer>{
     User findByName(String name);
 
     Page<User> findByName(String name, Pageable pageable);
-
 
     /**
      * namedQuery => 看User类 @NamedQuery

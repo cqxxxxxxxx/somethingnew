@@ -4,7 +4,6 @@ import com.cqx.dao.UserRepository;
 import com.cqx.model.User;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.omg.CORBA.PUBLIC_MEMBER;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.data.domain.Page;
@@ -13,7 +12,6 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.EntityGraph;
 import org.springframework.test.context.junit4.SpringRunner;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -55,7 +53,6 @@ public class JpaTest {
     public void query(){
         List<User> userList = userRepository.findAll();
         userList.stream().forEach(x -> System.out.println(x.getName()));
-
         Pageable pageable = new PageRequest(1, 10, new Sort(Sort.Direction.ASC, "id"));
         Page<User> page = userRepository.findAll(pageable);
         userList = page.getContent();
@@ -67,6 +64,10 @@ public class JpaTest {
     @Test
     public void update(){
         userRepository.modifyById1("三大发射点发a", 20);
+        User user = new User();
+        user.setName("xxxxxx");
+        user.setId(20);
+        userRepository.save(user);
     }
 
     @Test

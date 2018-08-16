@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Date;
 
 /**
  * Created by BG307435 on 2017/9/29.
@@ -35,5 +36,32 @@ public class CalendarBoom {
         cal.set(Calendar.MONTH, cal.get(Calendar.MONTH) - 2);
         System.out.println(df.format(cal.getTime()));
         System.out.println((double) 120);
+    }
+
+    @Test
+    public void dateClone() {
+        Date date = new Date();
+        System.out.println(df.format(date));
+        Date date1 = (Date) date.clone();
+        date1.setYear(1111);
+        System.out.println(df.format(date));
+        System.out.println(df.format(date1));
+    }
+
+    @Test
+    public void day31() {
+        Date endDate = null;
+        Calendar cal = Calendar.getInstance();
+        if (endDate == null) {
+            cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR) - 1);
+        } else {
+            cal.setTime(endDate);
+        }
+        Date endTime = cal.getTime();
+        cal.setTime(endTime);
+        cal.set(Calendar.DAY_OF_YEAR, cal.get(Calendar.DAY_OF_YEAR) - 30);
+        Date startTime = cal.getTime();
+        System.out.println(df.format(endTime));
+        System.out.println(df.format(startTime));
     }
 }

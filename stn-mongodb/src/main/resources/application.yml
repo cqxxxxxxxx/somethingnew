@@ -1,8 +1,9 @@
 spring:
   data:
+    jpa:
+      show-sql: true
     mongodb:
       uri: mongodb://cqx:cqx@47.92.6.210:27017/stn
 logging:
   level: debug
 debug: true
-

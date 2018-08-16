@@ -1,4 +1,4 @@
-package com.cqx.complie;
+package com.cqx.complie.ordinary;
 
 /**
  * Created by BG307435 on 2017/9/5.
