@@ -42,7 +42,7 @@ public class JDBCDemo {
 
             // 设置传入参数
             stmt.setString(1, "1");
-
+            System.out.println(stmt.getResultSet());
             // 执行SQL语句
             rs = stmt.executeQuery();
 
