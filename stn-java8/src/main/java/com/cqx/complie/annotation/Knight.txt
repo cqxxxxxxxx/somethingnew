@@ -1,0 +1,74 @@
+Classfile /Users/cqx/Documents/projects/somethingnew/stn-java8/src/main/java/com/cqx/complie/annotation/Knight.class
+  Last modified 2018年9月5日; size 537 bytes
+  MD5 checksum aae4a0a41d336a99cfacb9b240e8b949
+  Compiled from "Knight.java"
+public class com.cqx.complie.annotation.Knight
+  minor version: 0
+  major version: 54
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #3                          // com/cqx/complie/annotation/Knight
+  super_class: #4                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 2, attributes: 3
+Constant pool:
+   #1 = Methodref          #4.#20         // java/lang/Object."<init>":()V
+   #2 = String             #21            // w s n d
+   #3 = Class              #22            // com/cqx/complie/annotation/Knight
+   #4 = Class              #23            // java/lang/Object
+   #5 = Class              #24            // com/cqx/complie/annotation/Knight$TestAnno
+   #6 = Utf8               TestAnno
+   #7 = Utf8               InnerClasses
+   #8 = Utf8               name
+   #9 = Utf8               Ljava/lang/String;
+  #10 = Utf8               RuntimeVisibleAnnotations
+  #11 = Utf8               Lcom/cqx/complie/annotation/Knight$TestAnno;
+  #12 = Utf8               <init>
+  #13 = Utf8               ()V
+  #14 = Utf8               Code
+  #15 = Utf8               LineNumberTable
+  #16 = Utf8               getName
+  #17 = Utf8               ()Ljava/lang/String;
+  #18 = Utf8               SourceFile
+  #19 = Utf8               Knight.java
+  #20 = NameAndType        #12:#13        // "<init>":()V
+  #21 = Utf8               w s n d
+  #22 = Utf8               com/cqx/complie/annotation/Knight
+  #23 = Utf8               java/lang/Object
+  #24 = Utf8               com/cqx/complie/annotation/Knight$TestAnno
+{
+  public java.lang.String name;
+    descriptor: Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    RuntimeVisibleAnnotations:
+      0: #11()
+        com.cqx.complie.annotation.Knight$TestAnno
+
+  public com.cqx.complie.annotation.Knight();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 12: 0
+
+  public java.lang.String getName();
+    descriptor: ()Ljava/lang/String;
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: ldc           #2                  // String w s n d
+         2: areturn
+      LineNumberTable:
+        line 19: 0
+    RuntimeVisibleAnnotations:
+      0: #11()
+        com.cqx.complie.annotation.Knight$TestAnno
+}
+SourceFile: "Knight.java"
+RuntimeVisibleAnnotations:
+  0: #11()
+    com.cqx.complie.annotation.Knight$TestAnno
+InnerClasses:
+  public static #6= #5 of #3;             // TestAnno=class com/cqx/complie/annotation/Knight$TestAnno of class com/cqx/complie/annotation/Knight
