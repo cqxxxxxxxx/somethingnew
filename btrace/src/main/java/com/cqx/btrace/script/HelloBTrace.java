@@ -10,6 +10,7 @@ import static com.sun.btrace.BTraceUtils.timeNanos;
 
 /**
  * btrace 使用示例
+ * http://calvin1978.blogcn.com/articles/btrace1.html
  */
 @BTrace
 public class HelloBTrace {
