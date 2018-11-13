@@ -1,0 +1,114 @@
+Classfile /E:/projects/somethingnew/stn-jvm/src/main/java/com/cqx/compile/lambda/LambdaHello.class
+  Last modified 2018-11-12; size 1032 bytes
+  MD5 checksum ac957ff39d6c3be54be0c8e2fa624a7f
+  Compiled from "LambdaHello.java"
+public class com.cqx.compile.lambda.LambdaHello
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #8.#17         // java/lang/Object."<init>":()V
+   #2 = InvokeDynamic      #0:#22         // #0:run:()Ljava/lang/Runnable;
+   #3 = Fieldref           #23.#24        // java/lang/System.out:Ljava/io/PrintStream;
+   #4 = Methodref          #8.#25         // java/lang/Object.toString:()Ljava/lang/String;
+   #5 = Methodref          #26.#27        // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #6 = String             #28            // 1123
+   #7 = Class              #29            // com/cqx/compile/lambda/LambdaHello
+   #8 = Class              #30            // java/lang/Object
+   #9 = Utf8               <init>
+  #10 = Utf8               ()V
+  #11 = Utf8               Code
+  #12 = Utf8               LineNumberTable
+  #13 = Utf8               sayHi
+  #14 = Utf8               lambda$sayHi$0
+  #15 = Utf8               SourceFile
+  #16 = Utf8               LambdaHello.java
+  #17 = NameAndType        #9:#10         // "<init>":()V
+  #18 = Utf8               BootstrapMethods
+  #19 = MethodHandle       #6:#31         // invokestatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #20 = MethodType         #10            //  ()V
+  #21 = MethodHandle       #6:#32         // invokestatic com/cqx/compile/lambda/LambdaHello.lambda$sayHi$0:()V
+  #22 = NameAndType        #33:#34        // run:()Ljava/lang/Runnable;
+  #23 = Class              #35            // java/lang/System
+  #24 = NameAndType        #36:#37        // out:Ljava/io/PrintStream;
+  #25 = NameAndType        #38:#39        // toString:()Ljava/lang/String;
+  #26 = Class              #40            // java/io/PrintStream
+  #27 = NameAndType        #41:#42        // println:(Ljava/lang/String;)V
+  #28 = Utf8               1123
+  #29 = Utf8               com/cqx/compile/lambda/LambdaHello
+  #30 = Utf8               java/lang/Object
+  #31 = Methodref          #43.#44        // java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #32 = Methodref          #7.#45         // com/cqx/compile/lambda/LambdaHello.lambda$sayHi$0:()V
+  #33 = Utf8               run
+  #34 = Utf8               ()Ljava/lang/Runnable;
+  #35 = Utf8               java/lang/System
+  #36 = Utf8               out
+  #37 = Utf8               Ljava/io/PrintStream;
+  #38 = Utf8               toString
+  #39 = Utf8               ()Ljava/lang/String;
+  #40 = Utf8               java/io/PrintStream
+  #41 = Utf8               println
+  #42 = Utf8               (Ljava/lang/String;)V
+  #43 = Class              #46            // java/lang/invoke/LambdaMetafactory
+  #44 = NameAndType        #47:#51        // metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #45 = NameAndType        #14:#10        // lambda$sayHi$0:()V
+  #46 = Utf8               java/lang/invoke/LambdaMetafactory
+  #47 = Utf8               metafactory
+  #48 = Class              #53            // java/lang/invoke/MethodHandles$Lookup
+  #49 = Utf8               Lookup
+  #50 = Utf8               InnerClasses
+  #51 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #52 = Class              #54            // java/lang/invoke/MethodHandles
+  #53 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #54 = Utf8               java/lang/invoke/MethodHandles
+{
+  public com.cqx.compile.lambda.LambdaHello();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 6: 0
+
+  public void sayHi();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: invokedynamic #2,  0              // InvokeDynamic #0:run:()Ljava/lang/Runnable;
+         5: astore_1
+         6: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         9: aload_1
+        10: invokevirtual #4                  // Method java/lang/Object.toString:()Ljava/lang/String;
+        13: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+        16: return
+      LineNumberTable:
+        line 9: 0
+        line 12: 6
+        line 13: 16
+
+  private static void lambda$sayHi$0();
+    descriptor: ()V
+    flags: ACC_PRIVATE, ACC_STATIC, ACC_SYNTHETIC
+    Code:
+      stack=2, locals=0, args_size=0
+         0: getstatic     #3                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: ldc           #6                  // String 1123
+         5: invokevirtual #5                  // Method java/io/PrintStream.println:(Ljava/lang/String;)V
+         8: return
+      LineNumberTable:
+        line 10: 0
+        line 11: 8
+}
+SourceFile: "LambdaHello.java"
+InnerClasses:
+     public static final #49= #48 of #52; //Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles
+BootstrapMethods:
+  0: #19 invokestatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #20 ()V
+      #21 invokestatic com/cqx/compile/lambda/LambdaHello.lambda$sayHi$0:()V
+      #20 ()V
