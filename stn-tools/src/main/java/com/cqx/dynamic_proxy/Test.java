@@ -9,6 +9,7 @@ import java.lang.reflect.Proxy;
 public class Test {
 
     public static void main(String[] args){
+        System.setProperty("sun.misc.ProxyGenerator.saveGeneratedFiles", "true");
         IAnimal dog = new Dog("大黄");
         InvocationHandler invocationHandler = new DogProxyInvocationHandler(dog);
         IAnimal animal = (IAnimal) Proxy.newProxyInstance(dog.getClass().getClassLoader(),
