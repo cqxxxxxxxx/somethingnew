@@ -101,6 +101,19 @@
             <version>1.2.6</version>
         </dependency>
 
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.4</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- 状态机库 -->
+		<dependency>
+			<groupId>org.squirrelframework</groupId>
+			<artifactId>squirrel-foundation</artifactId>
+			<version>0.3.8</version>
+		</dependency>
 
 
 	</dependencies>

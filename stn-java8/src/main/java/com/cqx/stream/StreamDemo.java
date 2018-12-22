@@ -2,10 +2,7 @@ package com.cqx.stream;
 
 import org.junit.Test;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -26,6 +23,21 @@ import java.util.stream.Stream;
  * Created by cqx on 2017/2/3.
  */
 public class StreamDemo {
+
+    @Test
+    public void filterTest() {
+        List<String> strings = new ArrayList<>();
+        List<String> result = strings.stream().filter(x -> "0".equals(x)).collect(Collectors.toList());
+        System.out.println(result == null); //false
+        System.out.println(result.size()); //0
+        System.out.println(result.isEmpty()); //true
+
+        List<String> result1 = strings.stream().map(x -> x + "1").collect(Collectors.toList());
+        System.out.println(result1 == null); //false
+        System.out.println(result1.size()); //0
+        System.out.println(result1.isEmpty()); //true
+
+    }
 
     //todo put some java8-stream learning demos
 
