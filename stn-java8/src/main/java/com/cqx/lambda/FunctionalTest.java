@@ -18,7 +18,10 @@ public class FunctionalTest {
         //相当于生成个函数式接口的实现类，
         //就相当于Runnable runnable = () -> System.out.println("Runnable Lambda1");
         FunctionalDemo<Integer> demo =
-                (a1, b1) -> {System.out.println(a1); return a1;};
+                (Integer a1, Integer b1) -> {
+                    System.out.println(a1);
+                    return a1;
+                };
 
         //调用实现类处理
         demo.getSmaller(a, b);

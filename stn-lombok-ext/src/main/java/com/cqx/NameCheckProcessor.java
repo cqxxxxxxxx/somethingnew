@@ -96,12 +96,9 @@ public class NameCheckProcessor extends AbstractProcessor {
             private void checkAllCaps(Element e) {
 
             }
-
             private void checkCamelCase(Element e, boolean initialCaps) {
 
             }
-
-
         }
     }
 
