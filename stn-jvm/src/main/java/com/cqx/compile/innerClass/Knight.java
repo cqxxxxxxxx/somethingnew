@@ -1,4 +1,4 @@
-package com.cqx.complie.innerclass;
+package com.cqx.compile.innerClass;
 
 /**
  * Created by BG307435 on 2018/8/28.

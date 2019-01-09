@@ -1,4 +1,4 @@
-package com.cqx.complie.innerClass;
+package com.cqx.compile.innerClass;
 
 public class OutClass {
     private String a = "231";

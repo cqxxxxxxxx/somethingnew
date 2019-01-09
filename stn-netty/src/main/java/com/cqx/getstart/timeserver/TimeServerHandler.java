@@ -2,10 +2,7 @@ package com.cqx.getstart.timeserver;
 
 import com.cqx.getstart.DefaultServer;
 import io.netty.buffer.ByteBuf;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.channel.*;
 
 /**
  * @desc:
@@ -13,6 +10,7 @@ import io.netty.channel.ChannelInboundHandlerAdapter;
  * @author: cqx
  * @Date: 2019/1/7
  */
+@ChannelHandler.Sharable
 public class TimeServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelActive(final ChannelHandlerContext ctx) { // (1)

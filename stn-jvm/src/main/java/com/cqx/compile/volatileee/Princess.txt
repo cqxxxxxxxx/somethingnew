@@ -2,7 +2,7 @@ Classfile /E:/projects/somethingnew/stn-java8/src/main/java/com/cqx/complie/vola
   Last modified 2018-7-26; size 412 bytes
   MD5 checksum ef8d3d13f25eb0c64d1be402a33c3c39
   Compiled from "Princess.java"
-public class com.cqx.complie.volatileee.Princess
+public class Princess
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
@@ -32,7 +32,7 @@ Constant pool:
     descriptor: Ljava/lang/String;
     flags: ACC_PUBLIC, ACC_VOLATILE
 
-  public com.cqx.complie.volatileee.Princess();
+  public Princess();
     descriptor: ()V
     flags: ACC_PUBLIC
     Code:

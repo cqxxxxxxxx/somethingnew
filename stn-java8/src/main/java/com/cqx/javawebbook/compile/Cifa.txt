@@ -1,0 +1,331 @@
+Classfile /Users/cqx/Documents/projects/somethingnew/stn-java8/src/main/java/com/cqx/javawebbook/compile/Cifa.class
+  Last modified 2018年8月24日; size 2319 bytes
+  MD5 checksum 60c93a0722855cca21029f7eb0219e1a
+  Compiled from "Cifa.java"
+public class com.cqx.javawebbook.compile.Cifa
+  minor version: 0
+  major version: 54
+  flags: (0x0021) ACC_PUBLIC, ACC_SUPER
+  this_class: #24                         // com/cqx/javawebbook/compile/Cifa
+  super_class: #2                         // java/lang/Object
+  interfaces: 0, fields: 1, methods: 6, attributes: 3
+Constant pool:
+    #1 = Methodref          #2.#49        // java/lang/Object."<init>":()V
+    #2 = Class              #50           // java/lang/Object
+    #3 = InvokeDynamic      #0:#55        // #0:run:(Ljava/lang/Object;)Ljava/lang/Runnable;
+    #4 = Fieldref           #24.#56       // com/cqx/javawebbook/compile/Cifa.runnable:Ljava/lang/Runnable;
+    #5 = Class              #57           // com/cqx/javawebbook/compile/Cifa$1
+    #6 = Methodref          #5.#58        // com/cqx/javawebbook/compile/Cifa$1."<init>":(Lcom/cqx/javawebbook/compile/Cifa;Ljava/lang/Object;)V
+    #7 = Long               2l
+    #9 = Methodref          #59.#60       // java/lang/Long.valueOf:(J)Ljava/lang/Long;
+   #10 = Fieldref           #61.#62       // java/lang/System.out:Ljava/io/PrintStream;
+   #11 = Methodref          #59.#63       // java/lang/Long.longValue:()J
+   #12 = Methodref          #64.#65       // java/io/PrintStream.println:(J)V
+   #13 = Methodref          #64.#66       // java/io/PrintStream.println:(I)V
+   #14 = Class              #67           // com/cqx/javawebbook/compile/Cifa$StaticInner
+   #15 = Methodref          #14.#49       // com/cqx/javawebbook/compile/Cifa$StaticInner."<init>":()V
+   #16 = String             #68           // Cqx
+   #17 = Fieldref           #14.#69       // com/cqx/javawebbook/compile/Cifa$StaticInner.name:Ljava/lang/String;
+   #18 = Methodref          #14.#70       // com/cqx/javawebbook/compile/Cifa$StaticInner.getName:()Ljava/lang/String;
+   #19 = Class              #71           // com/cqx/javawebbook/compile/Cifa$PublicInner
+   #20 = Methodref          #19.#72       // com/cqx/javawebbook/compile/Cifa$PublicInner."<init>":(Lcom/cqx/javawebbook/compile/Cifa;)V
+   #21 = Methodref          #73.#74       // java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+   #22 = Fieldref           #19.#75       // com/cqx/javawebbook/compile/Cifa$PublicInner.num:Ljava/lang/Integer;
+   #23 = Methodref          #19.#76       // com/cqx/javawebbook/compile/Cifa$PublicInner.setNum:(I)V
+   #24 = Class              #77           // com/cqx/javawebbook/compile/Cifa
+   #25 = Methodref          #24.#49       // com/cqx/javawebbook/compile/Cifa."<init>":()V
+   #26 = Methodref          #78.#79       // java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+   #27 = Methodref          #64.#80       // java/io/PrintStream.println:(Ljava/lang/Object;)V
+   #28 = String             #81           // cqx
+   #29 = Methodref          #64.#82       // java/io/PrintStream.println:(Ljava/lang/String;)V
+   #30 = Utf8               PublicInner
+   #31 = Utf8               InnerClasses
+   #32 = Utf8               StaticInner
+   #33 = Utf8               runnable
+   #34 = Utf8               Ljava/lang/Runnable;
+   #35 = Utf8               <init>
+   #36 = Utf8               ()V
+   #37 = Utf8               Code
+   #38 = Utf8               LineNumberTable
+   #39 = Utf8               test1
+   #40 = Utf8               test2
+   #41 = Utf8               StackMapTable
+   #42 = Class              #83           // java/lang/Throwable
+   #43 = Utf8               test3
+   #44 = Utf8               test4
+   #45 = Utf8               lambda$new$0
+   #46 = Utf8               (Ljava/lang/Object;)V
+   #47 = Utf8               SourceFile
+   #48 = Utf8               Cifa.java
+   #49 = NameAndType        #35:#36       // "<init>":()V
+   #50 = Utf8               java/lang/Object
+   #51 = Utf8               BootstrapMethods
+   #52 = MethodHandle       6:#84         // REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+   #53 = MethodType         #36           //  ()V
+   #54 = MethodHandle       6:#85         // REF_invokeStatic com/cqx/javawebbook/compile/Cifa.lambda$new$0:(Ljava/lang/Object;)V
+   #55 = NameAndType        #86:#87       // run:(Ljava/lang/Object;)Ljava/lang/Runnable;
+   #56 = NameAndType        #33:#34       // runnable:Ljava/lang/Runnable;
+   #57 = Utf8               com/cqx/javawebbook/compile/Cifa$1
+   #58 = NameAndType        #35:#88       // "<init>":(Lcom/cqx/javawebbook/compile/Cifa;Ljava/lang/Object;)V
+   #59 = Class              #89           // java/lang/Long
+   #60 = NameAndType        #90:#91       // valueOf:(J)Ljava/lang/Long;
+   #61 = Class              #92           // java/lang/System
+   #62 = NameAndType        #93:#94       // out:Ljava/io/PrintStream;
+   #63 = NameAndType        #95:#96       // longValue:()J
+   #64 = Class              #97           // java/io/PrintStream
+   #65 = NameAndType        #98:#99       // println:(J)V
+   #66 = NameAndType        #98:#100      // println:(I)V
+   #67 = Utf8               com/cqx/javawebbook/compile/Cifa$StaticInner
+   #68 = Utf8               Cqx
+   #69 = NameAndType        #101:#102     // name:Ljava/lang/String;
+   #70 = NameAndType        #103:#104     // getName:()Ljava/lang/String;
+   #71 = Utf8               com/cqx/javawebbook/compile/Cifa$PublicInner
+   #72 = NameAndType        #35:#105      // "<init>":(Lcom/cqx/javawebbook/compile/Cifa;)V
+   #73 = Class              #106          // java/lang/Integer
+   #74 = NameAndType        #90:#107      // valueOf:(I)Ljava/lang/Integer;
+   #75 = NameAndType        #108:#109     // num:Ljava/lang/Integer;
+   #76 = NameAndType        #110:#100     // setNum:(I)V
+   #77 = Utf8               com/cqx/javawebbook/compile/Cifa
+   #78 = Class              #111          // java/util/Objects
+   #79 = NameAndType        #112:#113     // requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+   #80 = NameAndType        #98:#46       // println:(Ljava/lang/Object;)V
+   #81 = Utf8               cqx
+   #82 = NameAndType        #98:#114      // println:(Ljava/lang/String;)V
+   #83 = Utf8               java/lang/Throwable
+   #84 = Methodref          #115.#116     // java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+   #85 = Methodref          #24.#117      // com/cqx/javawebbook/compile/Cifa.lambda$new$0:(Ljava/lang/Object;)V
+   #86 = Utf8               run
+   #87 = Utf8               (Ljava/lang/Object;)Ljava/lang/Runnable;
+   #88 = Utf8               (Lcom/cqx/javawebbook/compile/Cifa;Ljava/lang/Object;)V
+   #89 = Utf8               java/lang/Long
+   #90 = Utf8               valueOf
+   #91 = Utf8               (J)Ljava/lang/Long;
+   #92 = Utf8               java/lang/System
+   #93 = Utf8               out
+   #94 = Utf8               Ljava/io/PrintStream;
+   #95 = Utf8               longValue
+   #96 = Utf8               ()J
+   #97 = Utf8               java/io/PrintStream
+   #98 = Utf8               println
+   #99 = Utf8               (J)V
+  #100 = Utf8               (I)V
+  #101 = Utf8               name
+  #102 = Utf8               Ljava/lang/String;
+  #103 = Utf8               getName
+  #104 = Utf8               ()Ljava/lang/String;
+  #105 = Utf8               (Lcom/cqx/javawebbook/compile/Cifa;)V
+  #106 = Utf8               java/lang/Integer
+  #107 = Utf8               (I)Ljava/lang/Integer;
+  #108 = Utf8               num
+  #109 = Utf8               Ljava/lang/Integer;
+  #110 = Utf8               setNum
+  #111 = Utf8               java/util/Objects
+  #112 = Utf8               requireNonNull
+  #113 = Utf8               (Ljava/lang/Object;)Ljava/lang/Object;
+  #114 = Utf8               (Ljava/lang/String;)V
+  #115 = Class              #118          // java/lang/invoke/LambdaMetafactory
+  #116 = NameAndType        #119:#122     // metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #117 = NameAndType        #45:#46       // lambda$new$0:(Ljava/lang/Object;)V
+  #118 = Utf8               java/lang/invoke/LambdaMetafactory
+  #119 = Utf8               metafactory
+  #120 = Class              #124          // java/lang/invoke/MethodHandles$Lookup
+  #121 = Utf8               Lookup
+  #122 = Utf8               (Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+  #123 = Class              #125          // java/lang/invoke/MethodHandles
+  #124 = Utf8               java/lang/invoke/MethodHandles$Lookup
+  #125 = Utf8               java/lang/invoke/MethodHandles
+{
+  public java.lang.Runnable runnable;
+    descriptor: Ljava/lang/Runnable;
+    flags: (0x0001) ACC_PUBLIC
+
+  public com.cqx.javawebbook.compile.Cifa();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=4, locals=3, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: new           #2                  // class java/lang/Object
+         7: dup
+         8: invokespecial #1                  // Method java/lang/Object."<init>":()V
+        11: astore_1
+        12: aload_0
+        13: aload_1
+        14: invokedynamic #3,  0              // InvokeDynamic #0:run:(Ljava/lang/Object;)Ljava/lang/Runnable;
+        19: putfield      #4                  // Field runnable:Ljava/lang/Runnable;
+        22: new           #5                  // class com/cqx/javawebbook/compile/Cifa$1
+        25: dup
+        26: aload_0
+        27: aload_1
+        28: invokespecial #6                  // Method com/cqx/javawebbook/compile/Cifa$1."<init>":(Lcom/cqx/javawebbook/compile/Cifa;Ljava/lang/Object;)V
+        31: astore_2
+        32: return
+      LineNumberTable:
+        line 8: 0
+        line 9: 4
+        line 10: 12
+        line 15: 22
+        line 22: 32
+
+  public synchronized void test1();
+    descriptor: ()V
+    flags: (0x0021) ACC_PUBLIC, ACC_SYNCHRONIZED
+    Code:
+      stack=5, locals=3, args_size=1
+         0: iconst_1
+         1: istore_1
+         2: ldc2_w        #7                  // long 2l
+         5: invokestatic  #9                  // Method java/lang/Long.valueOf:(J)Ljava/lang/Long;
+         8: astore_2
+         9: getstatic     #10                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        12: iload_1
+        13: i2l
+        14: aload_2
+        15: invokevirtual #11                 // Method java/lang/Long.longValue:()J
+        18: ladd
+        19: invokevirtual #12                 // Method java/io/PrintStream.println:(J)V
+        22: return
+      LineNumberTable:
+        line 25: 0
+        line 26: 2
+        line 27: 9
+        line 28: 22
+
+  public void test2();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=2, locals=4, args_size=1
+         0: iconst_1
+         1: istore_1
+         2: aload_0
+         3: dup
+         4: astore_2
+         5: monitorenter
+         6: iinc          1, 1
+         9: aload_2
+        10: monitorexit
+        11: goto          19
+        14: astore_3
+        15: aload_2
+        16: monitorexit
+        17: aload_3
+        18: athrow
+        19: getstatic     #10                 // Field java/lang/System.out:Ljava/io/PrintStream;
+        22: iload_1
+        23: invokevirtual #13                 // Method java/io/PrintStream.println:(I)V
+        26: return
+      Exception table:
+         from    to  target type
+             6    11    14   any
+            14    17    14   any
+      LineNumberTable:
+        line 31: 0
+        line 32: 2
+        line 33: 6
+        line 34: 9
+        line 35: 19
+        line 36: 26
+      StackMapTable: number_of_entries = 2
+        frame_type = 255 /* full_frame */
+          offset_delta = 14
+          locals = [ class com/cqx/javawebbook/compile/Cifa, int, class java/lang/Object ]
+          stack = [ class java/lang/Throwable ]
+        frame_type = 250 /* chop */
+          offset_delta = 4
+
+  public void test3();
+    descriptor: ()V
+    flags: (0x0001) ACC_PUBLIC
+    Code:
+      stack=3, locals=3, args_size=1
+         0: new           #14                 // class com/cqx/javawebbook/compile/Cifa$StaticInner
+         3: dup
+         4: invokespecial #15                 // Method com/cqx/javawebbook/compile/Cifa$StaticInner."<init>":()V
+         7: astore_1
+         8: aload_1
+         9: ldc           #16                 // String Cqx
+        11: putfield      #17                 // Field com/cqx/javawebbook/compile/Cifa$StaticInner.name:Ljava/lang/String;
+        14: aload_1
+        15: invokevirtual #18                 // Method com/cqx/javawebbook/compile/Cifa$StaticInner.getName:()Ljava/lang/String;
+        18: pop
+        19: new           #19                 // class com/cqx/javawebbook/compile/Cifa$PublicInner
+        22: dup
+        23: aload_0
+        24: invokespecial #20                 // Method com/cqx/javawebbook/compile/Cifa$PublicInner."<init>":(Lcom/cqx/javawebbook/compile/Cifa;)V
+        27: astore_2
+        28: aload_2
+        29: iconst_1
+        30: invokestatic  #21                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        33: putfield      #22                 // Field com/cqx/javawebbook/compile/Cifa$PublicInner.num:Ljava/lang/Integer;
+        36: aload_2
+        37: iconst_2
+        38: invokevirtual #23                 // Method com/cqx/javawebbook/compile/Cifa$PublicInner.setNum:(I)V
+        41: return
+      LineNumberTable:
+        line 40: 0
+        line 41: 8
+        line 42: 14
+        line 44: 19
+        line 45: 28
+        line 46: 36
+        line 47: 41
+
+  public static void test4();
+    descriptor: ()V
+    flags: (0x0009) ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=4, locals=3, args_size=0
+         0: new           #14                 // class com/cqx/javawebbook/compile/Cifa$StaticInner
+         3: dup
+         4: invokespecial #15                 // Method com/cqx/javawebbook/compile/Cifa$StaticInner."<init>":()V
+         7: astore_0
+         8: aload_0
+         9: ldc           #16                 // String Cqx
+        11: putfield      #17                 // Field com/cqx/javawebbook/compile/Cifa$StaticInner.name:Ljava/lang/String;
+        14: aload_0
+        15: invokevirtual #18                 // Method com/cqx/javawebbook/compile/Cifa$StaticInner.getName:()Ljava/lang/String;
+        18: pop
+        19: new           #24                 // class com/cqx/javawebbook/compile/Cifa
+        22: dup
+        23: invokespecial #25                 // Method "<init>":()V
+        26: astore_1
+        27: new           #19                 // class com/cqx/javawebbook/compile/Cifa$PublicInner
+        30: dup
+        31: aload_1
+        32: dup
+        33: invokestatic  #26                 // Method java/util/Objects.requireNonNull:(Ljava/lang/Object;)Ljava/lang/Object;
+        36: pop
+        37: invokespecial #20                 // Method com/cqx/javawebbook/compile/Cifa$PublicInner."<init>":(Lcom/cqx/javawebbook/compile/Cifa;)V
+        40: astore_2
+        41: aload_2
+        42: iconst_1
+        43: invokestatic  #21                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+        46: putfield      #22                 // Field com/cqx/javawebbook/compile/Cifa$PublicInner.num:Ljava/lang/Integer;
+        49: aload_2
+        50: iconst_2
+        51: invokevirtual #23                 // Method com/cqx/javawebbook/compile/Cifa$PublicInner.setNum:(I)V
+        54: return
+      LineNumberTable:
+        line 50: 0
+        line 51: 8
+        line 52: 14
+        line 53: 19
+        line 54: 27
+        line 55: 41
+        line 56: 49
+        line 57: 54
+}
+SourceFile: "Cifa.java"
+InnerClasses:
+  public #30= #19 of #24;                 // PublicInner=class com/cqx/javawebbook/compile/Cifa$PublicInner of class com/cqx/javawebbook/compile/Cifa
+  public static #32= #14 of #24;          // StaticInner=class com/cqx/javawebbook/compile/Cifa$StaticInner of class com/cqx/javawebbook/compile/Cifa
+  #5;                                     // class com/cqx/javawebbook/compile/Cifa$1
+  public static final #121= #120 of #123; // Lookup=class java/lang/invoke/MethodHandles$Lookup of class java/lang/invoke/MethodHandles
+BootstrapMethods:
+  0: #52 REF_invokeStatic java/lang/invoke/LambdaMetafactory.metafactory:(Ljava/lang/invoke/MethodHandles$Lookup;Ljava/lang/String;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodType;Ljava/lang/invoke/MethodHandle;Ljava/lang/invoke/MethodType;)Ljava/lang/invoke/CallSite;
+    Method arguments:
+      #53 ()V
+      #54 REF_invokeStatic com/cqx/javawebbook/compile/Cifa.lambda$new$0:(Ljava/lang/Object;)V
+      #53 ()V

@@ -2,7 +2,7 @@ Classfile /Users/cqx/Documents/projects/somethingnew/stn-java8/src/main/java/com
   Last modified 2018年9月5日; size 537 bytes
   MD5 checksum aae4a0a41d336a99cfacb9b240e8b949
   Compiled from "Knight.java"
-public class com.cqx.complie.annotation.Knight
+public class Knight
   minor version: 0
   major version: 54
   flags: (0x0021) ACC_PUBLIC, ACC_SUPER
@@ -40,9 +40,9 @@ Constant pool:
     flags: (0x0001) ACC_PUBLIC
     RuntimeVisibleAnnotations:
       0: #11()
-        com.cqx.complie.annotation.Knight$TestAnno
+        Knight$TestAnno
 
-  public com.cqx.complie.annotation.Knight();
+  public Knight();
     descriptor: ()V
     flags: (0x0001) ACC_PUBLIC
     Code:
@@ -64,11 +64,11 @@ Constant pool:
         line 19: 0
     RuntimeVisibleAnnotations:
       0: #11()
-        com.cqx.complie.annotation.Knight$TestAnno
+        Knight$TestAnno
 }
 SourceFile: "Knight.java"
 RuntimeVisibleAnnotations:
   0: #11()
-    com.cqx.complie.annotation.Knight$TestAnno
+    Knight$TestAnno
 InnerClasses:
   public static #6= #5 of #3;             // TestAnno=class com/cqx/complie/annotation/Knight$TestAnno of class com/cqx/complie/annotation/Knight

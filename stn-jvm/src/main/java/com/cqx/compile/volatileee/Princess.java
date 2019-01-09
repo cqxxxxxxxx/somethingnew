@@ -1,4 +1,4 @@
-package com.cqx.complie.volatileee;
+package com.cqx.compile.volatileee;
 
 /**
  * Created by BG307435 on 2018/7/26.

@@ -2,7 +2,7 @@ Classfile /E:/projects/somethingnew/stn-java8/src/main/java/com/cqx/complie/sync
   Last modified 2018-7-26; size 463 bytes
   MD5 checksum 1372ef0743eaee572e8e5679a204dd66
   Compiled from "King.java"
-public class com.cqx.complie.synchronizedddd.King
+public class King
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
@@ -43,7 +43,7 @@ Constant pool:
     descriptor: Ljava/lang/String;
     flags: ACC_PRIVATE, ACC_STATIC
 
-  public com.cqx.complie.synchronizedddd.King();
+  public King();
     descriptor: ()V
     flags: ACC_PUBLIC
     Code:
