@@ -6,8 +6,10 @@ package com.cqx.compile.lambda;
 public class LambdaHello {
 
     public void sayHi() {
+        String bcc = "dsafdasf";
         Runnable r = () -> {
             System.out.println("1123");
+            System.out.println(bcc);
         };
         System.out.println(r.toString());
     }
