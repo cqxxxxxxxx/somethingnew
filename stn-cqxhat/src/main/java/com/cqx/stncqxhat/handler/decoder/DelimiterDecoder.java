@@ -1,4 +1,4 @@
-package com.cqx.cqxhat.handler.decoder;
+package com.cqx.stncqxhat.handler.decoder;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
@@ -6,7 +6,7 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 
 import java.util.List;
 
-import static com.cqx.cqxhat.constant.ServerConst.DELIMITER;
+import static com.cqx.stncqxhat.constant.ServerConst.DELIMITER;
 
 /**
  * 依据分隔符进行消息解码

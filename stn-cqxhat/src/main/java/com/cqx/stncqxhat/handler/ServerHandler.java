@@ -1,8 +1,9 @@
-package com.cqx.cqxhat.handler;
+package com.cqx.stncqxhat.handler;
 
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 /**
  * @desc:
@@ -11,6 +12,7 @@ import lombok.extern.slf4j.Slf4j;
  * @Date: 2019/1/15
  */
 @Slf4j
+@Component
 public class ServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override

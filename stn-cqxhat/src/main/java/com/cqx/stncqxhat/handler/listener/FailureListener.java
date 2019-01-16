@@ -1,4 +1,4 @@
-package com.cqx.cqxhat.handler.listener;
+package com.cqx.stncqxhat.handler.listener;
 
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;

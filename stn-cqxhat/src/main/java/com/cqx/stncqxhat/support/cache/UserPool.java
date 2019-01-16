@@ -1,6 +1,6 @@
-package com.cqx.cqxhat.support.cache;
+package com.cqx.stncqxhat.support.cache;
 
-import com.cqx.cqxhat.model.User;
+import com.cqx.stncqxhat.model.User;
 import org.ehcache.Cache;
 import org.ehcache.CacheManager;
 import org.ehcache.config.CacheConfiguration;

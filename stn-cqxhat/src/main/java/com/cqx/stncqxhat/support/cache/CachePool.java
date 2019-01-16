@@ -1,4 +1,4 @@
-package com.cqx.cqxhat.support.cache;
+package com.cqx.stncqxhat.support.cache;
 
 import java.util.List;
 

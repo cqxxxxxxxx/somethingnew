@@ -1,12 +1,14 @@
-package com.cqx.cqxhat.handler;
+package com.cqx.stncqxhat.handler;
 
-import com.cqx.cqxhat.model.User;
-import com.cqx.cqxhat.service.ChatService;
-import com.cqx.cqxhat.service.ChatServiceImpl;
-import com.cqx.cqxhat.support.util.ChcUtil;
+import com.cqx.stncqxhat.model.User;
+import com.cqx.stncqxhat.service.ChatService;
+import com.cqx.stncqxhat.support.util.ChcUtil;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 /**
  * @desc:
@@ -15,9 +17,12 @@ import lombok.extern.slf4j.Slf4j;
  * @Date: 2019/1/15
  */
 @Slf4j
+@Component
+@ChannelHandler.Sharable
 public class ChatHandler extends ChannelInboundHandlerAdapter {
 
-    private ChatService chatService = new ChatServiceImpl();
+    @Autowired
+    private ChatService chatService;
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {

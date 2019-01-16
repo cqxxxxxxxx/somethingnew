@@ -1,9 +1,10 @@
-package com.cqx.cqxhat.service;
+package com.cqx.stncqxhat.service;
 
-import com.cqx.cqxhat.handler.listener.FailureListener;
-import com.cqx.cqxhat.model.User;
-import com.cqx.cqxhat.support.cache.CachePool;
-import com.cqx.cqxhat.support.cache.UserPool;
+import com.cqx.stncqxhat.handler.listener.FailureListener;
+import com.cqx.stncqxhat.model.User;
+import com.cqx.stncqxhat.support.cache.CachePool;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
@@ -13,9 +14,11 @@ import java.util.List;
  * @author: cqx
  * @Date: 2019/1/15
  */
+@Service
 public class ChatServiceImpl implements ChatService {
 
-    private CachePool<String, User> userPool = UserPool.getInstance();
+    @Autowired
+    private CachePool<String, User> userPool;
 
     @Override
     public void join(User user) {

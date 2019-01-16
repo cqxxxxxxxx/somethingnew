@@ -1,6 +1,6 @@
-package com.cqx.cqxhat.service;
+package com.cqx.stncqxhat.service;
 
-import com.cqx.cqxhat.model.User;
+import com.cqx.stncqxhat.model.User;
 
 import java.util.List;
 

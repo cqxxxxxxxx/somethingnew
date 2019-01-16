@@ -1,8 +1,7 @@
 package com.cqx;
 
-import com.cqx.cqxhat.model.User;
-import com.cqx.cqxhat.support.cache.CachePool;
-import com.cqx.cqxhat.support.cache.UserPool;
+import com.cqx.stncqxhat.support.cache.CachePool;
+import com.cqx.stncqxhat.support.cache.UserPool;
 import org.junit.Test;
 
 /**

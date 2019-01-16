@@ -1,6 +1,6 @@
-package com.cqx.cqxhat.support.util;
+package com.cqx.stncqxhat.support.util;
 
-import com.cqx.cqxhat.model.User;
+import com.cqx.stncqxhat.model.User;
 import io.netty.channel.Channel;
 import io.netty.channel.ChannelHandlerContext;
 

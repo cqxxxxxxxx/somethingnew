@@ -1,4 +1,4 @@
-package com.cqx.cqxhat.model;
+package com.cqx.stncqxhat.model;
 
 import lombok.Data;
 

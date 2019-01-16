@@ -1,4 +1,4 @@
-package com.cqx.cqxhat.constant;
+package com.cqx.stncqxhat.constant;
 
 /**
  * @desc:
@@ -7,6 +7,10 @@ package com.cqx.cqxhat.constant;
  * @Date: 2019/1/15
  */
 public class ServerConst {
+
+    private ServerConst() {
+        throw new UnsupportedOperationException();
+    }
 
     public static final String HOST = "127.0.0.1";
     public static final int PORT = 9001;
