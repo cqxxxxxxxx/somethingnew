@@ -11,9 +11,14 @@ import java.util.Map;
 public class AssertTest {
 
 
+    /**
+     * "-ea"或者"-enableassertions"
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         boolean assertionsEnabled = false;
-        assert assertionsEnabled = true;
+        assert assertionsEnabled == true;
         System.out.println("Assertions enabled: " + assertionsEnabled);
     }
 

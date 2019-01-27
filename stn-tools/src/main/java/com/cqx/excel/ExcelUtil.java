@@ -1,6 +1,6 @@
 package com.cqx.excel;
 
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.apache.poi.hssf.usermodel.*;
 import org.apache.poi.hssf.util.HSSFColor;
 import org.apache.poi.ss.usermodel.Cell;
@@ -25,7 +25,7 @@ import java.util.regex.Pattern;
  * Date   :2016-09-05 15:54.
  */
 public class ExcelUtil {
-    private final static Logger logger = Logger.getLogger(ExcelUtil.class);
+//    private final static Logger logger = Logger.getLogger(ExcelUtil.class);
 
     /**
      * 导出Excel文件

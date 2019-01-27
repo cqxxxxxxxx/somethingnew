@@ -21,7 +21,7 @@ public class App
         SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
         SqlSession sqlSession = sqlSessionFactory.openSession();
-//        User user = sqlSession.selectOne("com.cqx.UserMapper.selectByPrimaryKey", 1);
+        User user = sqlSession.selectOne("com.cqx.UserMapper.selectByPrimaryKey", 1);
 //        System.out.println( "Hello World!" );
         Map map = sqlSession.selectMap("com.cqx.UserMapper.getMapTest", "id");
     }

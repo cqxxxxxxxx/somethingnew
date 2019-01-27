@@ -12,6 +12,9 @@ import org.springframework.amqp.rabbit.listener.adapter.MessageListenerAdapter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Created by BG307435 on 2017/9/13.
  */
@@ -22,6 +25,29 @@ public class MQConfig {
 
     @Bean
     Queue queue() {
+        /**
+         *
+         Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'x-dead-letter-routing-key'for queue 'buc_fin_withdraw' in vhost 'bsp_test': received the value 'admin.deadletter' of type 'longstr' but current is none, class-id=50, method-id=10)
+         at com.rabbitmq.utility.ValueOrException.getValue(ValueOrException.java:67)
+         at com.rabbitmq.utility.BlockingValueOrException.uninterruptibleGetValue(BlockingValueOrException.java:33)
+         at com.rabbitmq.client.impl.AMQChannel$BlockingRpcContinuation.getReply(AMQChannel.java:361)
+         at com.rabbitmq.client.impl.AMQChannel.privateRpc(AMQChannel.java:226)
+         at com.rabbitmq.client.impl.AMQChannel.exnWrappingRpc(AMQChannel.java:118)
+         ... 25 common frames omitted
+         Caused by: com.rabbitmq.client.ShutdownSignalException: channel error; protocol method: #method<channel.close>(reply-code=406, reply-text=PRECONDITION_FAILED - inequivalent arg 'x-dead-letter-routing-key'for queue 'buc_fin_withdraw' in vhost 'bsp_test': received the value 'admin.deadletter' of type 'longstr' but current is none, class-id=50, method-id=10)
+         at com.rabbitmq.client.impl.ChannelN.asyncShutdown(ChannelN.java:484)
+         at com.rabbitmq.client.impl.ChannelN.processAsync(ChannelN.java:321)
+         at com.rabbitmq.client.impl.AMQChannel.handleCompleteInboundCommand(AMQChannel.java:144)
+         at com.rabbitmq.client.impl.AMQChannel.handleFrame(AMQChannel.java:91)
+         at com.rabbitmq.client.impl.AMQConnection$MainLoop.run(AMQConnection.java:554)
+         ... 1 common frames omitted
+         */
+//      死信配置 1. exchange需要声明  2.queue的声明里需要指定死信的exchange 和 route key
+        Map<String, Object> args = new HashMap<>();
+//       x-dead-letter-exchange    声明  死信交换机
+        args.put("x-dead-letter-exchange", "dlx-exchange-finance");
+//       x-dead-letter-routing-key  声明 死信路由键 不写就是默认之前的
+        args.put("x-dead-letter-routing-key", "admin.deadletter");
         return new Queue(queueName, false);
     }
 
