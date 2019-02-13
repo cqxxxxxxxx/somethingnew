@@ -42,4 +42,9 @@ public class IntegerTest {
         System.out.println(a == 100);
     }
 
+    @Test
+    public void toStrTest() {
+        Long a = 12312L;
+        System.out.println(a.toString());
+    }
 }
