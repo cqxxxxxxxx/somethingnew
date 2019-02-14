@@ -121,3 +121,16 @@ function binarySearch(target, array, order) {
         }
     }
 }
+
+/**
+ * js调用本地打印机器
+ * https://blog.csdn.net/wangxiaoan1234/article/details/76032901
+ * @param htmlData
+ */
+function printer(htmlData) {
+    var printWin=window.open("打印窗口", "_blank");
+    printWin.document.write(htmlData);
+    printWin.document.close();
+    printWin.print();
+    printWin.close();
+}
