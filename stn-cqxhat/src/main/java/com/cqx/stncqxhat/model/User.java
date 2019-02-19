@@ -18,4 +18,11 @@ public class User {
     private String ip;
 
     private Channel channel;
+
+    /**
+     * 0000 echo 插件
+     * 0001 help 插件
+     * 0002 chat 插件
+     */
+    private int mode;
 }

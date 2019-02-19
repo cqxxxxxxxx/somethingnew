@@ -1,9 +1,5 @@
 package com.cqx.stncqxhat.service;
 
-import com.cqx.stncqxhat.model.User;
-
-import java.util.List;
-
 /**
  * @desc:
  * @version: 1.0.0
@@ -12,12 +8,6 @@ import java.util.List;
  */
 public interface ChatService {
 
-    void join(User user);
-
-    void leave(String name);
-
     void say(String msg);
-
-    List<User> getUserAll();
 
 }

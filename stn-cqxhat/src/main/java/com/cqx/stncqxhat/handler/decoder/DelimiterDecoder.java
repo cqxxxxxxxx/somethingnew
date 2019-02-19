@@ -1,9 +1,12 @@
 package com.cqx.stncqxhat.handler.decoder;
 
+import com.cqx.stncqxhat.model.Message;
+import com.cqx.stncqxhat.support.util.ChcUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
 
+import java.nio.charset.Charset;
 import java.util.List;
 
 import static com.cqx.stncqxhat.constant.ServerConst.DELIMITER;
@@ -36,7 +39,10 @@ public class DelimiterDecoder extends ByteToMessageDecoder {
             int length = i - buffer.readerIndex();
             int delimiterLength = DELIMITER.length;
             frame = buffer.readBytes(length + delimiterLength);
-            return frame;
+            Message message = new Message();
+            message.setMsg(frame.toString(Charset.defaultCharset()));
+            message.setFrom(ChcUtil.getUser(ctx));
+            return message;
         }
         return null;
     }

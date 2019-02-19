@@ -22,6 +22,6 @@ public class ChcUtil {
         InetSocketAddress remote = (InetSocketAddress) channel.remoteAddress();
         String ip = remote.getAddress().getHostAddress();
         String host = remote.getHostName();
-        return User.of(host, ip, channel);
+        return User.of(host, ip, channel, 0);
     }
 }

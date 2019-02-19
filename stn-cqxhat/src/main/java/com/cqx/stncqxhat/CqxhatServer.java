@@ -1,6 +1,6 @@
 package com.cqx.stncqxhat;
 
-import com.cqx.stncqxhat.handler.ChatHandler;
+import com.cqx.stncqxhat.handler.DispatchHandler;
 import com.cqx.stncqxhat.handler.ServerHandler;
 import com.cqx.stncqxhat.handler.decoder.DelimiterDecoder;
 import io.netty.bootstrap.ServerBootstrap;
@@ -32,9 +32,9 @@ public class CqxhatServer implements AutoCloseable {
     private static AtomicBoolean launched = new AtomicBoolean(false);
 
     @Autowired
-    private ChatHandler chatHandler;
-    @Autowired
     private ServerHandler serverHandler;
+    @Autowired
+    private DispatchHandler dispatchHandler;
 
     public void start(SocketAddress socketAddress) throws InterruptedException {
         try {
@@ -54,20 +54,22 @@ public class CqxhatServer implements AutoCloseable {
                             ch.pipeline().addLast(new DelimiterDecoder())
                                     .addLast(new StringDecoder())
                                     .addLast(new StringEncoder())
-                                    .addLast(chatHandler);
+                                    .addLast(dispatchHandler);
                         }
                     })
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
                     .option(ChannelOption.SO_BACKLOG, 128);
 
-            launched.set(true);
-            ChannelFuture f = b.bind(socketAddress).sync();
-            f.channel().closeFuture().sync();
-            nioServerSocketChannel = f.channel();
+            if (launched.compareAndExchange(false, true)) {
+                ChannelFuture f = b.bind(socketAddress).sync();
+                nioServerSocketChannel = f.channel();
+                f.channel().closeFuture().sync();
+                return;
+            }
+            log.error("cqxhat already running");
         } finally {
             boss.shutdownGracefully();
             work.shutdownGracefully();
-            launched.set(false);
         }
     }
 
@@ -77,7 +79,6 @@ public class CqxhatServer implements AutoCloseable {
 
     @Override
     public void close() {
-
         if (launched.get()) {
             nioServerSocketChannel.close();
             boss.shutdownGracefully();

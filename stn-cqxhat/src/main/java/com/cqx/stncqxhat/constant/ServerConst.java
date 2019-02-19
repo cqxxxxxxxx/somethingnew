@@ -17,4 +17,9 @@ public class ServerConst {
     public static final String SERVER_NAME = "cqxhat";
     public static final String VERSION = "0.0.1-alpha";
     public static final byte[] DELIMITER = new byte[]{'/', 's'};
+
+    public static class Keys {
+        public static final String CHC = "chc";
+    }
+
 }
