@@ -12,12 +12,18 @@ public class Knight {
         return result;
     }
 
-    public void say() {
-        System.out.println("hahaha");
-    }
+
 
     public static void main(String[] args) {
         Knight knight = new Knight();
-        knight.say();
+        knight.say("cqx", "534");
+    }
+
+    public void say(String a, String b) {
+        String c = "niubi";
+        String d = a + b;
+        System.out.println(d);
+        System.out.println(c);
+        System.out.println("hahaha");
     }
 }
