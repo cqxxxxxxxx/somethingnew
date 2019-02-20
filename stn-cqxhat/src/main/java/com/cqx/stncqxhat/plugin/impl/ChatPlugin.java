@@ -2,7 +2,7 @@ package com.cqx.stncqxhat.plugin.impl;
 
 import com.cqx.stncqxhat.model.Message;
 import com.cqx.stncqxhat.plugin.AbstractPlugin;
-import com.cqx.stncqxhat.plugin.Metadata;
+import com.cqx.stncqxhat.plugin.Meta;
 import com.cqx.stncqxhat.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author: cqx
  * @Date: 2019/2/19
  */
+@Meta(mode = 2, pluginName = "chat plugin")
 public class ChatPlugin extends AbstractPlugin {
 
     @Autowired
@@ -22,13 +23,4 @@ public class ChatPlugin extends AbstractPlugin {
         chatService.say(message.getMsg());
     }
 
-    @Override
-    public Metadata metadata() {
-        Metadata metadata = new Metadata();
-        metadata.setAuthor("cqx");
-        metadata.setMode(shift(2));
-        metadata.setPluginName("chat plugin");
-        metadata.setVersion("0.1");
-        return metadata;
-    }
 }

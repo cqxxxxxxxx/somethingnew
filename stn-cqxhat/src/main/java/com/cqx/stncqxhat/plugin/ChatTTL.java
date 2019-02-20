@@ -1,17 +1,20 @@
 package com.cqx.stncqxhat.plugin;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
+import com.cqx.stncqxhat.support.apt.APT;
 
 import java.util.Map;
 
 /**
  * 线程上下文容器
+ * TODO: 待处理 还是有问题的
  *
  * @desc:
  * @version: 1.0.0
  * @author: cqx
  * @Date: 2019/2/19
  */
+@APT
 public class ChatTTL {
 
     /**

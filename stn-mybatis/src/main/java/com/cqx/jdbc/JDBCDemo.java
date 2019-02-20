@@ -45,7 +45,7 @@ public class JDBCDemo {
             System.out.println(stmt.getResultSet());
             // 执行SQL语句
             rs = stmt.executeQuery();
-            stmt.execute()
+            stmt.execute();
 
             // 处理查询结果（将查询结果转换成List<Map>格式）
             ResultSetMetaData rsmd = rs.getMetaData();

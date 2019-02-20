@@ -12,7 +12,7 @@ public abstract class AbstractPlugin implements Plugin {
         return this.metadata().getMode();
     }
 
-    public int shift(int n) {
+    public int shiftL(int n) {
         return 1 << n;
     }
 }

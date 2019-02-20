@@ -6,7 +6,7 @@ import java.util.*;
 
 /**
  * 提供插件加载机制、插件获取
- *
+ * TODO: 需要注册到spring容器中
  * @desc:
  * @version: 1.0.0
  * @author: cqx
@@ -30,7 +30,7 @@ public class PluginProvider {
             return pluginMap;
         synchronized (lock) {
             return AccessController.doPrivileged(
-                    new PrivilegedAction<>() {
+                    new PrivilegedAction<Map<String, Plugin>>() {
                         public Map<String, Plugin> run() {
                             /**
                              * 系统属性||spi机制加载plugin

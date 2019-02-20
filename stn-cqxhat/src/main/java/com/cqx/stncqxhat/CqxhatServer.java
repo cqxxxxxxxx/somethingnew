@@ -60,7 +60,7 @@ public class CqxhatServer implements AutoCloseable {
                     .childOption(ChannelOption.SO_KEEPALIVE, true)
                     .option(ChannelOption.SO_BACKLOG, 128);
 
-            if (launched.compareAndExchange(false, true)) {
+            if (launched.compareAndSet(false, true)) {
                 ChannelFuture f = b.bind(socketAddress).sync();
                 nioServerSocketChannel = f.channel();
                 f.channel().closeFuture().sync();

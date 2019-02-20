@@ -21,5 +21,4 @@ public class ServerConst {
     public static class Keys {
         public static final String CHC = "chc";
     }
-
 }
