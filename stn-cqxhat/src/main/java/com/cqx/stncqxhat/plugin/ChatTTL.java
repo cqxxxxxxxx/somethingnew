@@ -1,7 +1,7 @@
 package com.cqx.stncqxhat.plugin;
 
 import com.alibaba.ttl.TransmittableThreadLocal;
-import com.cqx.stncqxhat.support.apt.APT;
+import com.cqx.APT;
 
 import java.util.Map;
 

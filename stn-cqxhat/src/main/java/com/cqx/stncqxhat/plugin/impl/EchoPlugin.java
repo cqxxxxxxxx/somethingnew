@@ -1,10 +1,10 @@
 package com.cqx.stncqxhat.plugin.impl;
 
+import com.cqx.Meta;
 import com.cqx.stncqxhat.constant.ServerConst;
 import com.cqx.stncqxhat.model.Message;
 import com.cqx.stncqxhat.plugin.AbstractPlugin;
 import com.cqx.stncqxhat.plugin.ChatTTL;
-import com.cqx.stncqxhat.plugin.Meta;
 import io.netty.channel.ChannelHandlerContext;
 
 /**

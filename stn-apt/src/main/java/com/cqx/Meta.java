@@ -1,7 +1,4 @@
-package com.cqx.stncqxhat.plugin;
-
-import com.cqx.stncqxhat.support.apt.APT;
-import lombok.Data;
+package com.cqx;
 
 import java.lang.annotation.*;
 
@@ -38,7 +35,6 @@ public @interface Meta {
     String author() default "pikachu";
 
 
-    @Data
     public class Info {
 
         /**
@@ -55,6 +51,38 @@ public @interface Meta {
         private String author;
 
         public static final Info NULL_OBJECT = new Info();
+
+        public int getMode() {
+            return mode;
+        }
+
+        public void setMode(int mode) {
+            this.mode = mode;
+        }
+
+        public String getPluginName() {
+            return pluginName;
+        }
+
+        public void setPluginName(String pluginName) {
+            this.pluginName = pluginName;
+        }
+
+        public String getVersion() {
+            return version;
+        }
+
+        public void setVersion(String version) {
+            this.version = version;
+        }
+
+        public String getAuthor() {
+            return author;
+        }
+
+        public void setAuthor(String author) {
+            this.author = author;
+        }
     }
 
 }

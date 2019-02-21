@@ -1,8 +1,8 @@
 package com.cqx.stncqxhat.plugin.impl;
 
+import com.cqx.Meta;
 import com.cqx.stncqxhat.model.Message;
 import com.cqx.stncqxhat.plugin.AbstractPlugin;
-import com.cqx.stncqxhat.plugin.Meta;
 import com.cqx.stncqxhat.service.ChatService;
 import org.springframework.beans.factory.annotation.Autowired;
 

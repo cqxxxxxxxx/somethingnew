@@ -1,5 +1,6 @@
 package com.cqx.stncqxhat.plugin;
 
+import com.cqx.Meta;
 import com.cqx.stncqxhat.model.Message;
 
 /**
@@ -15,6 +16,4 @@ public interface Plugin {
     default Meta.Info metadata() {
         return Meta.Info.NULL_OBJECT;
     }
-
-    ;
 }

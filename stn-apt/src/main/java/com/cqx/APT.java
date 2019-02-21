@@ -1,4 +1,4 @@
-package com.cqx.stncqxhat.support.apt;
+package com.cqx;
 
 import java.lang.annotation.*;
 
@@ -11,7 +11,7 @@ import java.lang.annotation.*;
  * @Date: 2019/2/20
  */
 @Documented
-@Retention(RetentionPolicy.RUNTIME)
+@Retention(RetentionPolicy.CLASS)
 @Target({
         ElementType.ANNOTATION_TYPE,
         ElementType.TYPE
