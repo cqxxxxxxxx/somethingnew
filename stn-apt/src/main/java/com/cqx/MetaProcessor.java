@@ -43,6 +43,7 @@ public class MetaProcessor implements IProcessor {
             PRINT.INFO("el SimpleName" + ((Element) el).getSimpleName());
             if (el.getKind() == ElementKind.CLASS) {
                 TypeElement typeElement = (TypeElement) el;
+                String className = ((TypeElement) el).getSimpleName().toString();
                 Meta meta = typeElement.getAnnotation(Meta.class);
                 String author = meta.author();
                 String pluginName = meta.pluginName();
@@ -59,12 +60,12 @@ public class MetaProcessor implements IProcessor {
                         .addStatement("metaInfo.setVersion($S)", version)
                         .addStatement("return metaInfo")
                         .build();
-                TypeSpec helloWorld = TypeSpec.classBuilder("HelloWorld")
+                TypeSpec metaInfoType = TypeSpec.classBuilder(className + "MetaInfo")
                         .addModifiers(Modifier.PUBLIC, Modifier.FINAL)
                         .addMethod(methodSpec)
                         .build();
 
-                JavaFile javaFile = JavaFile.builder(ELEMENT.packageName(el), helloWorld)
+                JavaFile javaFile = JavaFile.builder(ELEMENT.packageName(el), metaInfoType)
                         .build();
                 try {
                     javaFile.writeTo(FILER);
