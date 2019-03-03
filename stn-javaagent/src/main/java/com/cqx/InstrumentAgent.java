@@ -21,6 +21,7 @@ public class InstrumentAgent {
      * @param inst
      */
     public static void premain(final String agentArgs, final Instrumentation inst) {
+        System.out.println("In premain method");
         globalInstrumentation = inst;
     }
 
