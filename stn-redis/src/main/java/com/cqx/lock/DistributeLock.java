@@ -24,6 +24,7 @@ public class DistributeLock {
         distributeLock.lock();
         distributeLock.lock();
         distributeLock.release();
+        jedis.get(new byte[]{});
     }
 
     public void lock() {
