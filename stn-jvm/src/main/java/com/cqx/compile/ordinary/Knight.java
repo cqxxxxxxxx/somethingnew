@@ -1,5 +1,8 @@
 package com.cqx.compile.ordinary;
 
+
+import java.util.Arrays;
+
 /**
  * Created by BG307435 on 2017/9/5.
  */
@@ -12,11 +15,26 @@ public class Knight {
         return result;
     }
 
-
+    public static int calc(int a) {
+        return a * a * 3 - 1 & 231;
+    }
 
     public static void main(String[] args) {
+//        JStack j = new JStack();
+//        j.run();
+        int[] t = new int[2000];
+        for (int i = 0; i < 2000; i++) {
+            t[i] = i;
+        }
+        Arrays.stream(t).forEach(x -> {
+            calc(x);
+            System.out.println(Thread.currentThread());
+        });
+
         Knight knight = new Knight();
         knight.say("cqx", "534");
+
+
     }
 
     public void say(String a, String b) {
@@ -25,5 +43,6 @@ public class Knight {
         System.out.println(d);
         System.out.println(c);
         System.out.println("hahaha");
+        String e = c + "c" + "d";
     }
 }
