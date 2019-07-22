@@ -10,6 +10,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.string.StringDecoder;
 import io.netty.handler.codec.string.StringEncoder;
+import io.netty.handler.logging.LoggingHandler;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -45,13 +46,17 @@ public class CqxhatServer implements AutoCloseable {
                         @Override
                         protected void initChannel(NioServerSocketChannel ch) throws Exception {
                             ChannelPipeline pipeline = ch.pipeline();
-                            pipeline.addLast(serverHandler);
+                            pipeline
+                                    .addLast("log", new LoggingHandler())
+                                    .addLast(serverHandler);
                         }
                     })
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new DelimiterDecoder())
+                            ch.pipeline()
+                                    .addLast("log", new LoggingHandler())
+                                    .addLast(new DelimiterDecoder())
                                     .addLast(new StringDecoder())
                                     .addLast(new StringEncoder())
                                     .addLast(dispatchHandler);

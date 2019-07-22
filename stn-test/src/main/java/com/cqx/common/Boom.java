@@ -24,6 +24,13 @@ public class Boom {
     }
 
     @Test
+    public void initialTest() {
+        int[] a = new int[10];
+        System.out.println(a[0]);
+    }
+
+
+    @Test
     public void dateTest() {
         Date date = new Date();
         System.out.println(date.getTime());

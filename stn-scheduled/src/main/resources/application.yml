@@ -1,4 +1,4 @@
-quartz
+quartz:
   enable: true
-samplejob
+samplejob:
   frequency: 2000

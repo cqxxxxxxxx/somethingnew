@@ -8,5 +8,6 @@ public class StnScheduledApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(StnScheduledApplication.class, args);
-	}
+
+    }
 }

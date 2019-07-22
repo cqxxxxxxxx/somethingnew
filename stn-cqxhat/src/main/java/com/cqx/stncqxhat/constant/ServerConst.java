@@ -19,6 +19,9 @@ public class ServerConst {
     public static final byte[] DELIMITER = new byte[]{'/', 's'};
 
     public static class Keys {
+        /**
+         * channelHandlerContext
+         */
         public static final String CHC = "chc";
     }
 }
