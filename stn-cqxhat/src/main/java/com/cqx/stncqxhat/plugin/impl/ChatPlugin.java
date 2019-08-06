@@ -3,7 +3,9 @@ package com.cqx.stncqxhat.plugin.impl;
 import com.cqx.Meta;
 import com.cqx.stncqxhat.model.Message;
 import com.cqx.stncqxhat.plugin.AbstractPlugin;
+import com.cqx.stncqxhat.plugin.Plugin;
 import com.cqx.stncqxhat.service.ChatService;
+import com.google.auto.service.AutoService;
 import org.springframework.beans.factory.annotation.Autowired;
 
 /**
@@ -12,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
  * @author: cqx
  * @Date: 2019/2/19
  */
+@AutoService(Plugin.class)
 @Meta(mode = 2, pluginName = "chat plugin")
 public class ChatPlugin extends AbstractPlugin {
 

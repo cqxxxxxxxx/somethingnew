@@ -5,6 +5,8 @@ import com.cqx.stncqxhat.constant.ServerConst;
 import com.cqx.stncqxhat.model.Message;
 import com.cqx.stncqxhat.plugin.AbstractPlugin;
 import com.cqx.stncqxhat.plugin.ChatTTL;
+import com.cqx.stncqxhat.plugin.Plugin;
+import com.google.auto.service.AutoService;
 import io.netty.channel.ChannelHandlerContext;
 
 /**
@@ -13,6 +15,7 @@ import io.netty.channel.ChannelHandlerContext;
  * @author: cqx
  * @Date: 2019/2/19
  */
+@AutoService(Plugin.class)
 @Meta(mode = 0, pluginName = "echo plugin", author = "cqx")
 public class EchoPlugin extends AbstractPlugin {
     @Override

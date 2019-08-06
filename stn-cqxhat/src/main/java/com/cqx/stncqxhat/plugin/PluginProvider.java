@@ -1,5 +1,7 @@
 package com.cqx.stncqxhat.plugin;
 
+import com.google.common.base.Strings;
+
 import java.security.AccessController;
 import java.security.PrivilegedAction;
 import java.util.*;
@@ -47,6 +49,9 @@ public class PluginProvider {
 
     private static boolean loadPluginFromProperty() {
         String cn = System.getProperty("cqxhat.plugins");
+        if (Strings.isNullOrEmpty(cn)) {
+            return false;
+        }
         String[] plugins = cn.split(",");
         if (cn == null)
             return false;

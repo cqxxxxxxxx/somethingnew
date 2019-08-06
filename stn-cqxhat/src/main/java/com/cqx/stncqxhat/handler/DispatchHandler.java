@@ -29,7 +29,8 @@ import java.util.concurrent.TimeUnit;
 @Component
 @ChannelHandler.Sharable
 public class DispatchHandler extends ChannelInboundHandlerAdapter {
-    private ThreadPoolExecutor executor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(), 20, 60, TimeUnit.SECONDS, new SynchronousQueue<>());
+    private ThreadPoolExecutor executor = new ThreadPoolExecutor(Runtime.getRuntime().availableProcessors(),
+            20, 60, TimeUnit.SECONDS, new SynchronousQueue<>());
     @Autowired
     private UserService userService;
 

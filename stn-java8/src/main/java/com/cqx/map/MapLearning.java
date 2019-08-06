@@ -21,11 +21,15 @@ public class MapLearning {
 
     Map treeMap = new TreeMap();
 
+    Map weakHashMap = new WeakHashMap();
+
     HashSet hashSet = new HashSet();
 
     Thread thread = new Thread();
 
     InputStream io;
+
+    Collections collections;
 
     public static void main(String[] args) throws IOException {
 

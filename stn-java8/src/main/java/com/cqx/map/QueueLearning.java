@@ -1,6 +1,7 @@
 package com.cqx.map;
 
 import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.DelayQueue;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.SynchronousQueue;
 
@@ -9,9 +10,11 @@ import java.util.concurrent.SynchronousQueue;
  */
 public class QueueLearning {
 
-    LinkedBlockingQueue linkedBlockingQueue;
-
     SynchronousQueue synchronousQueue;
 
+    LinkedBlockingQueue linkedBlockingQueue;
+
     ArrayBlockingQueue arrayBlockingQueue;
+
+    DelayQueue delayQueue;
 }

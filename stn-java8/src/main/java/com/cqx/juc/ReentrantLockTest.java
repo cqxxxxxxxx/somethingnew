@@ -25,7 +25,6 @@ public class ReentrantLockTest {
         TimeUnit.SECONDS.sleep(1);
         lock.lock();
         lock.lock();
-
         System.out.println(Thread.currentThread() + "locked");
 //        lock.unlock();
     }
