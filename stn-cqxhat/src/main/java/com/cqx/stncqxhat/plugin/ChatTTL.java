@@ -3,11 +3,12 @@ package com.cqx.stncqxhat.plugin;
 import com.alibaba.ttl.TransmittableThreadLocal;
 import com.cqx.APT;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
  * 线程上下文容器
- * TODO: 待处理 还是有问题的
+ * 因为一个EventLoop对应多个channel，通过threadLocal来保存channel不是一个好的选择
  *
  * @desc:
  * @version: 1.0.0
@@ -15,6 +16,7 @@ import java.util.Map;
  * @Date: 2019/2/19
  */
 @APT
+@Deprecated
 public class ChatTTL {
 
     /**
@@ -24,6 +26,10 @@ public class ChatTTL {
 
     public static void put(String key, Object o) {
         Map<String, Object> m = ttl.get();
+        if (m == null) {
+            m = new HashMap<>();
+            ttl.set(m);
+        }
         m.put(key, o);
     }
 

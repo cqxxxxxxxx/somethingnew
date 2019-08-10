@@ -25,4 +25,9 @@ public class User {
      * 0002 chat 插件
      */
     private int mode;
+
+    /**
+     * 插件内部状态
+     */
+    private String subKeyWord;
 }

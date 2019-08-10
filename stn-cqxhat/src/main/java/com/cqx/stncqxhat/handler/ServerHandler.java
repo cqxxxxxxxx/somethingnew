@@ -17,7 +17,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
 
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        log.info("cqxhat server started");
+        log.info("cqxhat server started  服务器监听开始了");
         ctx.fireChannelActive();
     }
 

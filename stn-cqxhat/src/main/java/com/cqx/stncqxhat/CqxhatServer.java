@@ -3,6 +3,7 @@ package com.cqx.stncqxhat;
 import com.cqx.stncqxhat.handler.DispatchHandler;
 import com.cqx.stncqxhat.handler.ServerHandler;
 import com.cqx.stncqxhat.handler.decoder.DelimiterDecoder;
+import com.cqx.stncqxhat.handler.decoder.MessageEncoder;
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
@@ -57,6 +58,7 @@ public class CqxhatServer implements AutoCloseable {
                             ch.pipeline()
                                     .addLast("log", new LoggingHandler())
                                     .addLast(new DelimiterDecoder())
+                                    .addLast(new MessageEncoder())
                                     .addLast(new StringDecoder())
                                     .addLast(new StringEncoder())
                                     .addLast(dispatchHandler);

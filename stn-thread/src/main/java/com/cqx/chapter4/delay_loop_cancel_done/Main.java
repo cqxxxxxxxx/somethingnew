@@ -1,9 +1,6 @@
 package com.cqx.chapter4.delay_loop_cancel_done;
 
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 /**
  * Created by cqx on 2017/2/20.
@@ -16,7 +13,7 @@ public class Main {
         for (int i = 0; i < 5; i++) {
             ExecutableTask executableTask = new ExecutableTask("Task" + i);
             resultTasks[i] = new ResultTask(executableTask);
-            executorService.submit(resultTasks[i]);
+//            Future s = executorService.submit(resultTasks[i]);
         }
         try {
             TimeUnit.SECONDS.sleep(5);

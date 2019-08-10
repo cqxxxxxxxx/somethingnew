@@ -1,5 +1,6 @@
 package com.cqx.stncqxhat.plugin;
 
+import com.cqx.stncqxhat.plugin.aop.PluginProxy;
 import com.google.common.base.Strings;
 
 import java.security.AccessController;
@@ -27,6 +28,11 @@ public class PluginProvider {
         return plugins(false).get(name);
     }
 
+    /**
+     *
+     * @param update true 则重新刷新plugin，后续可以热加载新的插件进来
+     * @return
+     */
     public static Map<String, Plugin> plugins(boolean update) {
         if (!update && initialized)
             return pluginMap;
@@ -37,7 +43,7 @@ public class PluginProvider {
                             /**
                              * 系统属性||spi机制加载plugin
                              */
-                            if (loadPluginFromProperty() || loadPluginAsService()) {
+                            if (loadPluginFromProperty() | loadPluginAsService()) {
                                 initialized = true;
                                 return pluginMap;
                             }
@@ -60,7 +66,7 @@ public class PluginProvider {
                 //            @SuppressWarnings("deprecation")
                 Object tmp = Class.forName(plugin, true,
                         ClassLoader.getSystemClassLoader()).newInstance();
-                pluginMap.put(plugin, (Plugin) tmp);
+                pluginMap.put(plugin, PluginProxy.getProxy((Plugin) tmp));
             }
             return true;
         } catch (ClassNotFoundException x) {
@@ -81,10 +87,9 @@ public class PluginProvider {
         for (; ; ) {
             try {
                 if (!i.hasNext())
-                    return false;
+                    return true;
                 p = i.next();
-                pluginMap.put(p.getClass().getSimpleName(), p);
-                return true;
+                pluginMap.put(p.getClass().getSimpleName(), PluginProxy.getProxy(p));
             } catch (ServiceConfigurationError sce) {
                 if (sce.getCause() instanceof SecurityException) {
                     // Ignore the security exception, try the next provider

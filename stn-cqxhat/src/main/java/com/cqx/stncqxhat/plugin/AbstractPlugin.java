@@ -1,5 +1,7 @@
 package com.cqx.stncqxhat.plugin;
 
+import com.cqx.stncqxhat.support.keywords.KeyWordPool;
+
 /**
  * @desc:
  * @version: 1.0.0
@@ -7,6 +9,13 @@ package com.cqx.stncqxhat.plugin;
  * @Date: 2019/2/19
  */
 public abstract class AbstractPlugin implements Plugin {
+
+    protected KeyWordPool keyWordPool;
+
+    @Override
+    public void initialize() {
+        keyWordPool = KeyWordPool.of(this);
+    }
 
     public int mode() {
         return this.metadata().getMode();

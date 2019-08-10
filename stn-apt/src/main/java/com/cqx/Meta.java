@@ -34,7 +34,6 @@ public @interface Meta {
 
     String author() default "pikachu";
 
-
     public class Info {
 
         /**
@@ -82,6 +81,16 @@ public @interface Meta {
 
         public void setAuthor(String author) {
             this.author = author;
+        }
+
+        @Override
+        public String toString() {
+            return "Info{" +
+                    "mode=" + mode +
+                    ", pluginName='" + pluginName + '\'' +
+                    ", version='" + version + '\'' +
+                    ", author='" + author + '\'' +
+                    '}';
         }
     }
 

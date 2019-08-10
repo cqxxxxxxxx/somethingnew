@@ -12,9 +12,17 @@ import java.util.List;
  */
 public interface UserService {
 
+    User currentUser();
+
+    User defaultUser();
+
     void join(User user);
 
     void leave(String name);
+
+    User get(String name);
+
+    void update(User user);
 
     List<User> getUserAll();
 

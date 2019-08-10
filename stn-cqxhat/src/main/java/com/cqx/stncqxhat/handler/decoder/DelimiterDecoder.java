@@ -1,7 +1,6 @@
 package com.cqx.stncqxhat.handler.decoder;
 
 import com.cqx.stncqxhat.model.Message;
-import com.cqx.stncqxhat.support.util.ChcUtil;
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.handler.codec.ByteToMessageDecoder;
@@ -9,7 +8,9 @@ import io.netty.handler.codec.ByteToMessageDecoder;
 import java.nio.charset.Charset;
 import java.util.List;
 
+import static com.cqx.stncqxhat.constant.ServerConst.BLANK;
 import static com.cqx.stncqxhat.constant.ServerConst.DELIMITER;
+import static com.cqx.stncqxhat.constant.ServerConst.ENTER;
 
 /**
  * 依据分隔符进行消息解码
@@ -38,10 +39,12 @@ public class DelimiterDecoder extends ByteToMessageDecoder {
             ByteBuf frame;
             int length = i - buffer.readerIndex();
             int delimiterLength = DELIMITER.length;
-            frame = buffer.readBytes(length + delimiterLength);
+            frame = buffer.readBytes(length);
+            for (int j = 0; j < delimiterLength; j++) {
+                buffer.readByte();
+            }
             Message message = new Message();
-            message.setMsg(frame.toString(Charset.defaultCharset()));
-            message.setFrom(ChcUtil.getUser(ctx));
+            message.setMsg(frame.toString(Charset.defaultCharset()).replaceFirst(ENTER, BLANK));
             return message;
         }
         return null;

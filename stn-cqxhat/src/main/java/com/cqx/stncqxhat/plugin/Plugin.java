@@ -13,6 +13,8 @@ public interface Plugin {
 
     void act(Message m);
 
+    void initialize();
+
     default Meta.Info metadata() {
         return Meta.Info.NULL_OBJECT;
     }

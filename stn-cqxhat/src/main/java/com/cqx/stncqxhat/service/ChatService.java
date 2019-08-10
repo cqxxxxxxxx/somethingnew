@@ -1,5 +1,7 @@
 package com.cqx.stncqxhat.service;
 
+import com.cqx.stncqxhat.model.Message;
+
 /**
  * @desc:
  * @version: 1.0.0
@@ -8,6 +10,6 @@ package com.cqx.stncqxhat.service;
  */
 public interface ChatService {
 
-    void say(String msg);
+    void say(Message message);
 
 }
