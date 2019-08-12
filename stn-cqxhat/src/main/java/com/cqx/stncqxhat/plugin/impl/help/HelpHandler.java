@@ -1,11 +1,18 @@
-package com.cqx.stncqxhat.plugin.impl.help.core;
+package com.cqx.stncqxhat.plugin.impl.help;
 
 import com.cqx.stncqxhat.model.Message;
 import com.cqx.stncqxhat.plugin.Plugin;
-import com.cqx.stncqxhat.plugin.PluginProvider;
+import com.cqx.stncqxhat.plugin.impl.EchoPlugin;
+import com.cqx.stncqxhat.plugin.impl.chat.ChatPlugin;
 import com.cqx.stncqxhat.support.core.ChannelContext;
 import com.cqx.stncqxhat.support.keywords.KeyWordsHandler;
+import com.cqx.stncqxhat.support.util.ApplicationContextUtil;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.stereotype.Component;
 
+import javax.annotation.PostConstruct;
 import java.util.Map;
 
 /**
@@ -14,12 +21,16 @@ import java.util.Map;
  * @author: cqx
  * @Date: 2019/8/10
  */
-public class HelpDefaultHandler implements KeyWordsHandler {
-    private static final Map<String, Plugin> plugins;
+@Component
+@Slf4j
+public class HelpHandler implements KeyWordsHandler {
 
-    static {
-        plugins = PluginProvider.plugins(false);
-    }
+//    private Map<String, Plugin> plugins;
+//
+//    @PostConstruct
+//    public void setPlugins() {
+//        plugins = ApplicationContextUtil.getBeansOfType(Plugin.class);
+//    }
 
     @Override
     public void handle(Message msg) {
@@ -30,6 +41,7 @@ public class HelpDefaultHandler implements KeyWordsHandler {
     }
 
     private String helps() {
+        Map<String, Plugin> plugins = ApplicationContextUtil.getBeansOfType(Plugin.class);
         StringBuilder sb = new StringBuilder("格式<:pluginName /s>选择插件 \n");
         for (Map.Entry<String, Plugin> entry : plugins.entrySet()) {
             sb.append("插件名:")

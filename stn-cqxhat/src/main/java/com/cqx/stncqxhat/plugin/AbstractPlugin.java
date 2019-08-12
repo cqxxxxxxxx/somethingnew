@@ -2,6 +2,8 @@ package com.cqx.stncqxhat.plugin;
 
 import com.cqx.stncqxhat.support.keywords.KeyWordPool;
 
+import javax.annotation.PostConstruct;
+
 /**
  * @desc:
  * @version: 1.0.0
@@ -12,6 +14,7 @@ public abstract class AbstractPlugin implements Plugin {
 
     protected KeyWordPool keyWordPool;
 
+    @PostConstruct
     @Override
     public void initialize() {
         keyWordPool = KeyWordPool.of(this);

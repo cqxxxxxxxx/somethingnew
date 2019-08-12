@@ -1,7 +1,7 @@
 package com.cqx.stncqxhat.config;
 
 import com.cqx.stncqxhat.model.User;
-import com.cqx.stncqxhat.plugin.PluginProvider;
+//import com.cqx.stncqxhat.plugin.PluginProvider;
 import com.cqx.stncqxhat.plugin.PluginUtil;
 import com.cqx.stncqxhat.service.ChatService;
 import com.cqx.stncqxhat.support.cache.CachePool;
@@ -31,9 +31,9 @@ public class CommonConfig {
         return UserPool.getInstance();
     }
 
-    @Bean
-    public ApplicationContextUtil applicationContextUtil() {
-        return new ApplicationContextUtil();
-    }
+//    @Bean
+//    public ApplicationContextUtil applicationContextUtil() {
+//        return new ApplicationContextUtil();
+//    }
 
 }
