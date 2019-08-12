@@ -1,4 +1,4 @@
-package com.cqx.stncqxhat.plugin.impl;
+package com.cqx.stncqxhat.plugin.impl.echo;
 
 import com.cqx.Meta;
 import com.cqx.stncqxhat.model.Message;

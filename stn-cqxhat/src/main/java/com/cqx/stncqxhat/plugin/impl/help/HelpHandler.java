@@ -2,17 +2,12 @@ package com.cqx.stncqxhat.plugin.impl.help;
 
 import com.cqx.stncqxhat.model.Message;
 import com.cqx.stncqxhat.plugin.Plugin;
-import com.cqx.stncqxhat.plugin.impl.EchoPlugin;
-import com.cqx.stncqxhat.plugin.impl.chat.ChatPlugin;
 import com.cqx.stncqxhat.support.core.ChannelContext;
 import com.cqx.stncqxhat.support.keywords.KeyWordsHandler;
 import com.cqx.stncqxhat.support.util.ApplicationContextUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Component;
 
-import javax.annotation.PostConstruct;
 import java.util.Map;
 
 /**

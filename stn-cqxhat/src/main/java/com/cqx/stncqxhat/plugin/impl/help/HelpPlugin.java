@@ -29,8 +29,6 @@ import java.util.stream.Collectors;
 public class HelpPlugin extends AbstractPlugin {
 
     @Autowired
-    private UserService userService;
-    @Autowired
     private SelfHandler selfHandler;
     @Autowired
     private HelpHandler helpHandler;
@@ -53,32 +51,4 @@ public class HelpPlugin extends AbstractPlugin {
                 .addKeyWord("-self", "默认的处理器", selfHandler);
 
     }
-
-    @Override
-    public void act(Message m) {
-        String msg = m.getMsg();
-        User currentUser = userService.currentUser();
-        //关键字
-        if (keyWordPool.isKeyWords(msg)) {
-            currentUser.setSubKeyWord(msg);
-            userService.update(currentUser);
-            ChannelContext.writeAndFlush(Message.of(ServerConst.SYSTEM_USER, "switch success, you are now in " + msg));
-            return;
-        }
-        if (keyWordPool.isKeyWords(currentUser.getSubKeyWord())) {
-            KeyWord keyWord = keyWordPool.get(currentUser.getSubKeyWord());
-            keyWord.getHandler().handle(m);
-            return;
-        }
-        m.setMsg(keyWordPool.getPool()
-                .values()
-                .stream()
-                .map(x -> {
-                    return x.getKey() + "  介绍:" + x.getInfo();
-                })
-                .collect(Collectors.joining("\n")).trim());
-        //默认处理器
-        keyWordPool.defaultKeyWord().handle(m);
-    }
-
 }
