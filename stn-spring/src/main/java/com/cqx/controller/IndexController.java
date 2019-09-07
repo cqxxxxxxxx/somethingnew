@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//import com.cqx.feign.BaiduClient;
+
 
 /**
  * Created by cqx on 2017/7/12.
@@ -26,6 +28,15 @@ public class IndexController {
     UserDao userDao;
     @Autowired
     DemoComponent demoComponent;
+//    @Autowired
+//    BaiduClient baiduClient;
+//
+//    @GetMapping("/baidu")
+//    public String toBaidu() {
+//        HashMap map = new HashMap();
+//        map.put("1","2");
+//        return baiduClient.index("dsss", map);
+//    }
 
     @GetMapping
     public String toIndex() {
@@ -117,9 +128,9 @@ public class IndexController {
         return user;
     }
 
-    @GetMapping("/aop")
-    public String aop() {
-        String name = demoComponent.getName();
-        return name;
-    }
+//    @GetMapping("/aop")
+//    public String aop() {
+//        String name = demoComponent.getName();
+//        return name;
+//    }
 }

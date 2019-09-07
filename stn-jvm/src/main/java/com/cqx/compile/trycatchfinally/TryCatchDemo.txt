@@ -1,0 +1,184 @@
+Classfile /Users/cqx/Projects/somethingnew/stn-jvm/src/main/java/com/cqx/compile/trycatchfinally/TryCatchDemo.class
+  Last modified 2019-3-17; size 856 bytes
+  MD5 checksum 4eb4dd01890c9cdea3149b17b11b7d7a
+  Compiled from "TryCatchDemo.java"
+public class com.cqx.compile.trycatchfinally.TryCatchDemo
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #8.#24         // java/lang/Object."<init>":()V
+   #2 = Class              #25            // java/lang/Exception
+   #3 = Class              #26            // com/cqx/compile/trycatchfinally/TryCatchDemo
+   #4 = Methodref          #3.#24         // com/cqx/compile/trycatchfinally/TryCatchDemo."<init>":()V
+   #5 = Fieldref           #27.#28        // java/lang/System.out:Ljava/io/PrintStream;
+   #6 = Methodref          #3.#29         // com/cqx/compile/trycatchfinally/TryCatchDemo.print:()I
+   #7 = Methodref          #30.#31        // java/io/PrintStream.println:(I)V
+   #8 = Class              #32            // java/lang/Object
+   #9 = Utf8               <init>
+  #10 = Utf8               ()V
+  #11 = Utf8               Code
+  #12 = Utf8               LineNumberTable
+  #13 = Utf8               print
+  #14 = Utf8               ()I
+  #15 = Utf8               StackMapTable
+  #16 = Class              #26            // com/cqx/compile/trycatchfinally/TryCatchDemo
+  #17 = Class              #25            // java/lang/Exception
+  #18 = Class              #33            // java/lang/Throwable
+  #19 = Utf8               print2
+  #20 = Utf8               main
+  #21 = Utf8               ([Ljava/lang/String;)V
+  #22 = Utf8               SourceFile
+  #23 = Utf8               TryCatchDemo.java
+  #24 = NameAndType        #9:#10         // "<init>":()V
+  #25 = Utf8               java/lang/Exception
+  #26 = Utf8               com/cqx/compile/trycatchfinally/TryCatchDemo
+  #27 = Class              #34            // java/lang/System
+  #28 = NameAndType        #35:#36        // out:Ljava/io/PrintStream;
+  #29 = NameAndType        #13:#14        // print:()I
+  #30 = Class              #37            // java/io/PrintStream
+  #31 = NameAndType        #38:#39        // println:(I)V
+  #32 = Utf8               java/lang/Object
+  #33 = Utf8               java/lang/Throwable
+  #34 = Utf8               java/lang/System
+  #35 = Utf8               out
+  #36 = Utf8               Ljava/io/PrintStream;
+  #37 = Utf8               java/io/PrintStream
+  #38 = Utf8               println
+  #39 = Utf8               (I)V
+{
+  public com.cqx.compile.trycatchfinally.TryCatchDemo();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 9: 0
+
+  public int print();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=4, args_size=1
+         0: iconst_1
+         1: istore_1
+         2: iconst_2
+         3: iconst_0
+         4: idiv
+         5: istore_1
+         6: iconst_4
+         7: istore_1
+         8: goto          24
+        11: astore_2
+        12: iconst_3
+        13: istore_1
+        14: iconst_4
+        15: istore_1
+        16: goto          24
+        19: astore_3
+        20: iconst_4
+        21: istore_1
+        22: aload_3
+        23: athrow
+        24: iload_1
+        25: ireturn
+      Exception table:
+         from    to  target type
+             2     6    11   Class java/lang/Exception
+             2     6    19   any
+            11    14    19   any
+      LineNumberTable:
+        line 12: 0
+        line 14: 2
+        line 18: 6
+        line 19: 8
+        line 15: 11
+        line 16: 12
+        line 18: 14
+        line 19: 16
+        line 18: 19
+        line 19: 22
+        line 20: 24
+      StackMapTable: number_of_entries = 3
+        frame_type = 255 /* full_frame */
+          offset_delta = 11
+          locals = [ class com/cqx/compile/trycatchfinally/TryCatchDemo, int ]
+          stack = [ class java/lang/Exception ]
+        frame_type = 71 /* same_locals_1_stack_item */
+          stack = [ class java/lang/Throwable ]
+        frame_type = 4 /* same */
+
+  public int print2();
+    descriptor: ()I
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=5, args_size=1
+         0: iconst_1
+         1: istore_1
+         2: iload_1
+         3: istore_2
+         4: iconst_3
+         5: istore_1
+         6: iload_2
+         7: ireturn
+         8: astore_2
+         9: iconst_2
+        10: istore_1
+        11: iload_1
+        12: istore_3
+        13: iconst_3
+        14: istore_1
+        15: iload_3
+        16: ireturn
+        17: astore        4
+        19: iconst_3
+        20: istore_1
+        21: aload         4
+        23: athrow
+      Exception table:
+         from    to  target type
+             0     4     8   Class java/lang/Exception
+             0     4    17   any
+             8    13    17   any
+            17    19    17   any
+      LineNumberTable:
+        line 26: 0
+        line 27: 2
+        line 32: 4
+        line 27: 6
+        line 28: 8
+        line 29: 9
+        line 30: 11
+        line 32: 13
+        line 30: 15
+        line 32: 17
+        line 33: 21
+      StackMapTable: number_of_entries = 2
+        frame_type = 72 /* same_locals_1_stack_item */
+          stack = [ class java/lang/Exception ]
+        frame_type = 72 /* same_locals_1_stack_item */
+          stack = [ class java/lang/Throwable ]
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=2, args_size=1
+         0: new           #3                  // class com/cqx/compile/trycatchfinally/TryCatchDemo
+         3: dup
+         4: invokespecial #4                  // Method "<init>":()V
+         7: astore_1
+         8: getstatic     #5                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        11: aload_1
+        12: invokevirtual #6                  // Method print:()I
+        15: invokevirtual #7                  // Method java/io/PrintStream.println:(I)V
+        18: return
+      LineNumberTable:
+        line 37: 0
+        line 38: 8
+        line 39: 18
+}
+SourceFile: "TryCatchDemo.java"

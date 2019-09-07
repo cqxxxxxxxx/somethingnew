@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by Shan on 2017/1/15.
@@ -21,7 +22,8 @@ public class UserService {
      * @param name
      * @return
      */
-    @Cacheable(value = "user", key = "#name")
+    @Transactional
+//    @Cacheable(value = "user", key = "#name")
     public User selectByName(String name) {
         User user = userMapper.selectByName(name);
         System.out.println("selectByName 来自数据库 user");
