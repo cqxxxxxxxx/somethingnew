@@ -1,6 +1,7 @@
 package com.cqx.stncqxhat.model;
 
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -17,7 +18,7 @@ public class User {
 
     private String ip;
 
-    private Channel channel;
+    private ChannelHandlerContext channel;
 
     /**
      * 0000 echo 插件

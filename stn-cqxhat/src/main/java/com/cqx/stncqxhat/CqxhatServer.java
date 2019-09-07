@@ -58,9 +58,9 @@ public class CqxhatServer implements AutoCloseable {
                             ch.pipeline()
                                     .addLast("log", new LoggingHandler())
                                     .addLast(new DelimiterDecoder())
-                                    .addLast(new MessageEncoder())
                                     .addLast(new StringDecoder())
                                     .addLast(new StringEncoder())
+                                    .addLast(new MessageEncoder())
                                     .addLast(dispatchHandler);
                         }
                     })

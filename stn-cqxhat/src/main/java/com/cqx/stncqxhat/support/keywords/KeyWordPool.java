@@ -25,6 +25,10 @@ public class KeyWordPool {
         return keyWordPool;
     }
 
+    public Map<String, KeyWord> getPool() {
+        return keyWordMap;
+    }
+
     /**
      * 获取KeyWord
      * @param s
@@ -43,7 +47,7 @@ public class KeyWordPool {
     public boolean isKeyWords(String s) {
         Objects.requireNonNull(s, "参数不能为空");
         KeyWord keyWord = keyWordMap.get(s);
-        return keyWord == null;
+        return keyWord != null;
     }
 
     /**

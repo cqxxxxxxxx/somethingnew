@@ -15,8 +15,8 @@ spring:
     validationQuery: SELECT 1 FROM DUAL
   redis:
         database: 0
-        host: 47.92.6.210
-        port: 8080
+        host: localhost
+        port: 6379
         password:
         pool:
           max-active: 8

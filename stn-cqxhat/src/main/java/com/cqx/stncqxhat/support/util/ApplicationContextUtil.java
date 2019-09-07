@@ -3,6 +3,9 @@ package com.cqx.stncqxhat.support.util;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
+
+import java.util.Map;
 
 /**
  * @desc:
@@ -10,6 +13,7 @@ import org.springframework.context.ApplicationContextAware;
  * @author: cqx
  * @Date: 2019/8/9
  */
+@Component
 public class ApplicationContextUtil implements ApplicationContextAware {
 
     private static ApplicationContext applicationContext;
@@ -20,6 +24,11 @@ public class ApplicationContextUtil implements ApplicationContextAware {
 
     public static <T> T getBean(Class<T> clazz) {
         return applicationContext.getBean(clazz);
+    }
+
+    public static <T> Map<String, T> getBeansOfType(Class<T> tClass) {
+        Map<String, T> result = applicationContext.getBeansOfType(tClass);
+        return result;
     }
 
     @Override

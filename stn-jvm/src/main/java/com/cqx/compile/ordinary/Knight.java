@@ -35,6 +35,12 @@ public class Knight {
         knight.say("cqx", "534");
 
 
+        String s1 = "cqx";
+        String s2 = new String("我无敌cqx");
+        System.out.println(s1.equals(s2));
+        System.out.println(s1 == s2);
+
+
     }
 
     public void say(String a, String b) {

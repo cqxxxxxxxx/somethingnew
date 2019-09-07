@@ -9,9 +9,10 @@ import org.springframework.ldap.core.ContextSource;
 import org.springframework.ldap.core.DirContextOperations;
 import org.springframework.ldap.core.LdapTemplate;
 import org.springframework.ldap.core.support.AbstractContextMapper;
+import org.springframework.ldap.support.LdapNameBuilder;
 import org.springframework.ldap.support.LdapUtils;
 import org.springframework.stereotype.Component;
-import org.springframework.ldap.support.LdapNameBuilder;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.naming.NamingException;
 import javax.naming.directory.Attributes;
@@ -41,6 +42,7 @@ public class UserDaoImpl implements UserDao{
      * @return
      */
     @Override
+    @Transactional
     public boolean auth(String userDn, String credentials) {
         DirContext ctx = null;
         try {
