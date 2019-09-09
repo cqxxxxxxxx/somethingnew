@@ -23,6 +23,7 @@ public class StnCqxhatApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         String host = SystemPropertyUtil.get("host", ServerConst.HOST);
         Integer port = SystemPropertyUtil.getInt("port", ServerConst.PORT);
+        System.out.println("cqxxxxxx" + host);
         cqxhatServer.start(new InetSocketAddress(host, port));
 
 //      注册jvm的关闭hook

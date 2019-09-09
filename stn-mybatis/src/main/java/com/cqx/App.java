@@ -24,5 +24,6 @@ public class App
         User user = sqlSession.selectOne("com.cqx.UserMapper.selectByPrimaryKey", 1);
 //        System.out.println( "Hello World!" );
         Map map = sqlSession.selectMap("com.cqx.UserMapper.getMapTest", "id");
+        sqlSession.close();
     }
 }

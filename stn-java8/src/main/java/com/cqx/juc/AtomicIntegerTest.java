@@ -15,6 +15,6 @@ public class AtomicIntegerTest {
     public static void main(String[] args) {
         System.out.println(atomicInteger.get());
         atomicInteger.set(10);
-
+        atomicInteger.lazySet(11);
     }
 }

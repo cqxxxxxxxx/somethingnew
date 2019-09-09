@@ -31,7 +31,36 @@ public class MapLearning {
 
     Collections collections;
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        Map<String, String> map0 = new HashMap<>();
+        map0.put("1", "2");
+
+        ConcurrentHashMap<String, Integer> map = new ConcurrentHashMap<>();
+
+        map.put("First", 10);
+        map.put("Second", 20);
+        map.put("Third", 30);
+        map.put("Fourth", 40);
+
+        Iterator<String> iterator = map.keySet().iterator();
+
+        while (iterator.hasNext()) {
+            String key = iterator.next();
+            map.put("Fifth", 50);
+            System.out.println(key);
+        }
+    }
+
+    public static void main0(String[] args) throws IOException {
+        Map<String, String> map = new HashMap<>();
+        map.put("1", "1");
+        map.put("2", "2");
+        map.put("3", "3");
+        for (Map.Entry<String, String> entry : map.entrySet()) {
+            map.put("4", "4");
+            System.out.println(entry.getKey());
+        }
+
 
         InputStream inputStream = System.in;
         int b;

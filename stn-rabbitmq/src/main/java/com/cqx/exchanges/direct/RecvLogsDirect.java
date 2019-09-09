@@ -20,7 +20,6 @@ public class RecvLogsDirect {
 
         channel.exchangeDeclare(EXCHANGE_NAME, BuiltinExchangeType.DIRECT);
         String queueName = channel.queueDeclare().getQueue();
-
         String[] severityArray = {"info", "debug", "error"};
         for(String severity : severityArray){
             if (new Random().nextBoolean()) {
