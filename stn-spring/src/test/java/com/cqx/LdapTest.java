@@ -1,12 +1,9 @@
 package com.cqx;
 
-import com.cqx.model.BestUser;
-import org.junit.Test;
+//import com.cqx.model.BestUser;
+
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.ldap.core.LdapTemplate;
-import org.springframework.ldap.support.LdapEncoder;
 import org.springframework.test.context.junit4.SpringRunner;
 
 /**
@@ -16,17 +13,17 @@ import org.springframework.test.context.junit4.SpringRunner;
 @SpringBootTest
 public class LdapTest {
 
-    @Autowired
-    LdapTemplate ldapTemplate;
-
-    @Test
-    public void addTest() {
-        BestUser bestUser = new BestUser();
-        bestUser.setsAMAccountName("testuser111");
-        bestUser.setDepartment("TempUser1");
-        bestUser.setCommonName("testuser111");
-        bestUser.setUserPassword(LdapEncoder.nameEncode("Pikachu534"));
-        bestUser.setMail("testuser111@best-inc.com");
-        ldapTemplate.create(bestUser);
-    }
+//    @Autowired
+//    LdapTemplate ldapTemplate;
+//
+//    @Test
+//    public void addTest() {
+//        BestUser bestUser = new BestUser();
+//        bestUser.setsAMAccountName("testuser111");
+//        bestUser.setDepartment("TempUser1");
+//        bestUser.setCommonName("testuser111");
+//        bestUser.setUserPassword(LdapEncoder.nameEncode("Pikachu534"));
+//        bestUser.setMail("testuser111@best-inc.com");
+//        ldapTemplate.create(bestUser);
+//    }
 }

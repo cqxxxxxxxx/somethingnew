@@ -1,5 +1,6 @@
 package com.cqx.stncqxhat.handler;
 
+import com.cqx.stncqxhat.constant.ServerConst;
 import com.cqx.stncqxhat.model.Message;
 import com.cqx.stncqxhat.model.User;
 import com.cqx.stncqxhat.plugin.Plugin;
@@ -16,6 +17,8 @@ import org.springframework.stereotype.Component;
 import java.util.concurrent.SynchronousQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+
+import static com.cqx.stncqxhat.constant.ServerConst.BLANK;
 
 /**
  * @desc:
@@ -46,7 +49,7 @@ public class DispatchHandler extends ChannelInboundHandlerAdapter {
     }
 
     /**
-     * 根据当前user所在的插件mode，获取对应插件，然后执行
+     ChannelContext     * 根据当前user所在的插件mode，获取对应插件，然后执行
      * @param message
      */
     private void dispatch(Message message) {
@@ -55,7 +58,9 @@ public class DispatchHandler extends ChannelInboundHandlerAdapter {
         if (PluginUtil.isPluginSwitch(message.getMsg())) {
             p = PluginUtil.getPlugin(message.getMsg());
             user.setMode(p.metadata().getMode());
+            user.setSubKeyWord(BLANK);
             userService.update(user);
+            ChannelContext.writeAndFlush(Message.of(ServerConst.SYSTEM_USER, "你现在正在使用" + p.metadata().getPluginName() + "插件"));
         } else {
             p = PluginUtil.getPlugin(user.getMode());
 //        暂时不用自己的线程池,使用workEventLoopGroup的线程
@@ -72,6 +77,7 @@ public class DispatchHandler extends ChannelInboundHandlerAdapter {
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+        ChannelContext.setChannel(ctx);
         User user = userService.defaultUser();
         userService.join(user);
         log.info("有崽种连进来了[{}]", user.getName());
@@ -99,12 +105,15 @@ public class DispatchHandler extends ChannelInboundHandlerAdapter {
     }
 
 
+
+
+
     /**
      * 第一次连接进来 发送help的消息
      */
     private void onFirstConnect() {
         Plugin helpPlugin = PluginUtil.getPlugin(0);
-        helpPlugin.act(null);
+        helpPlugin.act(ServerConst.EMPTY_MESSAGE);
     }
 
 }

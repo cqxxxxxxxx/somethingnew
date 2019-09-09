@@ -1,9 +1,11 @@
 package com.cqx.stncqxhat.service;
 
+import com.cqx.stncqxhat.constant.ServerConst;
 import com.cqx.stncqxhat.model.User;
 import com.cqx.stncqxhat.support.cache.CachePool;
 import com.cqx.stncqxhat.support.core.ChannelContext;
 import io.netty.channel.Channel;
+import io.netty.channel.ChannelHandlerContext;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -33,7 +35,7 @@ public class UserServiceImpl implements UserService {
         InetSocketAddress remote = (InetSocketAddress) channel.remoteAddress();
         String ip = remote.getAddress().getHostAddress();
         String host = remote.getHostName();
-        return User.of(host, ip, channel, 0);
+        return User.of(host, ip, ChannelContext.currentChannel(), 0, ServerConst.BLANK);
     }
 
     @Override

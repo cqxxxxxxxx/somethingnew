@@ -44,7 +44,7 @@ public class DelimiterDecoder extends ByteToMessageDecoder {
                 buffer.readByte();
             }
             Message message = new Message();
-            message.setMsg(frame.toString(Charset.defaultCharset()).replaceFirst(ENTER, BLANK));
+            message.setMsg(frame.toString(Charset.defaultCharset()).replaceFirst(ENTER, BLANK).trim());
             return message;
         }
         return null;

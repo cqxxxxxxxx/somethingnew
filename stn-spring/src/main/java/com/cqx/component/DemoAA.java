@@ -1,5 +1,6 @@
 package com.cqx.component;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
@@ -7,4 +8,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class DemoAA {
+    @Autowired
+    DemoComponent demoComponent;
 }

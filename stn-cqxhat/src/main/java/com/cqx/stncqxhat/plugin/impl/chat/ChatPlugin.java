@@ -1,22 +1,25 @@
-package com.cqx.stncqxhat.plugin.impl;
+package com.cqx.stncqxhat.plugin.impl.chat;
 
 import com.cqx.Meta;
+import com.cqx.stncqxhat.constant.ServerConst;
 import com.cqx.stncqxhat.model.Message;
+import com.cqx.stncqxhat.model.User;
 import com.cqx.stncqxhat.plugin.AbstractPlugin;
 import com.cqx.stncqxhat.plugin.Plugin;
 import com.cqx.stncqxhat.service.ChatService;
+import com.cqx.stncqxhat.service.UserService;
+import com.cqx.stncqxhat.support.core.ChannelContext;
+import com.cqx.stncqxhat.support.keywords.KeyWord;
+import com.cqx.stncqxhat.support.keywords.PrintHandler;
 import com.cqx.stncqxhat.support.util.ApplicationContextUtil;
 import com.google.auto.service.AutoService;
-import com.sun.org.apache.regexp.internal.RE;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.ApplicationContextAware;
+import org.springframework.stereotype.Component;
 
-import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.LockSupport;
 import java.util.concurrent.locks.ReentrantLock;
+import java.util.stream.Collectors;
 
 /**
  * @desc:
@@ -24,6 +27,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * @author: cqx
  * @Date: 2019/2/19
  */
+@Component
 @Slf4j
 @AutoService(Plugin.class)
 @Meta(mode = 2, pluginName = "chat plugin")
@@ -32,7 +36,14 @@ public class ChatPlugin extends AbstractPlugin {
     /**
      * chat的具体实现
      */
+    @Deprecated
+    @Autowired
     private ChatService chatService;
+
+    @Autowired
+    private BroadcastChatHandler broadcastChatHandler;
+    @Autowired
+    private PersonalChatHandler personalChatHandler;
 
     /**
      * 是否已经初始化过了
@@ -57,11 +68,12 @@ public class ChatPlugin extends AbstractPlugin {
     private static final int SPIN_TIMES = (Runtime.getRuntime().availableProcessors() < 2) ? 0 : 32;
 
     @Override
-    public void act(Message message) {
-        if (!initialized) {
-            doInitialize0();
-        }
-        chatService.say(message);
+    public void initialize() {
+        super.initialize();
+        keyWordPool
+                .withDefault("default", "默认行为处理器", PrintHandler.getInstance())
+                .addKeyWord("-broadcast", "广播", broadcastChatHandler)
+                .addKeyWord("-personal", "私人", personalChatHandler);
     }
 
     /**
@@ -74,6 +86,7 @@ public class ChatPlugin extends AbstractPlugin {
      * 2. sleep字面意思更加明显
      * https://stackoverflow.com/questions/10397881/java-locksupport-parknanos-vs-thread-sleep
      */
+    @Deprecated
     private void doInitialize0() {
         if (lock.tryLock()) {
             try {
@@ -98,6 +111,7 @@ public class ChatPlugin extends AbstractPlugin {
      * 自旋锁的实现版本
      * 这个版本用不到，因为不需要每条线程都去初始化
      */
+    @Deprecated
     private void doInitialize() {
         if (lock.tryLock()) {
             try {
