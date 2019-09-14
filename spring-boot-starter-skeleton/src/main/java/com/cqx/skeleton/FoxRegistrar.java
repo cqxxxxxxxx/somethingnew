@@ -1,14 +1,19 @@
-package com.cqx.uboost;
+package com.cqx.skeleton;
 
-import com.cqx.uboost.annotation.EnableUBoost;
-import com.cqx.uboost.annotation.UBoost;
+import com.cqx.skeleton.annotation.EnableFox;
+import com.cqx.skeleton.annotation.Fox;
 import org.springframework.beans.factory.annotation.AnnotatedBeanDefinition;
 import org.springframework.beans.factory.config.BeanDefinition;
+import org.springframework.beans.factory.config.BeanDefinitionHolder;
+import org.springframework.beans.factory.support.AbstractBeanDefinition;
+import org.springframework.beans.factory.support.BeanDefinitionBuilder;
+import org.springframework.beans.factory.support.BeanDefinitionReaderUtils;
 import org.springframework.beans.factory.support.BeanDefinitionRegistry;
 import org.springframework.context.EnvironmentAware;
 import org.springframework.context.ResourceLoaderAware;
 import org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider;
 import org.springframework.context.annotation.ImportBeanDefinitionRegistrar;
+import org.springframework.core.annotation.AnnotationAttributes;
 import org.springframework.core.env.Environment;
 import org.springframework.core.io.ResourceLoader;
 import org.springframework.core.type.AnnotationMetadata;
@@ -28,9 +33,9 @@ import java.util.Set;
  * @desc:
  * @version: 1.0.0
  * @author: cqx
- * @Date: 2019/9/8
+ * @Date: 2019/9/9
  */
-public class UBoostRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
+public class FoxRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
     // patterned after Spring Integration IntegrationComponentScanRegistrar
     // and RibbonClientsConfigurationRegistrar
 
@@ -52,28 +57,27 @@ public class UBoostRegistrar implements ImportBeanDefinitionRegistrar, ResourceL
     public void registerBeanDefinitions(AnnotationMetadata metadata, BeanDefinitionRegistry registry) {
         ClassPathScanningCandidateComponentProvider scanner = getScanner();
         scanner.setResourceLoader(this.resourceLoader);
-        scanner.addIncludeFilter(uboostTypeFilter());
+        scanner.addIncludeFilter(foxTypeFilter());
+        //获取需要扫描的包
         Set<String> basePackages = getBasePackages(metadata);
         for (String basePackage : basePackages) {
+            //利用scanner扫描生成beanDefinition
             Set<BeanDefinition> candidateComponents = scanner
                     .findCandidateComponents(basePackage);
+            //遍历处理扫描获取到的BeanDefinition
             for (BeanDefinition candidateComponent : candidateComponents) {
                 if (candidateComponent instanceof AnnotatedBeanDefinition) {
-                    // verify annotated class is an concrete 必须是实现类，不能是接口或者abstract
+                    // verify annotated class is an interface 必须是接口
                     AnnotatedBeanDefinition beanDefinition = (AnnotatedBeanDefinition) candidateComponent;
                     AnnotationMetadata annotationMetadata = beanDefinition.getMetadata();
-                    Assert.isTrue(annotationMetadata.isConcrete(),
-                            "@UBoost can only be specified on an concrete class");
+                    Assert.isTrue(annotationMetadata.isInterface(),
+                            "@Fox can only be specified on an interface");
 
                     Map<String, Object> attributes = annotationMetadata
                             .getAnnotationAttributes(
-                                    UBoost.class.getCanonicalName());
-//
-//                    String name = getClientName(attributes);
-//                    registerClientConfiguration(registry, name,
-//                            attributes.get("configuration"));
+                                    Fox.class.getCanonicalName());
 //                  注册beanDefinition到registry中
-                    registerUBoost(registry, annotationMetadata, attributes);
+                    registerFox(registry, annotationMetadata, attributes);
                 }
             }
         }
@@ -89,7 +93,7 @@ public class UBoostRegistrar implements ImportBeanDefinitionRegistrar, ResourceL
      */
     protected Set<String> getBasePackages(AnnotationMetadata importingClassMetadata) {
         Map<String, Object> attributes = importingClassMetadata
-                .getAnnotationAttributes(EnableUBoost.class.getCanonicalName());
+                .getAnnotationAttributes(EnableFox.class.getCanonicalName());
 
         Set<String> basePackages = new HashSet<>();
         for (String pkg : (String[]) attributes.get("value")) {
@@ -121,11 +125,15 @@ public class UBoostRegistrar implements ImportBeanDefinitionRegistrar, ResourceL
      */
     protected ClassPathScanningCandidateComponentProvider getScanner() {
         return new ClassPathScanningCandidateComponentProvider(false, this.environment) {
+            /**
+             * 是顶级类非内部类 && 不是注解类 => 添加到candidates中
+             * @param beanDefinition
+             * @return
+             */
             @Override
             protected boolean isCandidateComponent(
                     AnnotatedBeanDefinition beanDefinition) {
                 boolean isCandidate = false;
-                //是顶级类非内部类 && 不是注解类 => 添加到candidates中
                 if (beanDefinition.getMetadata().isIndependent()) {
                     if (!beanDefinition.getMetadata().isAnnotation()) {
                         isCandidate = true;
@@ -142,11 +150,11 @@ public class UBoostRegistrar implements ImportBeanDefinitionRegistrar, ResourceL
      *
      * @return
      */
-    private TypeFilter uboostTypeFilter() {
-        String annotation = UBoost.class.getCanonicalName();
+    private TypeFilter foxTypeFilter() {
+        String annotation = Fox.class.getCanonicalName();
         return new TypeFilter() {
             /**
-             * 如果类或者方法上有{@link UBoost}注解则匹配成功
+             * 如果类上有{@link Fox}注解则匹配成功
              * @param metadataReader
              * @param metadataReaderFactory
              * @return
@@ -155,45 +163,43 @@ public class UBoostRegistrar implements ImportBeanDefinitionRegistrar, ResourceL
             @Override
             public boolean match(MetadataReader metadataReader, MetadataReaderFactory metadataReaderFactory) throws IOException {
                 AnnotationMetadata annotationMetadata = metadataReader.getAnnotationMetadata();
-                return annotationMetadata.hasAnnotation(annotation) || annotationMetadata.hasAnnotatedMethods(annotation);
+                return annotationMetadata.hasAnnotation(annotation);
             }
         };
     }
 
 
-    private void registerUBoost(BeanDefinitionRegistry registry,
-                                AnnotationMetadata annotationMetadata, Map<String, Object> attributes) {
-//        String className = annotationMetadata.getClassName();
-//        BeanDefinitionBuilder definition = BeanDefinitionBuilder
-//                .genericBeanDefinition(FeignClientFactoryBean.class);
-//        validate(attributes);
-//        definition.addPropertyValue("url", getUrl(attributes));
-//        definition.addPropertyValue("path", getPath(attributes));
-//        String name = getName(attributes);
-//        definition.addPropertyValue("name", name);
-//        String contextId = getContextId(attributes);
-//        definition.addPropertyValue("contextId", contextId);
-//        definition.addPropertyValue("type", className);
-//        definition.addPropertyValue("decode404", attributes.get("decode404"));
-//        definition.addPropertyValue("fallback", attributes.get("fallback"));
-//        definition.addPropertyValue("fallbackFactory", attributes.get("fallbackFactory"));
-//        definition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
-//
-//        String alias = contextId + "FeignClient";
-//        AbstractBeanDefinition beanDefinition = definition.getBeanDefinition();
-//
-//        boolean primary = (Boolean) attributes.get("primary"); // has a default, won't be
-//        // null
-//
-//        beanDefinition.setPrimary(primary);
-//
-//        String qualifier = getQualifier(attributes);
-//        if (StringUtils.hasText(qualifier)) {
-//            alias = qualifier;
-//        }
-//
-//        BeanDefinitionHolder holder = new BeanDefinitionHolder(beanDefinition, className,
-//                new String[] { alias });
-//        BeanDefinitionReaderUtils.registerBeanDefinition(holder, registry);
+    /**
+     * 正式注册到register中
+     *
+     * @param registry
+     * @param annotationMetadata
+     * @param attributes
+     */
+    private void registerFox(BeanDefinitionRegistry registry,
+                             AnnotationMetadata annotationMetadata, Map<String, Object> attributes) {
+        String className = annotationMetadata.getClassName();
+        BeanDefinitionBuilder definition = BeanDefinitionBuilder
+                .genericBeanDefinition(FoxFactoryBean.class);
+        validate(attributes);
+//        Class tClass = (Class) attributes.get("configuration");
+        //注入配置
+        definition.addPropertyValue("name", attributes.get("name"));
+        definition.addPropertyValue("foxInterface", className);
+        definition.setAutowireMode(AbstractBeanDefinition.AUTOWIRE_BY_TYPE);
+        AbstractBeanDefinition beanDefinition = definition.getBeanDefinition();
+        BeanDefinitionHolder holder = new BeanDefinitionHolder(beanDefinition, className,
+                new String[]{});
+        BeanDefinitionReaderUtils.registerBeanDefinition(holder, registry);
+    }
+
+    private void validate(Map<String, Object> attributes) {
+        AnnotationAttributes annotation = AnnotationAttributes.fromMap(attributes);
+//        validateFallback(annotation.getClass("fallback"));
+//        validateFallbackFactory(annotation.getClass("fallbackFactory"));
+        Assert.notNull(attributes.get("name"),
+                "name must not null");
+
     }
 }
+

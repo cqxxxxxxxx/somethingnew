@@ -1,71 +1,108 @@
-1.8.0_25
-Classfile /E:/projects/somethingnew/stn-jvm/src/main/java/com/cqx/compile/syntax_sugar/SugarDemo.class
-  Last modified 2018-11-14; size 876 bytes
-  MD5 checksum b5fb674e75570cf97bffee996df07c8e
+Classfile /Users/cqx/Projects/somethingnew/stn-jvm/src/main/java/com/cqx/compile/syntax_sugar/SugarDemo.class
+  Last modified 2019-9-11; size 1747 bytes
+  MD5 checksum 8912eb4989b7ec63e54cc540e15249c4
   Compiled from "SugarDemo.java"
 public class com.cqx.compile.syntax_sugar.SugarDemo
   minor version: 0
   major version: 52
   flags: ACC_PUBLIC, ACC_SUPER
 Constant pool:
-   #1 = Methodref          #13.#25        // java/lang/Object."<init>":()V
-   #2 = Class              #26            // java/util/ArrayList
-   #3 = Methodref          #2.#25         // java/util/ArrayList."<init>":()V
-   #4 = InterfaceMethodref #27.#28        // java/util/List.iterator:()Ljava/util/Iterator;
-   #5 = InterfaceMethodref #29.#30        // java/util/Iterator.hasNext:()Z
-   #6 = InterfaceMethodref #29.#31        // java/util/Iterator.next:()Ljava/lang/Object;
-   #7 = Class              #32            // java/lang/Integer
-   #8 = Fieldref           #33.#34        // java/lang/System.out:Ljava/io/PrintStream;
-   #9 = Methodref          #35.#36        // java/io/PrintStream.println:(Ljava/lang/Object;)V
-  #10 = Methodref          #7.#37         // java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
-  #11 = Methodref          #7.#38         // java/lang/Integer.intValue:()I
-  #12 = Class              #39            // com/cqx/compile/syntax_sugar/SugarDemo
-  #13 = Class              #40            // java/lang/Object
-  #14 = Utf8               <init>
-  #15 = Utf8               ()V
-  #16 = Utf8               Code
-  #17 = Utf8               LineNumberTable
-  #18 = Utf8               genericSugar
-  #19 = Utf8               StackMapTable
-  #20 = Class              #41            // java/util/List
-  #21 = Class              #42            // java/util/Iterator
-  #22 = Utf8               intSugar
-  #23 = Utf8               SourceFile
-  #24 = Utf8               SugarDemo.java
-  #25 = NameAndType        #14:#15        // "<init>":()V
-  #26 = Utf8               java/util/ArrayList
-  #27 = Class              #41            // java/util/List
-  #28 = NameAndType        #43:#44        // iterator:()Ljava/util/Iterator;
-  #29 = Class              #42            // java/util/Iterator
-  #30 = NameAndType        #45:#46        // hasNext:()Z
-  #31 = NameAndType        #47:#48        // next:()Ljava/lang/Object;
-  #32 = Utf8               java/lang/Integer
-  #33 = Class              #49            // java/lang/System
-  #34 = NameAndType        #50:#51        // out:Ljava/io/PrintStream;
-  #35 = Class              #52            // java/io/PrintStream
-  #36 = NameAndType        #53:#54        // println:(Ljava/lang/Object;)V
-  #37 = NameAndType        #55:#56        // valueOf:(I)Ljava/lang/Integer;
-  #38 = NameAndType        #57:#58        // intValue:()I
-  #39 = Utf8               com/cqx/compile/syntax_sugar/SugarDemo
-  #40 = Utf8               java/lang/Object
-  #41 = Utf8               java/util/List
-  #42 = Utf8               java/util/Iterator
-  #43 = Utf8               iterator
-  #44 = Utf8               ()Ljava/util/Iterator;
-  #45 = Utf8               hasNext
-  #46 = Utf8               ()Z
-  #47 = Utf8               next
-  #48 = Utf8               ()Ljava/lang/Object;
-  #49 = Utf8               java/lang/System
-  #50 = Utf8               out
-  #51 = Utf8               Ljava/io/PrintStream;
-  #52 = Utf8               java/io/PrintStream
-  #53 = Utf8               println
-  #54 = Utf8               (Ljava/lang/Object;)V
-  #55 = Utf8               valueOf
-  #56 = Utf8               (I)Ljava/lang/Integer;
-  #57 = Utf8               intValue
-  #58 = Utf8               ()I
+   #1 = Methodref          #25.#45        // java/lang/Object."<init>":()V
+   #2 = Class              #46            // java/util/ArrayList
+   #3 = Methodref          #2.#45         // java/util/ArrayList."<init>":()V
+   #4 = InterfaceMethodref #47.#48        // java/util/List.iterator:()Ljava/util/Iterator;
+   #5 = InterfaceMethodref #49.#50        // java/util/Iterator.hasNext:()Z
+   #6 = InterfaceMethodref #49.#51        // java/util/Iterator.next:()Ljava/lang/Object;
+   #7 = Class              #52            // java/lang/Integer
+   #8 = Fieldref           #53.#54        // java/lang/System.out:Ljava/io/PrintStream;
+   #9 = Methodref          #55.#56        // java/io/PrintStream.println:(Ljava/lang/Object;)V
+  #10 = Methodref          #7.#57         // java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
+  #11 = Methodref          #7.#58         // java/lang/Integer.intValue:()I
+  #12 = Methodref          #55.#59        // java/io/PrintStream.println:(Z)V
+  #13 = String             #60            // aaaaaaaaxxxxxxxxxx
+  #14 = String             #61            // vvvvvcccccc
+  #15 = Class              #62            // java/lang/StringBuilder
+  #16 = Methodref          #15.#45        // java/lang/StringBuilder."<init>":()V
+  #17 = Methodref          #15.#63        // java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #18 = Methodref          #15.#64        // java/lang/StringBuilder.toString:()Ljava/lang/String;
+  #19 = String             #65            // cqx
+  #20 = String             #66            // nb
+  #21 = String             #67            // cqxnb
+  #22 = Class              #68            // java/lang/String
+  #23 = Methodref          #22.#69        // java/lang/String."<init>":(Ljava/lang/String;)V
+  #24 = Class              #70            // com/cqx/compile/syntax_sugar/SugarDemo
+  #25 = Class              #71            // java/lang/Object
+  #26 = Utf8               <init>
+  #27 = Utf8               ()V
+  #28 = Utf8               Code
+  #29 = Utf8               LineNumberTable
+  #30 = Utf8               genericSugar
+  #31 = Utf8               StackMapTable
+  #32 = Class              #72            // java/util/List
+  #33 = Class              #73            // java/util/Iterator
+  #34 = Utf8               intSugar
+  #35 = Class              #70            // com/cqx/compile/syntax_sugar/SugarDemo
+  #36 = Class              #52            // java/lang/Integer
+  #37 = Class              #74            // java/io/PrintStream
+  #38 = Utf8               stringSugar
+  #39 = Utf8               main
+  #40 = Utf8               ([Ljava/lang/String;)V
+  #41 = Class              #75            // "[Ljava/lang/String;"
+  #42 = Class              #68            // java/lang/String
+  #43 = Utf8               SourceFile
+  #44 = Utf8               SugarDemo.java
+  #45 = NameAndType        #26:#27        // "<init>":()V
+  #46 = Utf8               java/util/ArrayList
+  #47 = Class              #72            // java/util/List
+  #48 = NameAndType        #76:#77        // iterator:()Ljava/util/Iterator;
+  #49 = Class              #73            // java/util/Iterator
+  #50 = NameAndType        #78:#79        // hasNext:()Z
+  #51 = NameAndType        #80:#81        // next:()Ljava/lang/Object;
+  #52 = Utf8               java/lang/Integer
+  #53 = Class              #82            // java/lang/System
+  #54 = NameAndType        #83:#84        // out:Ljava/io/PrintStream;
+  #55 = Class              #74            // java/io/PrintStream
+  #56 = NameAndType        #85:#86        // println:(Ljava/lang/Object;)V
+  #57 = NameAndType        #87:#88        // valueOf:(I)Ljava/lang/Integer;
+  #58 = NameAndType        #89:#90        // intValue:()I
+  #59 = NameAndType        #85:#91        // println:(Z)V
+  #60 = Utf8               aaaaaaaaxxxxxxxxxx
+  #61 = Utf8               vvvvvcccccc
+  #62 = Utf8               java/lang/StringBuilder
+  #63 = NameAndType        #92:#93        // append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #64 = NameAndType        #94:#95        // toString:()Ljava/lang/String;
+  #65 = Utf8               cqx
+  #66 = Utf8               nb
+  #67 = Utf8               cqxnb
+  #68 = Utf8               java/lang/String
+  #69 = NameAndType        #26:#96        // "<init>":(Ljava/lang/String;)V
+  #70 = Utf8               com/cqx/compile/syntax_sugar/SugarDemo
+  #71 = Utf8               java/lang/Object
+  #72 = Utf8               java/util/List
+  #73 = Utf8               java/util/Iterator
+  #74 = Utf8               java/io/PrintStream
+  #75 = Utf8               [Ljava/lang/String;
+  #76 = Utf8               iterator
+  #77 = Utf8               ()Ljava/util/Iterator;
+  #78 = Utf8               hasNext
+  #79 = Utf8               ()Z
+  #80 = Utf8               next
+  #81 = Utf8               ()Ljava/lang/Object;
+  #82 = Utf8               java/lang/System
+  #83 = Utf8               out
+  #84 = Utf8               Ljava/io/PrintStream;
+  #85 = Utf8               println
+  #86 = Utf8               (Ljava/lang/Object;)V
+  #87 = Utf8               valueOf
+  #88 = Utf8               (I)Ljava/lang/Integer;
+  #89 = Utf8               intValue
+  #90 = Utf8               ()I
+  #91 = Utf8               (Z)V
+  #92 = Utf8               append
+  #93 = Utf8               (Ljava/lang/String;)Ljava/lang/StringBuilder;
+  #94 = Utf8               toString
+  #95 = Utf8               ()Ljava/lang/String;
+  #96 = Utf8               (Ljava/lang/String;)V
 {
   public com.cqx.compile.syntax_sugar.SugarDemo();
     descriptor: ()V
@@ -119,7 +156,7 @@ Constant pool:
     descriptor: ()V
     flags: ACC_PUBLIC
     Code:
-      stack=2, locals=4, args_size=1
+      stack=3, locals=4, args_size=1
          0: iconst_1
          1: invokestatic  #10                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
          4: astore_1
@@ -133,11 +170,152 @@ Constant pool:
         20: iadd
         21: invokestatic  #10                 // Method java/lang/Integer.valueOf:(I)Ljava/lang/Integer;
         24: astore_3
-        25: return
+        25: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        28: aload_1
+        29: invokevirtual #11                 // Method java/lang/Integer.intValue:()I
+        32: iconst_1
+        33: if_icmpne     40
+        36: iconst_1
+        37: goto          41
+        40: iconst_0
+        41: invokevirtual #12                 // Method java/io/PrintStream.println:(Z)V
+        44: return
       LineNumberTable:
         line 19: 0
         line 20: 5
         line 21: 12
         line 22: 25
+        line 23: 44
+      StackMapTable: number_of_entries = 2
+        frame_type = 255 /* full_frame */
+          offset_delta = 40
+          locals = [ class com/cqx/compile/syntax_sugar/SugarDemo, class java/lang/Integer, class java/lang/Integer, class java/lang/Integer ]
+          stack = [ class java/io/PrintStream ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 0
+          locals = [ class com/cqx/compile/syntax_sugar/SugarDemo, class java/lang/Integer, class java/lang/Integer, class java/lang/Integer ]
+          stack = [ class java/io/PrintStream, int ]
+
+  public void stringSugar();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=4, args_size=1
+         0: ldc           #13                 // String aaaaaaaaxxxxxxxxxx
+         2: astore_1
+         3: ldc           #14                 // String vvvvvcccccc
+         5: astore_2
+         6: new           #15                 // class java/lang/StringBuilder
+         9: dup
+        10: invokespecial #16                 // Method java/lang/StringBuilder."<init>":()V
+        13: aload_1
+        14: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        17: aload_2
+        18: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        21: invokevirtual #18                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        24: astore_3
+        25: return
+      LineNumberTable:
+        line 26: 0
+        line 27: 3
+        line 28: 6
+        line 29: 25
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=3, locals=6, args_size=1
+         0: ldc           #19                 // String cqx
+         2: astore_1
+         3: ldc           #20                 // String nb
+         5: astore_2
+         6: new           #15                 // class java/lang/StringBuilder
+         9: dup
+        10: invokespecial #16                 // Method java/lang/StringBuilder."<init>":()V
+        13: aload_1
+        14: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        17: aload_2
+        18: invokevirtual #17                 // Method java/lang/StringBuilder.append:(Ljava/lang/String;)Ljava/lang/StringBuilder;
+        21: invokevirtual #18                 // Method java/lang/StringBuilder.toString:()Ljava/lang/String;
+        24: astore_3
+        25: ldc           #21                 // String cqxnb
+        27: astore        4
+        29: new           #22                 // class java/lang/String
+        32: dup
+        33: ldc           #21                 // String cqxnb
+        35: invokespecial #23                 // Method java/lang/String."<init>":(Ljava/lang/String;)V
+        38: astore        5
+        40: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        43: aload_3
+        44: aload         4
+        46: if_acmpne     53
+        49: iconst_1
+        50: goto          54
+        53: iconst_0
+        54: invokevirtual #12                 // Method java/io/PrintStream.println:(Z)V
+        57: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        60: aload_3
+        61: ldc           #21                 // String cqxnb
+        63: if_acmpne     70
+        66: iconst_1
+        67: goto          71
+        70: iconst_0
+        71: invokevirtual #12                 // Method java/io/PrintStream.println:(Z)V
+        74: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        77: aload         4
+        79: ldc           #21                 // String cqxnb
+        81: if_acmpne     88
+        84: iconst_1
+        85: goto          89
+        88: iconst_0
+        89: invokevirtual #12                 // Method java/io/PrintStream.println:(Z)V
+        92: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        95: aload         5
+        97: ldc           #21                 // String cqxnb
+        99: if_acmpne     106
+       102: iconst_1
+       103: goto          107
+       106: iconst_0
+       107: invokevirtual #12                 // Method java/io/PrintStream.println:(Z)V
+       110: return
+      LineNumberTable:
+        line 32: 0
+        line 33: 3
+        line 34: 6
+        line 35: 25
+        line 36: 29
+        line 37: 40
+        line 38: 57
+        line 39: 74
+        line 40: 92
+        line 41: 110
+      StackMapTable: number_of_entries = 8
+        frame_type = 255 /* full_frame */
+          offset_delta = 53
+          locals = [ class "[Ljava/lang/String;", class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String ]
+          stack = [ class java/io/PrintStream ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 0
+          locals = [ class "[Ljava/lang/String;", class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String ]
+          stack = [ class java/io/PrintStream, int ]
+        frame_type = 79 /* same_locals_1_stack_item */
+          stack = [ class java/io/PrintStream ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 0
+          locals = [ class "[Ljava/lang/String;", class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String ]
+          stack = [ class java/io/PrintStream, int ]
+        frame_type = 80 /* same_locals_1_stack_item */
+          stack = [ class java/io/PrintStream ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 0
+          locals = [ class "[Ljava/lang/String;", class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String ]
+          stack = [ class java/io/PrintStream, int ]
+        frame_type = 80 /* same_locals_1_stack_item */
+          stack = [ class java/io/PrintStream ]
+        frame_type = 255 /* full_frame */
+          offset_delta = 0
+          locals = [ class "[Ljava/lang/String;", class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String, class java/lang/String ]
+          stack = [ class java/io/PrintStream, int ]
 }
 SourceFile: "SugarDemo.java"
