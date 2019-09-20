@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://www.mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <!-- targetRuntime默认值为MyBatis3，如不生成和Example查询有关的内容，则使用MyBatis3Simple -->
+    <!-- defaultModelType这个定义了MBG如何生成实体类，flat模型为每一张表只生成一个实体类，这个实体类包含表中的所有字段 -->
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="autoDelimitKeywords" value="true"/>
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+
+        <plugin type="org.mybatis.generator.plugins.SerializablePlugin"/>
+        <plugin type="org.mybatis.generator.plugins.ToStringPlugin"/>
+
+        <commentGenerator>
+            <!-- 阻止生成注释 -->
+            <property name="suppressAllComments" value="true"/>
+            <!-- 阻止生成的注释包含时间戳 -->
+            <property name="suppressDate" value="true"/>
+        </commentGenerator>
+
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/stn_ds_master_0"
+                        userId="root"
+                        password="123456">
+        </jdbcConnection>
+
+        <!-- forceBigDecimals，该属性可以控制是否强制DECIMAL和NUMERIC类型的字段转换为Java类型的java.math.BigDecimal -->
+        <!-- 默认情况下的转换规则为：
+                如果精度>0或者长度>18，就会使用java.math.BigDecimal
+                如果精度=0并且10<=长度<=18，就会使用java.lang.Long
+                如果精度=0并且5<=长度<=9，就会使用java.lang.Integer
+                如果精度=0并且长度<5，就会使用java.lang.Short -->
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!-- targetPackage:生成实体类存放的包名，一般就是放在该包下。实际还会受到其他配置的影响(<table>中会提到) -->
+        <!-- targetProject:指定目标项目路径，使用的是文件系统的绝对路径 -->
+        <javaModelGenerator targetPackage="com.cqx.sj.model"
+                            targetProject="/Users/cqx/Projects/somethingnew/sharding-jdbc/src/main/java">
+            <!-- enableSubPackages:如果true，MBG会根据catalog和schema来生成子包。如果false就会直接用targetPackage属性。默认为false -->
+            <property name="enableSubPackages" value="true"/>
+            <!-- trimStrings:是否对数据库查询结果进行trim操作。默认值为false -->
+            <property name="trimStrings" value="false"/>
+        </javaModelGenerator>
+
+        <sqlMapGenerator targetPackage="mapper"
+                         targetProject="/Users/cqx/Projects/somethingnew/sharding-jdbc/src/main/resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+        <!-- 如果不配置该元素，就不会生成Mapper接口 -->
+        <!-- ANNOTATEDMAPPER:基于注解的Mapper接口，不会有对应的XML映射文件 -->
+        <!-- XMLMAPPER:所有的方法都在XML中，接口调用依赖XML文件 -->
+        <javaClientGenerator type="XMLMAPPER" targetPackage="com.cqx.sj.dao"
+                             targetProject="/Users/cqx/Projects/somethingnew/sharding-jdbc/src/main/java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <!-- 该元素用来配置要通过内省的表。只有配置的才会生成实体类和其他文件 -->
+        <!-- tableName：指定要生成的表名，可以使用SQL通配符匹配多个表，如%代表要生成全部的表 -->
+        <!-- domainObjectName:生成对象的基本名称。如果没有指定，MBG会自动根据表名来生成名称 -->
+        <table tableName="t_config" domainObjectName="Config">
+            <!-- useActualColumnNames:如果设置为false(默认值)，MGB将会尝试将返回的名称转换为驼峰形式。  -->
+            <property name="useActualColumnNames" value="false"/>
+            <!-- 这个元素用来指定自动生成主键的属性（identity字段或者sequences序列）。如果指定这个元素，MBG在生成insert的SQL映射文件中插入一个<selectKey>元素 -->
+            <generatedKey column="id" sqlStatement="MySql"/>
+        </table>
+        <!--<table tableName="t_user_0" domainObjectName="User">-->
+        <!--&lt;!&ndash; useActualColumnNames:如果设置为false(默认值)，MGB将会尝试将返回的名称转换为驼峰形式。  &ndash;&gt;-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--&lt;!&ndash;&lt;!&ndash; 这个元素用来指定自动生成主键的属性（identity字段或者sequences序列）。如果指定这个元素，MBG在生成insert的SQL映射文件中插入一个<selectKey>元素 &ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<generatedKey column="user_id" sqlStatement="MySql" />&ndash;&gt;-->
+        <!--<columnOverride column="age" javaType="java.lang.Integer"/>-->
+        <!--<columnOverride column="deleted" javaType="java.lang.Boolean"/>-->
+        <!--</table>-->
+        <!--<table tableName="t_user_address_0" domainObjectName="UserAddress">-->
+        <!--&lt;!&ndash; useActualColumnNames:如果设置为false(默认值)，MGB将会尝试将返回的名称转换为驼峰形式。  &ndash;&gt;-->
+        <!--<property name="useActualColumnNames" value="false"/>-->
+        <!--&lt;!&ndash;&lt;!&ndash;&lt;!&ndash; 这个元素用来指定自动生成主键的属性（identity字段或者sequences序列）。如果指定这个元素，MBG在生成insert的SQL映射文件中插入一个<selectKey>元素 &ndash;&gt;&ndash;&gt;&ndash;&gt;-->
+        <!--&lt;!&ndash;<generatedKey column="address_id" sqlStatement="MySql" />&ndash;&gt;-->
+        <!--</table>-->
+    </context>
+</generatorConfiguration>

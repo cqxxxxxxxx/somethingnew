@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: sharding-jdbc
+mybatis:
+  mapper-locations: mapper/*.xml
+
+debug: true
+logging:
+  level:
+    root: debug

@@ -50,7 +50,7 @@ public class FoxProxyFactory<T> {
      * @return
      */
     public T newInstance(String name) {
-        final FoxProxy<T> foxProxy = new FoxProxy<>(name, foxInterface, methodCache, foxNotifier);
+        final FoxProxy<T> foxProxy = new FoxProxy<>(name, foxInterface, methodCache, null);
         return newInstance(foxProxy);
     }
 }

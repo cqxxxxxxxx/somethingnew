@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.cqx.sj.dao.UserAddressMapper">
+    <resultMap id="BaseResultMap" type="com.cqx.sj.model.UserAddress">
+        <id column="address_id" jdbcType="BIGINT" property="addressId"/>
+        <result column="user_id" jdbcType="BIGINT" property="userId"/>
+        <result column="province" jdbcType="VARCHAR" property="province"/>
+        <result column="city" jdbcType="VARCHAR" property="city"/>
+        <result column="addr" jdbcType="VARCHAR" property="addr"/>
+        <result column="create_time" jdbcType="TIMESTAMP" property="createTime"/>
+        <result column="update_time" jdbcType="TIMESTAMP" property="updateTime"/>
+    </resultMap>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    delete from t_user_address
+    where address_id = #{addressId,jdbcType=BIGINT}
+  </delete>
+    <insert id="insert" parameterType="com.cqx.sj.model.UserAddress">
+    insert into t_user_address (user_id, province,
+      city, addr, create_time, 
+      update_time)
+    values (#{userId,jdbcType=BIGINT}, #{province,jdbcType=VARCHAR},
+      #{city,jdbcType=VARCHAR}, #{addr,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, 
+      #{updateTime,jdbcType=TIMESTAMP})
+  </insert>
+    <update id="updateByPrimaryKey" parameterType="com.cqx.sj.model.UserAddress">
+    update t_user_address
+    set user_id = #{userId,jdbcType=BIGINT},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      addr = #{addr,jdbcType=VARCHAR},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      update_time = #{updateTime,jdbcType=TIMESTAMP}
+    where address_id = #{addressId,jdbcType=BIGINT}
+  </update>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Long" resultMap="BaseResultMap">
+    select address_id, user_id, province, city, addr, create_time, update_time
+    from t_user_address
+    where address_id = #{addressId,jdbcType=BIGINT}
+  </select>
+    <select id="selectAll" resultMap="BaseResultMap">
+    select address_id, user_id, province, city, addr, create_time, update_time
+    from t_user_address
+  </select>
+</mapper>
