@@ -6,6 +6,7 @@ package com.cqx.sj;
  * @author: cqx
  * @Date: 2019/9/19
  */
+@Deprecated
 public class ShardingSphereConstants {
 
     /**
