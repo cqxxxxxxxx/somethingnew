@@ -3,13 +3,26 @@ spring:
         name: learning-spring
     banner:
       location: classpath:banner-girl.txt
+    datasource:
+      url: jdbc:mysql://localhost:3306/somethingnew?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&failOverReadOnly=false
+      username: root
+      password: 123456
+      type: com.alibaba.druid.pool.DruidDataSource
+      driver-class-name: com.mysql.jdbc.Driver
+      filters: stat
+      maxActive: 20
+      initialSize: 5
+      minIdle: 5
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
 server:
   port: 80
 logging:
    file: /logs/stn.log
    level:
-     root: debug
-
+     root: info
 # 设置spring boot 启动的banner
 feign:
   okhttp:

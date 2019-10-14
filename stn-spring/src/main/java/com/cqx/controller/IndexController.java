@@ -6,6 +6,7 @@ import com.cqx.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -126,6 +127,13 @@ public class IndexController {
         User user = userDao.findByPrimaryKey("Computers", "11111111");
         List<User> users = userDao.search("1111111");
         return user;
+    }
+
+
+    @GetMapping("/transaction")
+    @Transactional
+    public String transaction() {
+        return "success";
     }
 
 //    @GetMapping("/aop")

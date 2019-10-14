@@ -1,6 +1,5 @@
 package com.cqx;
 
-import com.cqx.dao.UserDaoImpl;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -20,7 +19,7 @@ public class Application
     public static void main( String[] args )
     {
         ApplicationContext ctx = SpringApplication.run(Application.class, args);
-        UserDaoImpl indexController = ctx.getBean(UserDaoImpl.class);
-        indexController.auth("ss", "XX");
+//        UserDaoImpl indexController = ctx.getBean(UserDaoImpl.class);
+//        indexController.auth("ss", "XX");
     }
 }
