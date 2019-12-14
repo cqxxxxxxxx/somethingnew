@@ -30,14 +30,13 @@ import java.util.Map;
 import java.util.Set;
 
 /**
+ * 从自定义的路径里读取 bean definition 注册到registry中
  * @desc:
  * @version: 1.0.0
  * @author: cqx
  * @Date: 2019/9/9
  */
 public class FoxRegistrar implements ImportBeanDefinitionRegistrar, ResourceLoaderAware, EnvironmentAware {
-    // patterned after Spring Integration IntegrationComponentScanRegistrar
-    // and RibbonClientsConfigurationRegistrar
 
     private ResourceLoader resourceLoader;
 

@@ -25,6 +25,11 @@
             <artifactId>sentinel-transport-simple-http</artifactId>
             <version>1.6.3</version>
         </dependency>
+        <dependency>
+            <groupId>com.alibaba.csp</groupId>
+            <artifactId>sentinel-transport-netty-http</artifactId>
+            <version>1.6.3</version>
+        </dependency>
         <!--流量控制核心模块-->
         <dependency>
             <groupId>com.alibaba.csp</groupId>

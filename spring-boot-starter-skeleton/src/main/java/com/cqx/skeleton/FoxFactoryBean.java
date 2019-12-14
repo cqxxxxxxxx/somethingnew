@@ -6,6 +6,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
 /**
+ * 实现FactoryBean接口，spring实例化时会调用getObject方法返回代理对象
  * @desc:
  * @version: 1.0.0
  * @author: cqx

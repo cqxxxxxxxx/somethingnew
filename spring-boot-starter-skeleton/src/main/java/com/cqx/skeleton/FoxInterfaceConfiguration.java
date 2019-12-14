@@ -8,13 +8,14 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
+ *
  * @desc:
  * @version: 1.0.0
  * @author: cqx
  * @Date: 2019/9/14
  */
 @Configuration
-public class FoxConfiguration {
+public class FoxInterfaceConfiguration {
 
     @Autowired
     FoxProperty foxProperty;
