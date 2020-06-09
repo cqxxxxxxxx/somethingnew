@@ -1,13 +1,11 @@
 package com.cqx.time;
+
 import org.junit.Test;
 
-import javax.xml.crypto.Data;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 import java.time.temporal.ChronoUnit;
-import java.time.temporal.Temporal;
 import java.time.temporal.TemporalAdjusters;
-import java.time.temporal.TemporalField;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -106,6 +104,17 @@ public class LocalDateDemo {
         System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE));
         System.out.println(localDateTime.format(DateTimeFormatter.ISO_DATE_TIME));
         System.out.println(localDateTime.format(DateTimeFormatter.ISO_LOCAL_DATE_TIME));
+
+        LocalTime localTime = LocalTime.now();
+        System.out.println(localTime.format(DateTimeFormatter.ISO_TIME));
+        System.out.println(localTime.format(DateTimeFormatter.ISO_LOCAL_TIME));
+        System.out.println(localTime.format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+
+        Instant instant = Instant.now();
+        LocalDateTime date =
+                LocalDateTime.ofInstant(instant, ZoneId.systemDefault());
+        System.out.println(date.toLocalTime().format(DateTimeFormatter.ofPattern("HH:mm:ss")));
+        System.out.println(date.format(DateTimeFormatter.ofPattern("HH:mm:ss")));
 
     }
 
