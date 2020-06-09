@@ -1,5 +1,6 @@
 package com.cqx.kafka.learning;
 
+import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
@@ -7,6 +8,7 @@ import org.apache.kafka.common.TopicPartition;
 
 import java.time.Duration;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.Properties;
 
 /**
@@ -28,7 +30,30 @@ public class Receiver {
         props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty("auto.offset.reset", "earliest");
         consumer = new KafkaConsumer<>(props);
-        consumer.subscribe(Arrays.asList("test01"));
+        consumer.subscribe(Arrays.asList("test01"), new ConsumerRebalanceListener() {
+            /**
+             * 分区取消
+             *
+             * @param partitions
+             */
+            @Override
+            public void onPartitionsRevoked(Collection<TopicPartition> partitions) {
+                partitions.stream().forEach(x -> System.out.println(x.partition() + x.topic()));
+            }
+
+            /**
+             * 分区分配
+             *
+             * @param partitions
+             */
+            @Override
+            public void onPartitionsAssigned(Collection<TopicPartition> partitions) {
+                partitions.stream().forEach(x -> {
+                    System.out.println(x.partition() + x.topic());
+                    consumer.seek(x, 1);
+                });
+            }
+        });
     }
 
 
@@ -53,7 +78,7 @@ public class Receiver {
     public static void main(String[] args) {
         Receiver receiver = new Receiver();
         while (true) {
-            receiver.resetOffset();
+//            receiver.resetOffset();
             receiver.consume();
         }
     }
