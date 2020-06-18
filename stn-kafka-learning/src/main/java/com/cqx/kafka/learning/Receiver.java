@@ -20,6 +20,7 @@ import java.util.Properties;
 public class Receiver {
     KafkaConsumer<String, String> consumer;
 
+    //./kafka-consumer-groups.sh --bootstrap-server localhost:9094 --group cqx4310 --execute --reset-offsets --to-datetime 2020-04-02T12:00:11.111 --topic test01
     public Receiver() {
         Properties props = new Properties();
         props.setProperty("bootstrap.servers", "localhost:9092");
