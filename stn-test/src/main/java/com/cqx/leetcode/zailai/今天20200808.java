@@ -3,7 +3,7 @@ package com.cqx.leetcode.zailai;
 public class 今天20200808 {
 
 
-    public class TreeNode {
+    public static class TreeNode {
         int val;
         TreeNode left;
         TreeNode right;
@@ -14,35 +14,22 @@ public class 今天20200808 {
     }
 
 
+    long pre = Long.MIN_VALUE;
     public boolean isValidBST(TreeNode root) {
-        return recursion(root);
-    }
-
-    /**
-     * 错了
-     * TODO 错了
-     *
-     * @param root
-     * @return
-     */
-    private boolean recursion(TreeNode root) {
-        //terminator
         if (root == null) {
             return true;
         }
-        //process
-        if (root.left != null) {
-            if (root.left.val >= root.val) {
-                return false;
-            }
+        // 访问左子树
+        if (!isValidBST(root.left)) {
+            return false;
         }
-        if (root.right != null) {
-            if (root.right.val <= root.val) {
-                return false;
-            }
+        // 访问当前节点：如果当前节点小于等于中序遍历的前一个节点，说明不满足BST，返回 false；否则继续遍历。
+        if (root.val <= pre) {
+            return false;
         }
-        return recursion(root.left) && recursion(root.right);
+        pre = root.val;
+        // 访问右子树
+        return isValidBST(root.right);
     }
-
 
 }
