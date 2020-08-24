@@ -278,22 +278,14 @@ public class 今天20200822 {
      * @return
      */
     public int maxProfit(int[] prices) {
-        if (prices == null || prices.length <= 0) {
-            return 0;
+        //最大利润
+        int maxProfit = 0;
+        //最低价格
+        int min = prices[0];
+        for (int i = 1; i < prices.length; i++) {
+            min = Math.min(min, prices[i]);
+            maxProfit = Math.max(prices[i] - min, maxProfit);
         }
-        int maxProfit = 0; //最大利润
-        int curDiff = 0;
-
-        int curNum = prices[0]; // 保存遍历过程中，最小的元素
-        for (int index = 1; index < prices.length; index++) {   // 这个循环就是 贪心算法 的核心
-            curDiff = prices[index] - curNum;
-            if (curDiff > 0) {  // curNum < prices[index]
-                maxProfit = max(maxProfit, curDiff);
-            } else {    // curNum >= prices[index]
-                curNum = prices[index];
-            }
-        }
-
         return maxProfit;
     }
 
