@@ -17,4 +17,7 @@
     <mappers>
         <mapper resource="mapper/UserMapper.xml"/>
     </mappers>
+    <plugins>
+        <plugin interceptor="com.cqx.interceptor.CustomerInterceptor"></plugin>
+    </plugins>
 </configuration>
