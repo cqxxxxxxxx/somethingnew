@@ -1,0 +1,193 @@
+Classfile /Users/cqx/Projects/somethingnew/stn-jvm/src/main/java/com/cqx/compile/enumc/GenderType.class
+  Last modified 2020-8-27; size 1296 bytes
+  MD5 checksum 49ebb3e148de2073ccb80a6ff1e24d3f
+  Compiled from "GenderType.java"
+public final class com.cqx.compile.enumc.GenderType extends java.lang.Enum<com.cqx.compile.enumc.GenderType>
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_FINAL, ACC_SUPER, ACC_ENUM
+Constant pool:
+   #1 = Fieldref           #4.#42         // com/cqx/compile/enumc/GenderType.$VALUES:[Lcom/cqx/compile/enumc/GenderType;
+   #2 = Methodref          #43.#44        // "[Lcom/cqx/compile/enumc/GenderType;".clone:()Ljava/lang/Object;
+   #3 = Class              #24            // "[Lcom/cqx/compile/enumc/GenderType;"
+   #4 = Class              #45            // com/cqx/compile/enumc/GenderType
+   #5 = Methodref          #17.#46        // java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+   #6 = Methodref          #17.#47        // java/lang/Enum."<init>":(Ljava/lang/String;I)V
+   #7 = Fieldref           #4.#48         // com/cqx/compile/enumc/GenderType.desc:Ljava/lang/String;
+   #8 = Fieldref           #49.#50        // java/lang/System.out:Ljava/io/PrintStream;
+   #9 = Fieldref           #4.#51         // com/cqx/compile/enumc/GenderType.BOY:Lcom/cqx/compile/enumc/GenderType;
+  #10 = Methodref          #52.#53        // java/io/PrintStream.println:(Ljava/lang/Object;)V
+  #11 = Fieldref           #4.#54         // com/cqx/compile/enumc/GenderType.GIRL:Lcom/cqx/compile/enumc/GenderType;
+  #12 = String             #18            // GIRL
+  #13 = String             #55            // 女
+  #14 = Methodref          #4.#56         // com/cqx/compile/enumc/GenderType."<init>":(Ljava/lang/String;ILjava/lang/String;)V
+  #15 = String             #20            // BOY
+  #16 = String             #57            // 男
+  #17 = Class              #58            // java/lang/Enum
+  #18 = Utf8               GIRL
+  #19 = Utf8               Lcom/cqx/compile/enumc/GenderType;
+  #20 = Utf8               BOY
+  #21 = Utf8               desc
+  #22 = Utf8               Ljava/lang/String;
+  #23 = Utf8               $VALUES
+  #24 = Utf8               [Lcom/cqx/compile/enumc/GenderType;
+  #25 = Utf8               values
+  #26 = Utf8               ()[Lcom/cqx/compile/enumc/GenderType;
+  #27 = Utf8               Code
+  #28 = Utf8               LineNumberTable
+  #29 = Utf8               valueOf
+  #30 = Utf8               (Ljava/lang/String;)Lcom/cqx/compile/enumc/GenderType;
+  #31 = Utf8               <init>
+  #32 = Utf8               (Ljava/lang/String;ILjava/lang/String;)V
+  #33 = Utf8               Signature
+  #34 = Utf8               (Ljava/lang/String;)V
+  #35 = Utf8               main
+  #36 = Utf8               ([Ljava/lang/String;)V
+  #37 = Utf8               <clinit>
+  #38 = Utf8               ()V
+  #39 = Utf8               Ljava/lang/Enum<Lcom/cqx/compile/enumc/GenderType;>;
+  #40 = Utf8               SourceFile
+  #41 = Utf8               GenderType.java
+  #42 = NameAndType        #23:#24        // $VALUES:[Lcom/cqx/compile/enumc/GenderType;
+  #43 = Class              #24            // "[Lcom/cqx/compile/enumc/GenderType;"
+  #44 = NameAndType        #59:#60        // clone:()Ljava/lang/Object;
+  #45 = Utf8               com/cqx/compile/enumc/GenderType
+  #46 = NameAndType        #29:#61        // valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+  #47 = NameAndType        #31:#62        // "<init>":(Ljava/lang/String;I)V
+  #48 = NameAndType        #21:#22        // desc:Ljava/lang/String;
+  #49 = Class              #63            // java/lang/System
+  #50 = NameAndType        #64:#65        // out:Ljava/io/PrintStream;
+  #51 = NameAndType        #20:#19        // BOY:Lcom/cqx/compile/enumc/GenderType;
+  #52 = Class              #66            // java/io/PrintStream
+  #53 = NameAndType        #67:#68        // println:(Ljava/lang/Object;)V
+  #54 = NameAndType        #18:#19        // GIRL:Lcom/cqx/compile/enumc/GenderType;
+  #55 = Utf8               女
+  #56 = NameAndType        #31:#32        // "<init>":(Ljava/lang/String;ILjava/lang/String;)V
+  #57 = Utf8               男
+  #58 = Utf8               java/lang/Enum
+  #59 = Utf8               clone
+  #60 = Utf8               ()Ljava/lang/Object;
+  #61 = Utf8               (Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+  #62 = Utf8               (Ljava/lang/String;I)V
+  #63 = Utf8               java/lang/System
+  #64 = Utf8               out
+  #65 = Utf8               Ljava/io/PrintStream;
+  #66 = Utf8               java/io/PrintStream
+  #67 = Utf8               println
+  #68 = Utf8               (Ljava/lang/Object;)V
+{
+  public static final com.cqx.compile.enumc.GenderType GIRL;
+    descriptor: Lcom/cqx/compile/enumc/GenderType;
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL, ACC_ENUM
+
+  public static final com.cqx.compile.enumc.GenderType BOY;
+    descriptor: Lcom/cqx/compile/enumc/GenderType;
+    flags: ACC_PUBLIC, ACC_STATIC, ACC_FINAL, ACC_ENUM
+
+  private java.lang.String desc;
+    descriptor: Ljava/lang/String;
+    flags: ACC_PRIVATE
+
+  private static final com.cqx.compile.enumc.GenderType[] $VALUES;
+    descriptor: [Lcom/cqx/compile/enumc/GenderType;
+    flags: ACC_PRIVATE, ACC_STATIC, ACC_FINAL, ACC_SYNTHETIC
+
+  public static com.cqx.compile.enumc.GenderType[] values();
+    descriptor: ()[Lcom/cqx/compile/enumc/GenderType;
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=1, locals=0, args_size=0
+         0: getstatic     #1                  // Field $VALUES:[Lcom/cqx/compile/enumc/GenderType;
+         3: invokevirtual #2                  // Method "[Lcom/cqx/compile/enumc/GenderType;".clone:()Ljava/lang/Object;
+         6: checkcast     #3                  // class "[Lcom/cqx/compile/enumc/GenderType;"
+         9: areturn
+      LineNumberTable:
+        line 3: 0
+
+  public static com.cqx.compile.enumc.GenderType valueOf(java.lang.String);
+    descriptor: (Ljava/lang/String;)Lcom/cqx/compile/enumc/GenderType;
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: ldc           #4                  // class com/cqx/compile/enumc/GenderType
+         2: aload_0
+         3: invokestatic  #5                  // Method java/lang/Enum.valueOf:(Ljava/lang/Class;Ljava/lang/String;)Ljava/lang/Enum;
+         6: checkcast     #4                  // class com/cqx/compile/enumc/GenderType
+         9: areturn
+      LineNumberTable:
+        line 3: 0
+
+  private com.cqx.compile.enumc.GenderType(java.lang.String);
+    descriptor: (Ljava/lang/String;ILjava/lang/String;)V
+    flags: ACC_PRIVATE
+    Code:
+      stack=3, locals=4, args_size=4
+         0: aload_0
+         1: aload_1
+         2: iload_2
+         3: invokespecial #6                  // Method java/lang/Enum."<init>":(Ljava/lang/String;I)V
+         6: aload_0
+         7: aload_3
+         8: putfield      #7                  // Field desc:Ljava/lang/String;
+        11: return
+      LineNumberTable:
+        line 10: 0
+        line 11: 6
+        line 12: 11
+    Signature: #34                          // (Ljava/lang/String;)V
+
+  public static void main(java.lang.String[]);
+    descriptor: ([Ljava/lang/String;)V
+    flags: ACC_PUBLIC, ACC_STATIC
+    Code:
+      stack=2, locals=1, args_size=1
+         0: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+         3: getstatic     #9                  // Field BOY:Lcom/cqx/compile/enumc/GenderType;
+         6: invokevirtual #10                 // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+         9: getstatic     #8                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        12: getstatic     #11                 // Field GIRL:Lcom/cqx/compile/enumc/GenderType;
+        15: invokevirtual #10                 // Method java/io/PrintStream.println:(Ljava/lang/Object;)V
+        18: return
+      LineNumberTable:
+        line 15: 0
+        line 16: 9
+        line 17: 18
+
+  static {};
+    descriptor: ()V
+    flags: ACC_STATIC
+    Code:
+      stack=5, locals=0, args_size=0
+         0: new           #4                  // class com/cqx/compile/enumc/GenderType
+         3: dup
+         4: ldc           #12                 // String GIRL
+         6: iconst_0
+         7: ldc           #13                 // String 女
+         9: invokespecial #14                 // Method "<init>":(Ljava/lang/String;ILjava/lang/String;)V
+        12: putstatic     #11                 // Field GIRL:Lcom/cqx/compile/enumc/GenderType;
+        15: new           #4                  // class com/cqx/compile/enumc/GenderType
+        18: dup
+        19: ldc           #15                 // String BOY
+        21: iconst_1
+        22: ldc           #16                 // String 男
+        24: invokespecial #14                 // Method "<init>":(Ljava/lang/String;ILjava/lang/String;)V
+        27: putstatic     #9                  // Field BOY:Lcom/cqx/compile/enumc/GenderType;
+        30: iconst_2
+        31: anewarray     #4                  // class com/cqx/compile/enumc/GenderType
+        34: dup
+        35: iconst_0
+        36: getstatic     #11                 // Field GIRL:Lcom/cqx/compile/enumc/GenderType;
+        39: aastore
+        40: dup
+        41: iconst_1
+        42: getstatic     #9                  // Field BOY:Lcom/cqx/compile/enumc/GenderType;
+        45: aastore
+        46: putstatic     #1                  // Field $VALUES:[Lcom/cqx/compile/enumc/GenderType;
+        49: return
+      LineNumberTable:
+        line 4: 0
+        line 5: 15
+        line 3: 30
+}
+Signature: #39                          // Ljava/lang/Enum<Lcom/cqx/compile/enumc/GenderType;>;
+SourceFile: "GenderType.java"

@@ -8,7 +8,7 @@ package com.cqx.oom;
  */
 public class CPUDemo {
 
-
+    //cpu占用率99%
     public static void main(String[] args) {
         for (; ; ) {
 
