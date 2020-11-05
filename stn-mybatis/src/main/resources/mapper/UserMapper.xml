@@ -3,45 +3,39 @@
 <mapper namespace="com.cqx.UserMapper" >
   <resultMap id="BaseResultMap" type="com.cqx.User" >
     <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="name" property="name" jdbcType="VARCHAR" />
-    <result column="avatar" property="avatar" jdbcType="VARCHAR" />
-    <result column="gender" property="gender" jdbcType="INTEGER" />
-    <result column="phone" property="phone" jdbcType="VARCHAR" />
-    <result column="created" property="created" jdbcType="BIGINT" />
-    <result column="updated" property="updated" jdbcType="BIGINT" />
-    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+    <result column="username" property="username" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    id, name, avatar, gender, phone, created, updated, deleted
+    id, username
   </sql>
   <select id="getMapTest" resultType="map">
     select *
-    from stn_user
+    from m_user 
   </select>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
     <include refid="Base_Column_List" />
-    from stn_user
+    from m_user
     where id = #{id,jdbcType=INTEGER}
   </select>
   <select id="selectByName" resultMap="BaseResultMap" parameterType="map">
     select
     <include refid="Base_Column_List" />
-    from stn_user
+    from m_user
     where name = #{name}
     and deleted = 0
   </select>
   <update id="deleteByName" parameterType="map">
-    update stn_user
+    update m_user
     set deleted = 1
     where name = #{name}
   </update>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
-    delete from stn_user
+    delete from m_user
     where id = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.cqx.User" >
-    insert into stn_user (id, name, avatar, 
+    insert into m_user (id, name, avatar, 
       gender, phone, created, 
       updated, deleted)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{avatar,jdbcType=VARCHAR}, 
@@ -49,7 +43,7 @@
       #{updated,jdbcType=BIGINT}, #{deleted,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.cqx.User" >
-    insert into stn_user
+    insert into m_user
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
         id,
@@ -104,7 +98,7 @@
     </trim>
   </insert>
   <update id="updateByPrimaryKeySelective" parameterType="com.cqx.User" >
-    update stn_user
+    update m_user
     <set >
       <if test="name != null" >
         name = #{name,jdbcType=VARCHAR},
@@ -131,7 +125,7 @@
     where id = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.cqx.User" >
-    update stn_user
+    update m_user
     set name = #{name,jdbcType=VARCHAR},
       avatar = #{avatar,jdbcType=VARCHAR},
       gender = #{gender,jdbcType=INTEGER},
