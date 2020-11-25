@@ -12,14 +12,13 @@ public class App
 {
     public static void main(String[] args) throws IOException, KeeperException, InterruptedException {
         // 创建一个与服务器的连接
-        ZooKeeper zk = new ZooKeeper("47.92.6.210:8080", 60000, new Watcher() {
-//        ZooKeeper zk = new ZooKeeper("127.0.0.1:2181", 60000, new Watcher() {
+        ZooKeeper zk = new ZooKeeper("localhost:2181", 60000, new Watcher() {
+            //        ZooKeeper zk = new ZooKeeper("127.0.0.1:2181", 60000, new Watcher() {
             // 监控所有被触发的事件
             public void process(WatchedEvent event) {
                 System.out.println("EVENT:" + event.getType());
             }
         });
-
         // 查看根节点
         System.out.println("ls / => " + zk.getChildren("/", true));
 

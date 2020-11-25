@@ -1,6 +1,8 @@
 package com.cqx.juc;
 
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicReference;
+import java.util.concurrent.atomic.AtomicStampedReference;
 
 /**
  * @desc:
@@ -11,6 +13,10 @@ import java.util.concurrent.atomic.AtomicInteger;
 public class AtomicIntegerTest {
 
     static AtomicInteger atomicInteger = new AtomicInteger();
+
+    static AtomicStampedReference<Object> atomicStampedReference = new AtomicStampedReference<Object>(null, 1);
+
+    static AtomicReference<Object> atomicReference = new AtomicReference<>();
 
     public static void main(String[] args) {
         System.out.println(atomicInteger.get());

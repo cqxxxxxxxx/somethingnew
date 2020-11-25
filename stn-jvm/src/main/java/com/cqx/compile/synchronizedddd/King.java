@@ -11,4 +11,11 @@ public class King {
         System.out.println("hi");
         s = xxx;
     }
+
+    public void sayHi() {
+        String lock = "";
+        synchronized (lock) {
+            System.out.println("hi");
+        }
+    }
 }
