@@ -9,7 +9,7 @@ public class User {
 
     private Integer id;
 
-    private String name;
+    private String username;
 
     private String avatar;
 
@@ -31,12 +31,12 @@ public class User {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUsername() {
+        return username;
     }
 
-    public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+    public void setUsername(String name) {
+        this.username = name == null ? null : name.trim();
     }
 
     public String getAvatar() {
