@@ -1,0 +1,155 @@
+Classfile /F:/Projects/somethingnew/stn-jvm/src/main/java/com/cqx/compile/stackslot/SlotTest.class
+  Last modified 2020-11-26; size 725 bytes
+  MD5 checksum 4591764469ead1ca584d70aea7fdcb9d
+  Compiled from "SlotTest.java"
+public class com.cqx.compile.stackslot.SlotTest
+  minor version: 0
+  major version: 52
+  flags: ACC_PUBLIC, ACC_SUPER
+Constant pool:
+   #1 = Methodref          #8.#17         // java/lang/Object."<init>":()V
+   #2 = Class              #18            // java/util/ArrayList
+   #3 = Methodref          #2.#17         // java/util/ArrayList."<init>":()V
+   #4 = Fieldref           #19.#20        // java/lang/System.out:Ljava/io/PrintStream;
+   #5 = InterfaceMethodref #21.#22        // java/util/List.size:()I
+   #6 = Methodref          #23.#24        // java/io/PrintStream.println:(I)V
+   #7 = Class              #25            // com/cqx/compile/stackslot/SlotTest
+   #8 = Class              #26            // java/lang/Object
+   #9 = Utf8               <init>
+  #10 = Utf8               ()V
+  #11 = Utf8               Code
+  #12 = Utf8               LineNumberTable
+  #13 = Utf8               test0
+  #14 = Utf8               test1
+  #15 = Utf8               SourceFile
+  #16 = Utf8               SlotTest.java
+  #17 = NameAndType        #9:#10         // "<init>":()V
+  #18 = Utf8               java/util/ArrayList
+  #19 = Class              #27            // java/lang/System
+  #20 = NameAndType        #28:#29        // out:Ljava/io/PrintStream;
+  #21 = Class              #30            // java/util/List
+  #22 = NameAndType        #31:#32        // size:()I
+  #23 = Class              #33            // java/io/PrintStream
+  #24 = NameAndType        #34:#35        // println:(I)V
+  #25 = Utf8               com/cqx/compile/stackslot/SlotTest
+  #26 = Utf8               java/lang/Object
+  #27 = Utf8               java/lang/System
+  #28 = Utf8               out
+  #29 = Utf8               Ljava/io/PrintStream;
+  #30 = Utf8               java/util/List
+  #31 = Utf8               size
+  #32 = Utf8               ()I
+  #33 = Utf8               java/io/PrintStream
+  #34 = Utf8               println
+  #35 = Utf8               (I)V
+{
+  public com.cqx.compile.stackslot.SlotTest();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=1, locals=1, args_size=1
+         0: aload_0
+         1: invokespecial #1                  // Method java/lang/Object."<init>":()V
+         4: return
+      LineNumberTable:
+        line 6: 0
+
+  public void test0();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=5, args_size=1
+         0: new           #2                  // class java/util/ArrayList
+         3: dup
+         4: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+         7: astore_1
+         8: new           #2                  // class java/util/ArrayList
+        11: dup
+        12: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+        15: astore_2
+        16: new           #2                  // class java/util/ArrayList
+        19: dup
+        20: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+        23: astore_3
+        24: new           #2                  // class java/util/ArrayList
+        27: dup
+        28: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+        31: astore        4
+        33: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        36: aload_1
+        37: invokeinterface #5,  1            // InterfaceMethod java/util/List.size:()I
+        42: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        45: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        48: aload_2
+        49: invokeinterface #5,  1            // InterfaceMethod java/util/List.size:()I
+        54: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        57: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        60: aload_3
+        61: invokeinterface #5,  1            // InterfaceMethod java/util/List.size:()I
+        66: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        69: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        72: aload         4
+        74: invokeinterface #5,  1            // InterfaceMethod java/util/List.size:()I
+        79: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        82: return
+      LineNumberTable:
+        line 9: 0
+        line 10: 8
+        line 11: 16
+        line 12: 24
+        line 13: 33
+        line 14: 45
+        line 15: 57
+        line 16: 69
+        line 17: 82
+
+  public void test1();
+    descriptor: ()V
+    flags: ACC_PUBLIC
+    Code:
+      stack=2, locals=5, args_size=1
+         0: new           #2                  // class java/util/ArrayList
+         3: dup
+         4: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+         7: astore_1
+         8: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        11: aload_1
+        12: invokeinterface #5,  1            // InterfaceMethod java/util/List.size:()I
+        17: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        20: new           #2                  // class java/util/ArrayList
+        23: dup
+        24: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+        27: astore_2
+        28: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        31: aload_2
+        32: invokeinterface #5,  1            // InterfaceMethod java/util/List.size:()I
+        37: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        40: new           #2                  // class java/util/ArrayList
+        43: dup
+        44: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+        47: astore_3
+        48: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        51: aload_3
+        52: invokeinterface #5,  1            // InterfaceMethod java/util/List.size:()I
+        57: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        60: new           #2                  // class java/util/ArrayList
+        63: dup
+        64: invokespecial #3                  // Method java/util/ArrayList."<init>":()V
+        67: astore        4
+        69: getstatic     #4                  // Field java/lang/System.out:Ljava/io/PrintStream;
+        72: aload         4
+        74: invokeinterface #5,  1            // InterfaceMethod java/util/List.size:()I
+        79: invokevirtual #6                  // Method java/io/PrintStream.println:(I)V
+        82: return
+      LineNumberTable:
+        line 20: 0
+        line 21: 8
+        line 23: 20
+        line 24: 28
+        line 26: 40
+        line 27: 48
+        line 29: 60
+        line 30: 69
+        line 31: 82
+}
+SourceFile: "SlotTest.java"
