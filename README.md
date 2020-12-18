@@ -53,6 +53,8 @@ hystrix源码考过来的使用案例
 
 #### stn-javassist
 1. javassist学习使用, 为后面改造sentinel-sdk做准备
+http://www.javassist.org/tutorial/tutorial.html
+
 
 #### stn-jigsaw
 1. jigsaw模块化新特性学习尝试
