@@ -23,6 +23,7 @@ public class UnsafeTest {
     }
 
     public static void main(String[] args) throws Exception {
+//        Unsafe unsafe = Unsafe.getUnsafe();
 
         Unsafe unsafe = getUnsafeInstance();
         User user = new User();

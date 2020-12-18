@@ -12,10 +12,12 @@ public class MapTest {
         Random r  = new Random();
         Set<String> sets = new HashSet<>(100000);
         System.out.println(System.currentTimeMillis());
+        //50ms
         for (int i = 0; i < 100000; i++) {
             sets.add(i + "");
         }
         System.out.println(System.currentTimeMillis());
+        //2ms
         for (int i = 0; i < 100; i++) {
             boolean contains = sets.contains(r.nextInt());
             System.out.println(contains);

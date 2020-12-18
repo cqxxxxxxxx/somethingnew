@@ -51,6 +51,9 @@ hystrix源码考过来的使用案例
 #### stn-javaagent
 1. instrument使用 javaagent尝试
 
+#### stn-javassist
+1. javassist学习使用, 为后面改造sentinel-sdk做准备
+
 #### stn-jigsaw
 1. jigsaw模块化新特性学习尝试
 
