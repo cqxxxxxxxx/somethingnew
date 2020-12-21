@@ -1,1 +1,4 @@
-Premain-class: com.cqx.InstrumentAgent
+Premain-class: com.cqx.stn.jagent.PremainAgent
+Agent-Class: com.cqx.stn.jagent.AgentMain
+Can-Retransform-Classes: true
+Can-Redefine-Classes: true

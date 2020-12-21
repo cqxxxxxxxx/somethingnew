@@ -1,7 +1,7 @@
-package com.cqx.test;
+package com.cqx.jagent.examples;
 
 
-import com.cqx.InstrumentAgent;
+import com.cqx.stn.jagent.PremainAgent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +14,10 @@ import java.util.List;
  * @author: cqx
  * @Date: 2019/2/26
  */
-public class InstrumentMainTest {
+public class PremainAgentTest {
 
     public static void printObjectSize(Object object) {
-        System.out.println("Object type: " + object.getClass() + ", size: " + InstrumentAgent.getObjectSize(object) + " bytes");
+        System.out.println("Object type: " + object.getClass() + ", size: " + PremainAgent.getObjectSize(object) + " bytes");
     }
 
     /**

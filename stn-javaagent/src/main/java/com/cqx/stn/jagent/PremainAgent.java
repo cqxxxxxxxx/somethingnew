@@ -1,4 +1,4 @@
-package com.cqx;
+package com.cqx.stn.jagent;
 
 import java.lang.instrument.Instrumentation;
 
@@ -8,12 +8,12 @@ import java.lang.instrument.Instrumentation;
  * @author: cqx
  * @Date: 2019/2/26
  */
-public class InstrumentAgent {
+public class PremainAgent {
 
     private static volatile Instrumentation globalInstrumentation;
 
     /**
-     * 1. 指定 Premain-class: com.cqx.InstrumentAgent
+     * 1. 指定 Premain-class: com.cqx.stn.jagent.InstrumentAgent
      * 2. JVM启动时 调用main方法前会 执行这个类的premain方法，并且自动把参数注入进来
      * 3. 利用instrumentation来计算对象大小
      *
