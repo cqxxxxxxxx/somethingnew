@@ -1,4 +1,4 @@
-package com.cqx.jvm;
+package com.cqx.jvm.classloader;
 
 import java.lang.reflect.InvocationTargetException;
 
@@ -18,6 +18,7 @@ public class ClassLoadTest {
 
         Object o = new Object();
         String s = new String();
+//        Class<?> aClass = Thread.currentThread().getContextClassLoader().loadClass("java.lang.Object");
         CqxClassLoader cqxClassLoader = new CqxClassLoader();
         Class c1 = cqxClassLoader.loadClass("com.cqx.jvm.NameO", false);
         Object o1 = c1.getDeclaredConstructor().newInstance();

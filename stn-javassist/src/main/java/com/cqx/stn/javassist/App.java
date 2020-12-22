@@ -3,6 +3,7 @@ package com.cqx.stn.javassist;
 import javassist.*;
 
 import java.io.IOException;
+import java.lang.reflect.Modifier;
 
 /**
  * Hello world!
@@ -11,7 +12,8 @@ public class App {
     public static void main(String[] args) throws NotFoundException, CannotCompileException, IOException {
 //        modifySuperClassAndWriteFile();
 //        frozenAndDeFrost();
-        modifyMethodBody();
+//        modifyMethodBody();
+        modifyMethodBody2();
 
     }
 
@@ -73,9 +75,43 @@ public class App {
         getIdMethod.insertAfter("{" +
                 "System.out.println(\"我是你爹啊\");" +
                 "}");
+
         Class<?> aClass = ctClass.toClass();
         Rectangle rectangle = new Rectangle();
         //打印了我是你爹
+        rectangle.getId();
+    }
+
+
+    private static void modifyMethodBody2() throws NotFoundException, CannotCompileException, IOException {
+        ClassPool pool = ClassPool.getDefault();
+        CtClass ctClass = pool.get("com.cqx.stn.javassist.Rectangle");
+        CtMethod method = ctClass.getDeclaredMethod("getId");
+        final CtMethod newMethod = CtNewMethod.copy(method, ctClass, null);
+        method.setName("getIdDeprecated");
+        method.setModifiers(method.getModifiers()
+                | java.lang.reflect.Modifier.PUBLIC /* add public */
+                & ~java.lang.reflect.Modifier.PROTECTED /* remove protected */
+                & ~java.lang.reflect.Modifier.PRIVATE /* remove private */);
+        final String returnOp;
+        if (method.getReturnType() == CtClass.voidType) {
+            returnOp = "";
+        } else {
+            returnOp = "return ";
+        }
+        // set new method implementation
+        final String code = "{\n" +
+                "System.out.println(\"前面我是你👨\");" + "\n" +
+                "try {\n" +
+                "    " + returnOp + "getIdDeprecated" + "($$);\n" +
+                "} finally {\n" +
+                "    " +  "System.out.println(\"后面你是我👨\");" + "\n" +
+                "} }";
+        newMethod.setBody(code);
+        ctClass.addMethod(newMethod);
+
+        Class<?> aClass = ctClass.toClass();
+        Rectangle rectangle = new Rectangle();
         rectangle.getId();
     }
 }

@@ -1,4 +1,4 @@
-package com.cqx.jvm;
+package com.cqx.jvm.classloader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
