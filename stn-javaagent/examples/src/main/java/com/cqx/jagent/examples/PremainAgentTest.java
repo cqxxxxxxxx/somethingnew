@@ -26,6 +26,12 @@ public class PremainAgentTest {
      * @param arguments
      */
     public static void main(String[] arguments) {
+        Person person = new Person();
+        person.sayHi();
+    }
+
+
+    private void printObjSize() {
         String emptyString = "";
         String string = "Estimating Object Size Using Instrumentation";
         String[] stringArray = {emptyString, string, "com.baeldung"};
@@ -67,7 +73,6 @@ public class PremainAgentTest {
         printObjectSize(emptyClass);
         printObjectSize(stringClass);
     }
-
     public enum Day {
         MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY, SUNDAY
     }

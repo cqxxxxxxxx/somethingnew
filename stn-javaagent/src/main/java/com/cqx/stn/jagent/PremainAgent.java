@@ -23,6 +23,7 @@ public class PremainAgent {
     public static void premain(final String agentArgs, final Instrumentation inst) {
         System.out.println("In premain method");
         globalInstrumentation = inst;
+        globalInstrumentation.addTransformer(new MyTransformer());
     }
 
     public static long getObjectSize(final Object object) {
