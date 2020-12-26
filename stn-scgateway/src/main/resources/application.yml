@@ -1,0 +1,19 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: download-test
+          uri: http://localhost:9001
+          predicates:
+            - Path=/download/**
+          filters:
+            - StripPrefix=1
+        - id: bdp
+          uri: https://bd-develop.yun-ti.com
+          predicates:
+            - Path=/bdp/**
+          filters:
+            - StripPrefix=1
+logging:
+  level:
+    root: debug
