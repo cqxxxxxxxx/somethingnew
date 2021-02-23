@@ -8,6 +8,9 @@ public class 今天20200823 {
     /**
      * 62. 不同路径
      * 动态规划 DP dynamic programming
+     * f(m,n)=f(m-1,n)+f(m,n-1)
+     * dp[i][j] 为到达i，j上的路径数量
+     * dp[i][j]=dp[i-1][j]+dp[i][j-1]
      *
      * @param m 列数量
      * @param n 行数量
@@ -36,6 +39,7 @@ public class 今天20200823 {
         }
         return cur[n - 1];
     }
+
 
 
     /**
@@ -75,6 +79,14 @@ public class 今天20200823 {
     }
 
 
+    /**
+     * 最优子结构： opt[i,j] = opt[i-1,j] + opt[i, j-1]
+     * dp数组: dp[m][n]
+     * dp方程：  opt[i,j] = opt[i-1,j] + opt[i, j-1]
+     *
+     * @param obstacleGrid
+     * @return
+     */
     public static int uniquePathsWithObstacles1(int[][] obstacleGrid) {
         if (obstacleGrid == null || obstacleGrid.length == 0) {
             return 0;
@@ -104,6 +116,16 @@ public class 今天20200823 {
 
 //=========================================  最长公共子序列
 
+    /**
+     * 最优子结构  opt[i,j]=
+     * dp数组 dp[][]
+     * dp方程: dp[i][j] = dp[i-1][j-1] + 1
+     * dp[i][j] = MAX(dp[i-1][j], dp[i][j-1])
+     *
+     * @param text1
+     * @param text2
+     * @return
+     */
     public int longestCommonSubsequence(String text1, String text2) {
         char[] t1 = text1.toCharArray();
         char[] t2 = text2.toCharArray();

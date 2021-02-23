@@ -62,7 +62,7 @@ public class 环形链表 {
             while (fast.next != null && fast.next.next != null) {
                 slow = slow.next;
                 fast = fast.next.next;
-                if (slow.val == fast.val) {
+                if (slow == fast) {
                     return true;
                 }
             }
