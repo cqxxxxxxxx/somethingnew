@@ -2,7 +2,7 @@ package com.cqx.jagent.examples;
 
 import java.util.concurrent.TimeUnit;
 
-public class AttachTest {
+public class   AttachTest {
 
     public static void main(String[] args) throws InterruptedException {
         while (true) {
