@@ -12,7 +12,7 @@ public class AttachAPI {
         for (VirtualMachineDescriptor virtualMachineDescriptor : list) {
             System.out.println(virtualMachineDescriptor.id());
         }
-        final VirtualMachine attach = VirtualMachine.attach("67838");
-        attach.loadAgent("/Users/cqx/Projects/somethingnew/stn-javaagent/target/cqx-javaagent.jar");
+        final VirtualMachine attach = VirtualMachine.attach("28972");
+        attach.loadAgent("F:\\Projects\\somethingnew\\stn-javaagent\\src\\main\\java\\com\\cqx\\test\\cqx-javaagent.jar");
     }
 }
