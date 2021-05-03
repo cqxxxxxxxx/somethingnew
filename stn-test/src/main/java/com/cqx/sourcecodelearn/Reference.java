@@ -1,6 +1,6 @@
 package com.cqx.sourcecodelearn;
 
-import sun.misc.Cleaner;
+
 
 import java.lang.ref.PhantomReference;
 import java.lang.ref.ReferenceQueue;
@@ -48,7 +48,7 @@ public class Reference {
          * 所以定义一个cleaner，当gc时候发现byteBuffer没有强引用时，就通过referenceHandler来执行cleaner的回收方法进行内存回收。
          */
         final ByteBuffer byteBuffer = ByteBuffer.allocateDirect(1024);
-        Cleaner.create(new Object(), () -> System.out.println("object cleaned"));
+//        Cleaner.create(new Object(), () -> System.out.println("object cleaned"));
 
     }
 
