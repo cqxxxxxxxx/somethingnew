@@ -3,6 +3,9 @@ package com.cqx.leetcode.zailai.lookback.deque;
 import java.util.Deque;
 import java.util.LinkedList;
 
+/**
+ * https://leetcode-cn.com/problems/sliding-window-maximum/
+ */
 public class H239_滑动窗口的最大值 {
 
     /**

@@ -6,6 +6,12 @@ package com.cqx.leetcode.zailai.lookback.array;
 public class 剑指Offer57_和为s的两个数字 {
 
 
+    /**
+     * 两边夹逼
+     * @param nums
+     * @param target
+     * @return
+     */
     public int[] twoSum(int[] nums, int target) {
         int start = 0;
         int end = nums.length - 1;

@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+/**
+ * https://leetcode-cn.com/problems/n-queens/
+ */
 public class H51_N皇后 {
     /**
      * n 皇后问题研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。
@@ -44,7 +47,7 @@ public class H51_N皇后 {
         }
 
         for (int i = 0; i < n; i++) {
-            //这一行、正对角线、反对角线都不能再放了，如果发现是true，停止本次循环
+            //这一列、正对角线、反对角线都不能再放了，如果发现是true，停止本次循环
             if (visited[i] || dia1[rowIndex + i] || dia2[rowIndex - i + n - 1])
                 continue;
 

@@ -2,6 +2,9 @@ package com.cqx.leetcode.zailai.lookback.divideAndConquer;
 
 import java.util.Arrays;
 
+/**
+ *
+ */
 public class E169_多数元素 {
 
     public int majorityElement(int[] nums) {

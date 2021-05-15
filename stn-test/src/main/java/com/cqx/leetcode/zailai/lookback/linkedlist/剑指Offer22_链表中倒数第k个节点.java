@@ -1,4 +1,4 @@
-package com.cqx.leetcode.zailai.lookback.array;
+package com.cqx.leetcode.zailai.lookback.linkedlist;
 
 /**
  * https://leetcode-cn.com/problems/lian-biao-zhong-dao-shu-di-kge-jie-dian-lcof/

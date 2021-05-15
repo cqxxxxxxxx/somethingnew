@@ -2,6 +2,9 @@ package com.cqx.leetcode.zailai.lookback.dfsAndBfs;
 
 import java.util.*;
 
+/**
+ *https://leetcode-cn.com/problems/word-ladder/
+ */
 public class H127_单词接龙 {
 
     public int ladderLength1(String beginWord, String endWord, List<String> wordList) {

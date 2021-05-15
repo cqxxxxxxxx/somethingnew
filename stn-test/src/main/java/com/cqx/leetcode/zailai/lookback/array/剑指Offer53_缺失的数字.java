@@ -5,6 +5,11 @@ package com.cqx.leetcode.zailai.lookback.array;
  */
 public class 剑指Offer53_缺失的数字 {
 
+    /**
+     * 遍历
+     * @param nums
+     * @return
+     */
     public int missingNumber(int[] nums) {
         for (int i = 0; i < nums.length; i++) {
             if (nums[i] != i) {
@@ -15,6 +20,11 @@ public class 剑指Offer53_缺失的数字 {
     }
 
 
+    /**
+     * 二分查找
+     * @param nums
+     * @return
+     */
     public int missingNumber1(int[] nums) {
         int start = 0;
         int end = nums.length - 1;

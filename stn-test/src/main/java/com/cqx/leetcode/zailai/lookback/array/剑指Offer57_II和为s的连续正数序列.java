@@ -3,8 +3,17 @@ package com.cqx.leetcode.zailai.lookback.array;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * https://leetcode-cn.com/problems/he-wei-sde-lian-xu-zheng-shu-xu-lie-lcof/
+ */
 public class 剑指Offer57_II和为s的连续正数序列 {
 
+    /**
+     * 1. 求和公式
+     * 2. 滑动窗口
+     * @param target
+     * @return
+     */
     public int[][] findContinuousSequence(int target) {
         int i = 1; // 滑动窗口的左边界
         int j = 1; // 滑动窗口的右边界
