@@ -6,18 +6,20 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.dao.DataAccessException;
+import org.springframework.data.redis.connection.RedisConnection;
+import org.springframework.data.redis.connection.StringRedisConnection;
+import org.springframework.data.redis.core.RedisCallback;
 import org.springframework.data.redis.core.RedisKeyValueTemplate;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.test.context.junit4.SpringRunner;
 import redis.clients.jedis.HostAndPort;
-import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisCluster;
 
 import javax.annotation.Resource;
 import java.util.HashSet;
 import java.util.Set;
-import java.util.concurrent.TimeUnit;
 
 /**
  * redis数据库的一些操作，CRUD之类的
@@ -104,6 +106,21 @@ public class RedisTest {
 //        System.out.println(jc.get("ffn"));
     }
 
+
+    @Test
+    public void pipeline() {
+        stringRedisTemplate.executePipelined(
+                new RedisCallback<Object>() {
+                    @Override
+                    public Object doInRedis(RedisConnection connection) throws DataAccessException {
+                        StringRedisConnection stringRedisConn = (StringRedisConnection) connection;
+                        for (int i = 0; i < 10000; i++) {
+                            stringRedisConn.lPush("myqueue", i + "");
+                        }
+                        return null;
+                    }
+                });
+    }
 
 
 }
