@@ -19,9 +19,7 @@ public class Knight {
         return a * a * 3 - 1 & 231;
     }
 
-    public static void main(String[] args) {
-//        JStack j = new JStack();
-//        j.run();
+    public void array() {
         int[] t = new int[2000];
         for (int i = 0; i < 2000; i++) {
             t[i] = i;
@@ -30,17 +28,23 @@ public class Knight {
             calc(x);
             System.out.println(Thread.currentThread());
         });
+    }
 
+    public void invoke() {
         Knight knight = new Knight();
         knight.say("cqx", "534");
+    }
 
 
-        String s1 = "cqx";
-        String s2 = new String("我无敌cqx");
-        System.out.println(s1.equals(s2));
-        System.out.println(s1 == s2);
-
-
+    public void string() {
+        String a = "abc";
+        String b = new String("abc");
+        String c = new String("abc");
+        String d = new String("abc").intern();
+        System.out.println(a.hashCode() + "|" + System.identityHashCode(a));
+        System.out.println(b.hashCode() + "|" + System.identityHashCode(b));
+        System.out.println(c.hashCode() + "|" + System.identityHashCode(c));
+        System.out.println(d.hashCode() + "|" + System.identityHashCode(d));
     }
 
     public void say(String a, String b) {
@@ -51,4 +55,9 @@ public class Knight {
         System.out.println("hahaha");
         String e = c + "c" + "d";
     }
+
+    public static void main(String[] args) {
+        new Knight().string();
+    }
+
 }

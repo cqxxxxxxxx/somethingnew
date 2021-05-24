@@ -16,5 +16,6 @@ public class Test {
                 dog.getClass().getInterfaces(),
                 invocationHandler);
         animal.bark();
+        animal.toString();
     }
 }
