@@ -48,22 +48,33 @@ public class M39_组合总和 {
      * @return
      */
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
-        recursion(target, candidates, new ArrayList<>());
+        recursion(target, 0, candidates, new ArrayList<>());
         return r;
     }
 
-    private void recursion(int target, int[] candidates, ArrayList<Integer> tmp) {
+    private void recursion(int target, int start, int[] candidates, ArrayList<Integer> tmp) {
         if (target == 0) {
             r.add(new ArrayList<>(tmp));
+            return;
         }
         if (target < 0) {
             return;
         }
-        for (int i = 0; i < candidates.length; i++) {
+        // 重点理解这里从 begin 开始搜索的语意
+        for (int i = start; i < candidates.length; i++) {
             tmp.add(candidates[i]);
-            recursion(target - candidates[i], candidates, tmp);
-            //backtrace
+            // 注意：由于每一个元素可以重复使用，下一轮搜索的起点依然是 i，这里非常容易弄错
+            recursion(target - candidates[i], i, candidates, tmp);
+            //backtrace 状态重置
             tmp.remove(tmp.size() - 1);
         }
+    }
+
+    public static void main(String[] args) {
+        int[] array = {2, 3, 6, 7};
+        M39_组合总和 o = new M39_组合总和();
+        List<List<Integer>> lists = o.combinationSum(array, 7);
+        System.out.println(lists.size());
+
     }
 }
