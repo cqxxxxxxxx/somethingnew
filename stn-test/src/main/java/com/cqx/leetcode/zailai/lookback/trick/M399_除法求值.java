@@ -30,6 +30,14 @@ public class M399_除法求值 {
 
 
     class Solution {
+        /**
+         * 构建图
+         *
+         * @param equations
+         * @param values
+         * @param queries
+         * @return
+         */
         public double[] calcEquation(List<List<String>> equations, double[] values, List<List<String>> queries) {
             int nvars = 0;
             Map<String, Integer> variables = new HashMap<String, Integer>();

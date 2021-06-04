@@ -1,7 +1,10 @@
-package com.cqx.leetcode.zailai.lookback.recursion;
+package com.cqx.leetcode.zailai.lookback.bit;
 
 public class E342_4的幂 {
     /**
+     * 判断是否2的幂 (n & (n-1)) == 0
+     * 然后判断1是否出现在偶数上，是的话true
+     *
      * @param n
      * @return
      */

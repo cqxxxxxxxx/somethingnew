@@ -21,7 +21,7 @@ public class StnCqxhatApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
-        String host = SystemPropertyUtil.get("host", ServerConst.HOST);
+        String host = SystemPropertyUtil.get("host", "localhost");
         Integer port = SystemPropertyUtil.getInt("port", ServerConst.PORT);
         System.out.println("cqxxxxxx" + host);
         cqxhatServer.start(new InetSocketAddress(host, port));

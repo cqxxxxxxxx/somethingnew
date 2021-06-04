@@ -3,11 +3,11 @@
   <ID>JAVA</ID>
   <OriginalElement>io.netty.channel.nio.NioEventLoopGroup</OriginalElement>
   <nodes>
-    <node x="0.0" y="395.0">io.netty.util.concurrent.MultithreadEventExecutorGroup</node>
     <node x="542.0162037037037" y="316.0">io.netty.util.concurrent.EventExecutor</node>
+    <node x="0.0" y="395.0">io.netty.util.concurrent.MultithreadEventExecutorGroup</node>
     <node x="330.79166666666663" y="450.0">io.netty.channel.EventLoopGroup</node>
-    <node x="104.625" y="727.0">io.netty.channel.MultithreadEventLoopGroup</node>
     <node x="574.0717592592592" y="0.0">java.util.concurrent.Executor</node>
+    <node x="104.625" y="727.0">io.netty.channel.MultithreadEventLoopGroup</node>
     <node x="387.79166666666663" y="158.0">java.util.concurrent.ScheduledExecutorService</node>
     <node x="426.625" y="584.0">io.netty.channel.nio.NioEventLoop</node>
     <node x="36.0" y="316.0">io.netty.util.concurrent.AbstractEventExecutorGroup</node>
@@ -64,15 +64,15 @@
       <point x="611.0162037037037" y="559.0" />
       <point x="0.0" y="14.5" />
     </edge>
-    <edge source="io.netty.channel.EventLoopGroup" target="io.netty.util.concurrent.EventExecutorGroup">
-      <point x="0.0" y="-14.5" />
-      <point x="0.0" y="14.5" />
-    </edge>
     <edge source="java.util.concurrent.ScheduledExecutorService" target="java.util.concurrent.ExecutorService">
       <point x="0.0" y="-14.5" />
       <point x="493.29166666666663" y="133.0" />
       <point x="588.8217592592592" y="133.0" />
       <point x="-36.75" y="14.5" />
+    </edge>
+    <edge source="io.netty.channel.EventLoopGroup" target="io.netty.util.concurrent.EventExecutorGroup">
+      <point x="0.0" y="-14.5" />
+      <point x="0.0" y="14.5" />
     </edge>
     <edge source="io.netty.util.concurrent.EventExecutor" target="io.netty.util.concurrent.EventExecutorGroup">
       <point x="0.0" y="-14.5" />
@@ -97,8 +97,10 @@
       <point x="0.0" y="36.5" />
     </edge>
   </edges>
-  <settings layout="Hierarchic Group" zoom="0.43380281690140843" x="378.0" y="522.5" />
-  <SelectedNodes />
+  <settings layout="Hierarchic Group" zoom="0.3784037558685446" x="377.5" y="522.5" />
+  <SelectedNodes>
+    <node>io.netty.channel.nio.NioEventLoopGroup</node>
+  </SelectedNodes>
   <Categories>
     <Category>Fields</Category>
   </Categories>
