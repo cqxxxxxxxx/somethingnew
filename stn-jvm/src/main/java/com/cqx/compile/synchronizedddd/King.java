@@ -5,17 +5,26 @@ package com.cqx.compile.synchronizedddd;
  */
 public class King {
 
-    private static String s;
+    private static Object lock = new Object();
 
     public synchronized void sayHi(String xxx) {
+        System.out.println(xxx);
         System.out.println("hi");
-        s = xxx;
     }
 
     public void sayHi() {
-        String lock = "";
         synchronized (lock) {
             System.out.println("hi");
         }
+    }
+
+    public void wait_notify() throws InterruptedException {
+        lock.wait();
+        lock.notify();
+    }
+
+    public static void main(String[] args) throws InterruptedException {
+        lock.wait();
+        lock.notify();
     }
 }

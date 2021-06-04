@@ -1,12 +1,33 @@
 package com.cqx.compile.ordinary;
 
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 /**
  * Created by BG307435 on 2017/9/5.
  */
 public class Knight {
+
+    private static final String name = "cqx";
+    private static final List<Integer> girls = new ArrayList<>();
+
+    static {
+        System.out.println("aaaa");
+    }
+
+    private int id;
+
+    private List<String> list = new ArrayList();
+
+    public Knight() {
+
+    }
+
+    public Knight(int id) {
+        this.id = id;
+    }
 
     private Integer result;
 
@@ -57,6 +78,7 @@ public class Knight {
     }
 
     public static void main(String[] args) {
+        new Knight(1);
         new Knight().string();
     }
 
