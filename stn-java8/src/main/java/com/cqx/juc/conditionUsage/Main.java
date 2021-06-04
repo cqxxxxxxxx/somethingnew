@@ -1,5 +1,7 @@
 package com.cqx.juc.conditionUsage;
 
+import java.util.concurrent.locks.LockSupport;
+
 /**
  * @desc:
  * @version: 1.0.0
@@ -37,6 +39,9 @@ public class Main {
     }
 
     public static void main(String[] args) throws InterruptedException {
+//        Thread.currentThread().interrupt();
+        LockSupport.unpark(Thread.currentThread());
+        LockSupport.park();
         ConditionUsage service = new ConditionUsage();
         Runnable runnable1 = new ThreadA(service);
         Runnable runnable2 = new ThreadB(service);

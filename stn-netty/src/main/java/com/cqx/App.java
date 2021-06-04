@@ -17,6 +17,5 @@ public class App {
         System.out.println(1 << 3);
         System.out.println(1 << 4);
         System.out.println(SelectionKey.OP_WRITE);
-        User user = new User();
     }
 }
