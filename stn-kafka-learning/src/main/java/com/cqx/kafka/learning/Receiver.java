@@ -1,9 +1,6 @@
 package com.cqx.kafka.learning;
 
-import org.apache.kafka.clients.consumer.ConsumerRebalanceListener;
-import org.apache.kafka.clients.consumer.ConsumerRecord;
-import org.apache.kafka.clients.consumer.ConsumerRecords;
-import org.apache.kafka.clients.consumer.KafkaConsumer;
+import org.apache.kafka.clients.consumer.*;
 import org.apache.kafka.common.TopicPartition;
 
 import java.time.Duration;
@@ -30,6 +27,7 @@ public class Receiver {
         props.setProperty("key.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty("value.deserializer", "org.apache.kafka.common.serialization.StringDeserializer");
         props.setProperty("auto.offset.reset", "earliest");
+        props.setProperty(ConsumerConfig.GROUP_INSTANCE_ID_CONFIG, "1");
         consumer = new KafkaConsumer<>(props);
         consumer.subscribe(Arrays.asList("test01"), new ConsumerRebalanceListener() {
             /**
