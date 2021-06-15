@@ -1,7 +1,7 @@
-package com.cqx.stnspringboot.api;
+package com.cqx.springboot.api;
 
-import com.cqx.stnspringboot.entity.User;
-import com.cqx.stnspringboot.service.UserService;
+import com.cqx.springboot.entity.User;
+import com.cqx.springboot.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

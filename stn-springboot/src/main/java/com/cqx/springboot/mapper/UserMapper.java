@@ -1,6 +1,6 @@
-package com.cqx.stnspringboot.mapper;
+package com.cqx.springboot.mapper;
 
-import com.cqx.stnspringboot.entity.User;
+import com.cqx.springboot.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
