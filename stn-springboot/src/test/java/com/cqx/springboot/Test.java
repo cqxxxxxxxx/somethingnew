@@ -1,4 +1,4 @@
-package com.cqx.stnspringboot;
+package com.cqx.springboot;
 
 import java.util.ArrayList;
 import java.util.HashSet;

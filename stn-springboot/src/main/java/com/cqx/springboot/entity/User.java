@@ -1,4 +1,4 @@
-package com.cqx.stnspringboot.entity;
+package com.cqx.springboot.entity;
 
 public class User {
     private Integer id;
