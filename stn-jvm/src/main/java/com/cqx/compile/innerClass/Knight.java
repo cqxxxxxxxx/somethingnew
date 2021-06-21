@@ -17,5 +17,11 @@ public class Knight {
         void onTaskClick();
     }
 
+    private class Knife {
+        private String damage = "99";
 
+        private String stab() {
+            return damage;
+        }
+    }
 }

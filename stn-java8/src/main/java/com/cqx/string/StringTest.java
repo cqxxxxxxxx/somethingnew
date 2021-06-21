@@ -16,4 +16,16 @@ public class StringTest {
         System.out.println(e.getBytes().length);
         System.out.println(Charset.defaultCharset()); //UTF-8
     }
+
+
+    public void test0() {
+        System.out.println("abc" == "abc"); //true
+        System.out.println("abc".equals("abc")); //true
+        System.out.println(System.identityHashCode(new String("abc"))); //1555009629
+        System.out.println(System.identityHashCode(new String("abc"))); //41359092
+        System.out.println(System.identityHashCode(new String("abc").intern())); //149928006
+        System.out.println(System.identityHashCode("abc")); //149928006
+    }
+
+
 }
