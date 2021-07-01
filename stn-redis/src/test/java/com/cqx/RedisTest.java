@@ -114,8 +114,8 @@ public class RedisTest {
                     @Override
                     public Object doInRedis(RedisConnection connection) throws DataAccessException {
                         StringRedisConnection stringRedisConn = (StringRedisConnection) connection;
-                        for (int i = 0; i < 10000; i++) {
-                            stringRedisConn.lPush("myqueue", i + "");
+                        for (int i = 100000; i < 200000; i++) {
+                            stringRedisConn.sAdd("myqueue", i + "");
                         }
                         return null;
                     }

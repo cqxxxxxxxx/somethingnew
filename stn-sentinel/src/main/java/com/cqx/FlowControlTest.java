@@ -2,6 +2,7 @@ package com.cqx;
 
 import com.alibaba.csp.sentinel.Entry;
 import com.alibaba.csp.sentinel.SphU;
+import com.alibaba.csp.sentinel.context.ContextUtil;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
 import com.alibaba.csp.sentinel.slots.block.RuleConstant;
 import com.alibaba.csp.sentinel.slots.block.degrade.DegradeException;
@@ -19,7 +20,6 @@ public class FlowControlTest {
     public static void main(String[] args) throws InterruptedException {
         // 配置规则.
         initFlowRules();
-
         while (true) {
             // 1.5.0 版本开始可以直接利用 try-with-resources 特性
             try (Entry entry = SphU.entry("HelloWorld")) {

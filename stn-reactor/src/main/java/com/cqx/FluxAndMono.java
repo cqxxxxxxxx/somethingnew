@@ -74,6 +74,7 @@ public class FluxAndMono {
 
     @Test
     public void mono() {
+        Mono.just("aaa").map(x -> x.length()).subscribe(x -> System.out.println(x));
         Mono.fromSupplier(() -> "Hello").subscribe(System.out::println);
         Mono.justOrEmpty(Optional.of("Hello")).subscribe(System.out::println);
         Mono.create(sink -> sink.success("Hello")).subscribe(System.out::println);
