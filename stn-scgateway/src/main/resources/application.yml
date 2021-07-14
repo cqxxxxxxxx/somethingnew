@@ -14,6 +14,12 @@ spring:
             - Path=/bdp/**
           filters:
             - StripPrefix=1
+        - id: test
+          uri: http://www.baidu.com
+          predicates:
+            - Path=/test/**
+          filters:
+            - StripPrefix=1
 logging:
   level:
     root: debug
