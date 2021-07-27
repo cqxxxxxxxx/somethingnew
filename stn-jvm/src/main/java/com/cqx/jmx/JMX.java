@@ -1,8 +1,10 @@
 package com.cqx.jmx;
 
 import java.lang.management.ManagementFactory;
+import java.lang.management.MemoryMXBean;
 import java.lang.management.ThreadInfo;
 import java.lang.management.ThreadMXBean;
+import java.sql.SQLOutput;
 
 public class JMX {
     public static void main(String[] args) {
@@ -14,5 +16,7 @@ public class JMX {
         for (ThreadInfo threadInfo : threadInfos) {
             System.out.println("[" + threadInfo.getThreadId() + "] " + threadInfo.getThreadName());
         }
+        MemoryMXBean memoryMXBean = ManagementFactory.getMemoryMXBean();
+        System.out.println(memoryMXBean.getHeapMemoryUsage());
     }
 }

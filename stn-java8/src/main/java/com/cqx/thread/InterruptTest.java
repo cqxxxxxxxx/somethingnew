@@ -2,6 +2,7 @@ package com.cqx.thread;
 
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.LockSupport;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * @author cqx
@@ -66,12 +67,31 @@ public class InterruptTest {
         thread.interrupt();
     }
 
+    public static void reentrantLockInterrupt() throws InterruptedException {
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
+        Thread thread = new Thread(() -> {
+            System.out.println("lock 阻塞开始");
+            try {
+                lock.lockInterruptibly();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+                System.out.println("interrupt 被打断");
+            }
+        });
+        thread.start();
+        thread.interrupt();
+        TimeUnit.SECONDS.sleep(5);
+        lock.unlock();
+        System.out.println("main 释放锁");
+    }
+
     public static void main(String[] args) throws InterruptedException {
 //        waitInterrupt();
 //        sleepInterrupt();
 //        joinInterrupt();
-        parkInterrupt();
-
+//        parkInterrupt();
+        reentrantLockInterrupt();
         TimeUnit.SECONDS.sleep(10);
 
 
