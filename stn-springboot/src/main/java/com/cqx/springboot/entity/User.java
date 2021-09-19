@@ -2,6 +2,7 @@ package com.cqx.springboot.entity;
 
 public class User {
     private Integer id;
+
     private String realName;
 
     public Integer getId() {
