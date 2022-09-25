@@ -30,41 +30,6 @@ public class E234_回文链表 {
      * 1. 快慢指针找中间点
      * 2. 然后反转其中一半链表在进行比较
      */
-    public boolean solution3(ListNode head) {
-        if(head == null || head.next == null) {
-            return true;
-        }
-        ListNode slow = head;
-        ListNode fast = head;
-        while (fast.next != null && fast.next.next != null) {
-            slow = slow.next;
-            fast = fast.next.next;
-        }
-        //此时slow就是中间节点, 然后反转后半部链表
-        ListNode rightHead = reverse(slow.next);
-        ListNode leftHead = head;
-        while (rightHead != null) {
-            if (leftHead.val == rightHead.val) {
-                leftHead = leftHead.next;
-                rightHead = rightHead.next;
-            } else {
-                return false;
-            }
-        }
-        return true;
-    }
-
-    public ListNode reverse(ListNode head) {
-        ListNode prev = null;
-        ListNode curr = head;
-        while (curr != null) {
-            ListNode nextTemp = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = nextTemp;
-        }
-        return prev;
-    }
 
 
 //=============================================================

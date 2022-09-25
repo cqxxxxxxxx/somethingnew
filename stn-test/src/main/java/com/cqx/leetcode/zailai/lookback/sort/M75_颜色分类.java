@@ -52,7 +52,7 @@ public class M75_颜色分类 {
     }
 
     public static void quickSort(int[] array, int begin, int end) {
-        if (end <= begin) {
+        if (begin >= end ) {
             return;
         }
         int pivot = partition(array, begin, end);

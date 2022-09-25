@@ -6,6 +6,10 @@ import java.util.LinkedList;
 import java.util.Map;
 
 public class E20_有效的括号 {
+    public static void main(String[] args) {
+        int[][] array = new int[4][5];
+        array[0] = new int[]{1, 0, 1, 0, 0};
+    }
     /**
      * 给定一个只包括 '('，')'，'{'，'}'，'['，']' 的字符串，判断字符串是否有效。
      * <p>

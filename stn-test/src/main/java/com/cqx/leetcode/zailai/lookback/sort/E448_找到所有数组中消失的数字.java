@@ -46,16 +46,16 @@ public class E448_找到所有数组中消失的数字 {
         return r;
     }
 
-    public List<Integer> findDisappearedNumbersError(int[] nums) {
-        Arrays.sort(nums);
-        List<Integer> r = new ArrayList<>();
-        for (int i = 0; i < nums.length; i++) {
-            if (nums[i] != i + 1) {
-                r.add(i + 1);
-            }
-        }
-        return r;
-    }
+//    public List<Integer> findDisappearedNumbersError(int[] nums) {
+//        Arrays.sort(nums);
+//        List<Integer> r = new ArrayList<>();
+//        for (int i = 0; i < nums.length; i++) {
+//            if (nums[i] != i + 1) {
+//                r.add(i + 1);
+//            }
+//        }
+//        return r;
+//    }
 
     /**
      * 空间复杂度 O（N）

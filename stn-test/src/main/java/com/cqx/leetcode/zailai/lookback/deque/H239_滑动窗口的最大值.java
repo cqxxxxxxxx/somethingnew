@@ -41,19 +41,25 @@ public class H239_滑动窗口的最大值 {
      * @return
      */
     public int[] maxSlidingWindow(int[] nums, int k) {
-        if (nums.length == 0 || k == 0) return new int[0];
-        Deque<Integer> deque = new LinkedList<>();
-        int[] res = new int[nums.length - k + 1];
-        for (int j = 0, i = 1 - k; j < nums.length; i++, j++) {
-            if (i > 0 && deque.peekFirst() == nums[i - 1])
-                deque.removeFirst(); // 删除 deque 中对应的 nums[i-1]
-            while (!deque.isEmpty() && deque.peekLast() < nums[j])
-                deque.removeLast(); // 保持 deque 递减
-            deque.addLast(nums[j]);
-            if (i >= 0)
-                res[i] = deque.peekFirst();  // 记录窗口最大值
+        // 双向队列 保存当前窗口最大值的数组位置 保证队列中数组位置的数按从大到小排序
+        Deque<Integer> que = new LinkedList<>();
+        int[] arr = new int[nums.length - k + 1];
+        for (int i = 0; i < nums.length; i++) {
+            // 保持队列中的元素为max->min
+            while (!que.isEmpty() && nums[i] >= nums[que.getLast()]) {
+                que.pollLast();
+            }
+            que.add(i);
+            // 如果队首元素超出当前滑窗范围，则出队
+            if (i - que.getFirst() >= k) {
+                que.pollFirst();
+            }
+            // 需要在满足经过一个完整滑窗，再开始记录滑窗最大值
+            if (i >= k - 1) {
+                arr[i - k + 1] = nums[que.getFirst()];
+            }
         }
-        return res;
+        return arr;
     }
 
     public static int[] xx(int[] nums, int k) {

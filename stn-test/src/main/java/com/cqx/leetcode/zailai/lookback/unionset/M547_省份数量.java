@@ -76,4 +76,31 @@ public class M547_省份数量 {
         }
         return uf.count();
     }
+
+
+    private int count = 0;
+
+    public int findCircleNumDFS(int[][] M) {
+        if (M == null) {
+            return 0;
+        }
+        int length = M.length;
+        boolean visited[] = new boolean[length];
+        for (int i = 0; i < length; i++) {
+            if (!visited[i]) {
+                count++;
+                dfs(i, M, visited);
+            }
+        }
+        return count;
+    }
+
+    private void dfs(int i, int[][] m, boolean[] visited) {
+        visited[i] = true;
+        for (int j = 0; j < m.length; j++) {
+            if (!visited[j] && m[i][j] == 1) {
+                dfs(j, m, visited);
+            }
+        }
+    }
 }

@@ -15,8 +15,6 @@ public class E160_相交链表 {
             pB = pB == null ? headA : pB.next;
         }
         return pA;
-
-
     }
 
     public class ListNode {

@@ -1,5 +1,7 @@
 package com.cqx.leetcode.zailai.lookback.backtrack;
 
+import com.google.common.hash.BloomFilter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,46 +19,25 @@ import java.util.List;
  */
 public class M78_子集 {
 
+    private final List<List<Integer>> R = new ArrayList<>();
 
-    List<List<Integer>> res = new ArrayList<>();
+    private void recursion(int i, int[] s, ArrayList<Integer> tmp) {
+        if (i >= s.length) {
+            R.add(new ArrayList<>(tmp));
+            return;
+        }
+        //不选
+        recursion(i + 1, s, tmp);
+
+        //选
+        tmp.add(s[i]);
+        recursion(i + 1, s, tmp);
+        tmp.remove(tmp.size() - 1);
+    }
 
     public List<List<Integer>> subsets(int[] nums) {
-        List<Integer> tmp = new ArrayList<>();
-        backtrack(nums, tmp, 0);
-        return res;
+        recursion(0, nums, new ArrayList<Integer>());
+        return R;
     }
 
-    public void backtrack(int[] nums, List<Integer> tmp, int start) {
-        res.add(new ArrayList<>(tmp)); // 所有的都要，所以不需要递归终止条件
-        for (int i = start; i < nums.length; i++) {
-
-            tmp.add(nums[i]);
-
-            backtrack(nums, tmp, i + 1);
-
-            tmp.remove(tmp.size() - 1);
-        }
-    }
-
-//    public List<List<Integer>> subsets(int[] nums) {
-//        int index = 0;
-//        recursion(nums, index, new ArrayList<Integer>());
-//        return r;
-//    }
-//
-//    private void recursion(int[] nums, int index, ArrayList<Integer> tmp) {
-//        //terminate
-//        if (index >= nums.length) {
-//            r.add(new ArrayList<>(tmp));
-//            return;
-//        }
-//
-//        //process
-//        recursion(nums, index + 1, tmp);
-//        tmp.add(nums[index]);
-//        recursion(nums, index + 1, tmp);
-//
-//        //reverse
-//        tmp.remove(tmp.size() - 1);
-//    }
 }
